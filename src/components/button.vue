@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import "../common.scss";
+
 .v-button {
   -webkit-appearance: none;
   outline: none;
