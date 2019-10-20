@@ -1,7 +1,18 @@
 {
   "name": "vigour",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mokunshao/vigour.git"
+  },
+  "keywords": [],
+  "author": "Mo Kunshao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mokunshao/vigour/issues"
+  },
+  "homepage": "https://github.com/mokunshao/vigour#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
