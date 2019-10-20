@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <v-button>Hello</v-button>
-    <v-button icon="loading">Hello</v-button>
+    <v-button icon="loading">Loading</v-button>
+    <v-button icon="settings">Settings</v-button>
+    <v-button icon="left">Left</v-button>
+    <v-button icon="right">Right</v-button>
+    <v-button icon="thumbs-up">Thumbs Up</v-button>
     <v-button icon="loading" icon-position="right">Hello</v-button>
   </div>
 </template>
