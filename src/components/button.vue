@@ -68,8 +68,12 @@ export default {
     order: 1;
   }
 
-  &:focus,
   &:hover {
+    background-color: $color2;
+    color: $color4;
+  }
+
+  &:focus {
     box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 10%);
     background-color: $color1;
     color: $color4;
