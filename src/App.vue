@@ -6,6 +6,8 @@
     <v-button icon="left">Left</v-button>
     <v-button icon="right">Right</v-button>
     <v-button icon="thumbs-up">Thumbs Up</v-button>
+    <v-button icon="upload">Upload</v-button>
+    <v-button icon="download">Download</v-button>
     <v-button icon="loading" icon-position="right">Hello</v-button>
   </div>
 </template>
