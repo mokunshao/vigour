@@ -1,6 +1,6 @@
 <template>
-  <svg v-if="icon" class="vigour-icon" aria-hidden="true">
-    <use :xlink:href="`#icon-${icon}`"></use>
+  <svg class="vigour-icon" aria-hidden="true">
+    <use :xlink:href="`#icon-${name}`"></use>
   </svg>
 </template>
 
@@ -10,7 +10,7 @@ import '../icons';
 export default {
   name: 'vigour-icon',
   props: {
-    icon: {
+    name: {
       type: String,
       required: true,
     },

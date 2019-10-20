@@ -5,7 +5,7 @@
     :class="[`vigour-button-${iconPosition}`]"
     @click="onClick"
   >
-    <v-icon :icon="icon" v-if="icon" />
+    <v-icon :name="icon" v-if="icon" />
     <div class="vigour-button-text">
       <slot></slot>
     </div>
