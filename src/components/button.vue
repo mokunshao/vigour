@@ -5,7 +5,7 @@
     :class="[`vigour-button-${iconPosition}`]"
     @click="onClick"
   >
-    <i class="vigour-button-icon" v-if="icon">i</i>
+    <v-icon :icon="icon" v-if="icon" />
     <div class="vigour-button-text">
       <slot></slot>
     </div>
@@ -13,8 +13,13 @@
 </template>
 
 <script>
+import icon from './icon.vue';
+
 export default {
   name: 'v-button',
+  components: {
+    'v-icon': icon,
+  },
   props: {
     icon: {
       type: String,
