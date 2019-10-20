@@ -2,25 +2,44 @@
   <button
     type="text"
     class="vigour-button"
+    :class="[`vigour-button-${iconPosition}`]"
     @click="onClick"
   >
-    <slot></slot>
+    <i class="vigour-button-icon" v-if="icon">i</i>
+    <div class="vigour-button-text">
+      <slot></slot>
+    </div>
   </button>
 </template>
 
 <script>
 export default {
   name: 'v-button',
+  props: {
+    icon: {
+      type: String,
+      required: false,
+    },
+    'icon-position': {
+      type: String,
+      default: 'left',
+      required: false,
+      validator(value) {
+        return ['left', 'right'].indexOf(value) !== -1;
+      },
+    },
+  },
   methods: {
     onClick(e) {
       e.currentTarget.blur();
+      this.$emit('click');
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "../common.scss";
+@import '../common.scss';
 
 .vigour-button {
   -webkit-appearance: none;
@@ -30,9 +49,23 @@ export default {
   border: 1px solid $color1;
   cursor: pointer;
   border-radius: 3px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  transition: all 500ms;
+
+  &-right &-icon {
+    order: 2;
+  }
+
+  &-right &-text {
+    order: 1;
+  }
 
   &:focus,
   &:hover {
+    box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 10%);
     background-color: $color1;
     color: $color4;
   }
