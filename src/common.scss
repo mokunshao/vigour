@@ -1,1 +1,17 @@
-$color:red;
+[class^="vigour-"] {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+$color1:#587850;
+$color2:#709078;
+$color3:#78b0a0;
+$color4:#f8d0b0;
