@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <v-button>Hello</v-button>
-    <v-button icon="settings">Hello</v-button>
-    <v-button icon="settings" icon-position="right">Hello</v-button>
+    <v-button icon="loading">Hello</v-button>
+    <v-button icon="loading" icon-position="right">Hello</v-button>
   </div>
 </template>
 
