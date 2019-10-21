@@ -22,7 +22,7 @@
 import icon from './icon.vue';
 
 export default {
-  name: 'v-button',
+  name: 'vigour-button',
   components: {
     'v-icon': icon,
   },
