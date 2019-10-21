@@ -5,7 +5,12 @@
     :class="[`vigour-button-${iconPosition}`]"
     @click="onClick"
   >
-    <v-icon :name="icon" v-if="icon" />
+    <v-icon v-if="loading" :class="'vigour-button-icon-loading'" name="loading" />
+    <v-icon
+      v-if="icon && !loading"
+      :name="icon"
+      :class="{ 'vigour-button-icon-loading': icon === 'loading' }"
+    />
     <div class="vigour-button-text">
       <slot></slot>
     </div>
@@ -33,6 +38,11 @@ export default {
         return ['left', 'right'].indexOf(value) !== -1;
       },
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   methods: {
     onClick(e) {
@@ -45,6 +55,16 @@ export default {
 
 <style lang="scss">
 @import '../common.scss';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .vigour-button {
   -webkit-appearance: none;
@@ -77,6 +97,10 @@ export default {
     box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 10%);
     background-color: $color1;
     color: $color4;
+  }
+
+  &-icon-loading {
+    animation: spin 1s infinite linear;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="app">
     <v-button>Hello</v-button>
     <v-button icon="loading">Loading</v-button>
-    <v-button icon="settings">Settings</v-button>
+    <v-button icon="settings" :loading="loading" @click="loading = !loading">Settings</v-button>
     <v-button icon="left">Left</v-button>
     <v-button icon="right">Right</v-button>
     <v-button icon="thumbs-up">Thumbs Up</v-button>
@@ -19,6 +19,11 @@ export default {
   name: 'app',
   components: {
     'v-button': button,
+  },
+  data() {
+    return {
+      loading: false,
+    };
   },
 };
 </script>
