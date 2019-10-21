@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
+import sinon from 'sinon';
 import Button from '@/components/button.vue';
 
 describe('button.vue', () => {
@@ -47,5 +48,12 @@ describe('button.vue', () => {
       },
     });
     expect(wrapper.classes('vigour-button-right')).to.be.true;
+  });
+  it('按钮可以被点击', () => {
+    const clickHandler = sinon.fake();
+    const wrapper = mount(Button);
+    wrapper.vm.$on('click', clickHandler);
+    wrapper.trigger('click');
+    expect(clickHandler.called).to.be.true;
   });
 });
