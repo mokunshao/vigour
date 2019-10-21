@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Vue from 'vue';
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import Button from '@/components/button.vue';
 
 describe('button.vue', () => {
@@ -38,5 +38,14 @@ describe('button.vue', () => {
       },
     });
     expect(wrapper.text()).eq('abc');
+  });
+  it('按钮可以在右边', () => {
+    const wrapper = mount(Button, {
+      propsData: {
+        icon: 'upload',
+        iconPosition: 'right',
+      },
+    });
+    expect(wrapper.classes('vigour-button-right')).to.be.true;
   });
 });
