@@ -40,7 +40,7 @@ describe('button.vue', () => {
     });
     expect(wrapper.text()).eq('abc');
   });
-  it('按钮可以在右边', () => {
+  it('按钮的 icon 可以在右边', () => {
     const wrapper = mount(Button, {
       propsData: {
         icon: 'upload',
