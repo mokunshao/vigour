@@ -16,16 +16,10 @@
       <v-button icon="loading" icon-position="right">Hello</v-button>
     </div>
     <div>
-      <v-input
-        value="111"
-        @input="change"
-        @change="change"
-        @focus="change"
-        @blur="change"
-      ></v-input>
+      <v-input value="111"></v-input>
       <v-input value="222" disabled></v-input>
       <v-input value="333" readonly></v-input>
-      <v-input value="444" error="N/A"></v-input>
+      <v-input v-model="num" error="N/A"></v-input>
     </div>
   </div>
 </template>
@@ -44,12 +38,13 @@ export default {
   },
   data() {
     return {
+      num: '10',
       loading: false,
     };
   },
   methods: {
     change(e) {
-      console.log(e.currentTarget.value);
+      console.log(e.target.value);
     },
   },
 };

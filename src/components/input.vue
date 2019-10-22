@@ -7,7 +7,7 @@
       :disabled="disabled"
       :readonly="readonly"
       @change="$emit('change', $event)"
-      @input="$emit('input', $event)"
+      @input="$emit('input', $event.target.value)"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
     />
@@ -28,7 +28,8 @@ export default {
   },
   props: {
     value: {
-      type: String,
+      type: [String, Number],
+      required: true,
     },
     disabled: {
       type: Boolean,
