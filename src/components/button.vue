@@ -80,6 +80,7 @@ export default {
   align-items: center;
   vertical-align: middle;
   transition: all 500ms;
+  font-size: 1em;
 
   &-right &-icon {
     order: 2;
