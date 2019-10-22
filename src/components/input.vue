@@ -29,7 +29,7 @@ export default {
   props: {
     value: {
       type: [String, Number],
-      required: true,
+      required: false,
     },
     disabled: {
       type: Boolean,
@@ -43,6 +43,7 @@ export default {
     },
     error: {
       type: String,
+      required: false,
     },
   },
 };
