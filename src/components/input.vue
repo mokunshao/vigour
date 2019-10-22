@@ -6,7 +6,10 @@
       class="vigour-input"
       :disabled="disabled"
       :readonly="readonly"
-      @change="$emit('change')"
+      @change="$emit('change', $event)"
+      @input="$emit('input', $event)"
+      @blur="$emit('blur', $event)"
+      @focus="$emit('focus', $event)"
     />
     <template v-if="error">
       <v-icon name="info" class="vigour-input-error-icon"></v-icon>
