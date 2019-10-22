@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { mount } from '@vue/test-utils';
+import sinon from 'sinon';
 import Input from '@/components/input.vue';
 
 describe('input.vue', () => {
@@ -46,6 +47,17 @@ describe('input.vue', () => {
       expect(icon.getAttribute('xlink:href')).to.equal('#icon-info');
       const errorText = wrapper.find('.vigour-input-error-message');
       expect(errorText.text()).to.be.equal(errorMessage);
+    });
+  });
+  describe('事件', () => {
+    it('支持 change/input/focus/blur 事件', () => {
+      const { vm } = mount(Input);
+      const callback = sinon.fake();
+      ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
+        vm.$on(eventName, callback);
+        vm.$emit(eventName, 12);
+        sinon.assert.calledWith(callback, 12);
+      });
     });
   });
 });
