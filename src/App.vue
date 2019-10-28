@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-show="true">
+    <div v-show="false">
       <v-button>Hello</v-button>
       <v-button icon="loading">Loading</v-button>
       <v-button icon="settings" :loading="loading" @click="loading = !loading">Settings</v-button>
@@ -15,11 +15,17 @@
       </v-button-group>
       <v-button icon="loading" icon-position="right">Hello</v-button>
     </div>
-    <div>
+    <div v-show="false">
       <v-input value="111"></v-input>
       <v-input value="222" disabled></v-input>
       <v-input value="333" readonly></v-input>
       <v-input v-model="num" error="N/A"></v-input>
+    </div>
+    <div>
+      <v-row>
+        <v-col></v-col>
+        <v-col></v-col>
+      </v-row>
     </div>
   </div>
 </template>
@@ -28,6 +34,8 @@
 import button from './components/button.vue';
 import buttonGroup from './components/button-group.vue';
 import input from './components/input.vue';
+import row from './components/row.vue';
+import col from './components/col.vue';
 
 export default {
   name: 'app',
@@ -35,6 +43,8 @@ export default {
     'v-button': button,
     'v-button-group': buttonGroup,
     'v-input': input,
+    'v-row': row,
+    'v-col': col,
   },
   data() {
     return {
