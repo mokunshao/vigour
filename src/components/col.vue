@@ -2,8 +2,11 @@
   <div
     class="vigour-col"
     :class="[span && `vigour-col-span-${span}`, offset && `vigour-col-offset-${offset}`]"
+    :style="{ paddingLeft: gutter / 2 + 'px', paddingRight: gutter / 2 + 'px' }"
   >
-    <slot></slot>
+    <div style="border: 1px solid green; height: 100px;">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -17,16 +20,22 @@ export default {
     offset: {
       type: [String, Number],
     },
+    gutter: {
+      type: [String, Number],
+    },
+  },
+  data() {
+    return {
+      // gutter: '',
+    };
   },
 };
 </script>
 
 <style lang="scss">
 .vigour-col {
-  height: 100px;
   width: 100%;
-  background-color: yellow;
-  border: 1px solid blue;
+  box-sizing: border-box;
 
   @for $i from 1 through 24 {
     &-span-#{$i} {
