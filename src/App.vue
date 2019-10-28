@@ -44,6 +44,10 @@
         <v-col span="4"></v-col>
         <v-col span="6"></v-col>
       </v-row>
+      <v-row>
+        <v-col span="4"></v-col>
+        <v-col span="5" offset="3"></v-col>
+      </v-row>
     </div>
   </div>
 </template>
