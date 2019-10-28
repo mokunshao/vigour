@@ -1,18 +1,23 @@
 <template>
-  <div class="vigour-col"><slot></slot></div>
+  <div class="vigour-col" :class="`vigour-col-${span}`"><slot></slot></div>
 </template>
 
 <script>
 export default {
   name: 'vigour-col',
+  props: {
+    span: {
+      type: [String, Number],
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .vigour-col {
   height: 100px;
+  width: 100%;
   background-color: gray;
-  width: 50%;
   border: 1px solid blue;
 
   &-1 {

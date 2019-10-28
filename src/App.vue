@@ -23,8 +23,26 @@
     </div>
     <div>
       <v-row>
+        <v-col>1</v-col>
+        <v-col>2</v-col>
+      </v-row>
+      <v-row>
+        <v-col>1</v-col>
+        <v-col>2</v-col>
+        <v-col>3</v-col>
+        <v-col>4</v-col>
+      </v-row>
+      <v-row>
+        <v-col span="2"></v-col>
         <v-col></v-col>
-        <v-col></v-col>
+      </v-row>
+      <v-row>
+        <v-col span="3"></v-col>
+        <v-col span="21"></v-col>
+      </v-row>
+      <v-row>
+        <v-col span="4"></v-col>
+        <v-col span="6"></v-col>
       </v-row>
     </div>
   </div>
