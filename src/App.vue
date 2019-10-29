@@ -21,7 +21,7 @@
       <v-input value="333" readonly></v-input>
       <v-input v-model="num" error="N/A"></v-input>
     </div>
-    <div>
+    <div v-show="false">
       <v-row>
         <v-col>1</v-col>
         <v-col>2</v-col>
@@ -63,6 +63,12 @@
       <v-row align="right">
         <v-col span="4"></v-col>
         <v-col span="6" offset="3"></v-col>
+      </v-row>
+    </div>
+    <div>
+      <v-row>
+        <v-col span="2" :xs="{ span: 5 }">1</v-col>
+        <v-col span="2" :xs="{ span: 5 }">2</v-col>
       </v-row>
     </div>
   </div>
