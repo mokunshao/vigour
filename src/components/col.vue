@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="vigour-col"
-    :class="[span && `vigour-col-span-${span}`, offset && `vigour-col-offset-${offset}`]"
-    :style="{ paddingLeft: gutter / 2 + 'px', paddingRight: gutter / 2 + 'px' }"
-  >
+  <div class="vigour-col" :class="colClasses" :style="colStyle">
     <div style="border: 1px solid green; height: 100px;">
       <slot></slot>
     </div>
@@ -25,6 +21,16 @@ export default {
     return {
       gutter: 0,
     };
+  },
+  computed: {
+    colStyle() {
+      const { gutter } = this;
+      return { paddingLeft: `${gutter / 2}px`, paddingRight: `${gutter / 2}px` };
+    },
+    colClasses() {
+      const { span, offset } = this;
+      return [span && `vigour-col-span-${span}`, offset && `vigour-col-offset-${offset}`];
+    },
   },
 };
 </script>
