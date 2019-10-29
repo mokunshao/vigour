@@ -3,15 +3,24 @@
     <div v-show="false">
       <v-button>Hello</v-button>
       <v-button icon="loading">Loading</v-button>
-      <v-button icon="settings" :loading="loading" @click="loading = !loading">Settings</v-button>
+      <v-button icon="settings" :loading="loading" @click="loading = !loading"
+        >Settings</v-button
+      >
       <v-button icon="left">Left</v-button>
       <v-button icon="right" icon-position="right">Right</v-button>
       <v-button-group>
-        <v-button icon="thumbs-up" :loading="loading" @click="loading = !loading"
+        <v-button
+          icon="thumbs-up"
+          :loading="loading"
+          @click="loading = !loading"
           >Thumbs Up</v-button
         >
-        <v-button icon="upload" :loading="loading" @click="loading = !loading">Upload</v-button>
-        <v-button icon="download" :loading="loading" @click="loading = !loading">Download</v-button>
+        <v-button icon="upload" :loading="loading" @click="loading = !loading"
+          >Upload</v-button
+        >
+        <v-button icon="download" :loading="loading" @click="loading = !loading"
+          >Download</v-button
+        >
       </v-button-group>
       <v-button icon="loading" icon-position="right">Hello</v-button>
     </div>
@@ -67,8 +76,24 @@
     </div>
     <div>
       <v-row>
-        <v-col span="2" :xs="{ span: 5 }">1</v-col>
-        <v-col span="2" :xs="{ span: 5 }">2</v-col>
+        <v-col
+          span="2"
+          offset="3"
+          :lg="{ span: 12 }"
+          :md="{ span: 6 }"
+          :sm="{ span: 3, offset: 4 }"
+          :xs="{ span: 24, offset: 0 }"
+          >1</v-col
+        >
+        <v-col
+          span="2"
+          offset="3"
+          :lg="{ span: 12 }"
+          :md="{ span: 6 }"
+          :sm="{ span: 3, offset: 4 }"
+          :xs="{ span: 24, offset: 0 }"
+          >2</v-col
+        >
       </v-row>
     </div>
   </div>

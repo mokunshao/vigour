@@ -1,5 +1,9 @@
 <template>
-  <div class="vigour-row" :style="rowStyle" :class="rowClass">
+  <div
+    class="vigour-row"
+    :style="rowStyle"
+    :class="rowClass"
+  >
     <slot></slot>
   </div>
 </template>
@@ -37,6 +41,7 @@ export default {
 <style lang="scss">
 .vigour-row {
   display: flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
 
   &-left {

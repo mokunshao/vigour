@@ -8,7 +8,13 @@
 
 <script>
 const validator = obj => Object.keys(obj).reduce((pre, key) => ['span', 'offset'].includes(key), false);
-
+const createClass = (obj, size) => {
+  const result = [];
+  if (Object.prototype.toString.call(obj) === '[object Object]') {
+    Object.entries(obj).forEach(([key, value]) => result.push(`vigour-col-${key}-${size}-${value}`));
+  }
+  return result;
+};
 export default {
   name: 'vigour-col',
   props: {
@@ -54,14 +60,13 @@ export default {
         md,
         lg,
       } = this;
-      console.log(xs, sm, md, lg);
       return [
         span && `vigour-col-span-${span}`,
         offset && `vigour-col-offset-${offset}`,
-        ...(xs ? [xs.span && `vigour-col-span-xs-${xs.span}`, xs.offset && `vigour-col-offset-xs-${xs.offset}`] : []),
-        ...(sm ? [sm.span && `vigour-col-span-sm-${sm.span}`, sm.offset && `vigour-col-offset-sm-${sm.offset}`] : []),
-        ...(md ? [md.span && `vigour-col-span-md-${md.span}`, md.offset && `vigour-col-offset-md-${md.offset}`] : []),
-        ...(lg ? [lg.span && `vigour-col-span-lg-${lg.span}`, lg.offset && `vigour-col-offset-lg-${lg.offset}`] : []),
+        ...(createClass(xs, 'xs')),
+        ...(createClass(sm, 'sm')),
+        ...(createClass(md, 'md')),
+        ...(createClass(lg, 'lg')),
       ];
     },
   },
@@ -75,7 +80,7 @@ export default {
     box-sizing: border-box;
   }
 
-  @for $i from 1 through 24 {
+  @for $i from 0 through 24 {
     &-span-#{$i} {
       width: ($i/24) * 100%;
     }
@@ -86,19 +91,51 @@ export default {
   }
 
   @media (max-width: 1199.98px) {
-    background-color: yellowgreen;
+    @for $i from 0 through 24 {
+      &-span-lg-#{$i} {
+        width: ($i/24) * 100%;
+      }
+
+      &-offset-lg-#{$i} {
+        margin-left: ($i/24) * 100%;
+      }
+    }
   }
 
   @media (max-width: 991.98px) {
-    background-color: blue;
+    @for $i from 0 through 24 {
+      &-span-md-#{$i} {
+        width: ($i/24) * 100%;
+      }
+
+      &-offset-md-#{$i} {
+        margin-left: ($i/24) * 100%;
+      }
+    }
   }
 
   @media (max-width: 767.98px) {
-    background-color: yellow;
+    @for $i from 0 through 24 {
+      &-span-sm-#{$i} {
+        width: ($i/24) * 100%;
+      }
+
+      &-offset-sm-#{$i} {
+        margin-left: ($i/24) * 100%;
+      }
+    }
   }
 
   @media (max-width: 575.98px) {
-    background-color: red;
+    @for $i from 0 through 24 {
+      &-span-xs-#{$i} {
+        width: ($i/24) * 100%;
+      }
+
+      &-offset-xs-#{$i} {
+        margin-left: ($i/24) * 100%;
+      }
+    }
   }
 }
 </style>
