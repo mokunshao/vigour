@@ -49,8 +49,8 @@
         <v-col span="5" offset="3"></v-col>
       </v-row>
       <v-row gutter="20">
-        <v-col span="4" gutter="20"></v-col>
-        <v-col span="5" offset="3" gutter="20"></v-col>
+        <v-col span="4"></v-col>
+        <v-col span="5" offset="3"></v-col>
       </v-row>
     </div>
   </div>

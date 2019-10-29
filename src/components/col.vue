@@ -20,13 +20,10 @@ export default {
     offset: {
       type: [String, Number],
     },
-    gutter: {
-      type: [String, Number],
-    },
   },
   data() {
     return {
-      // gutter: '',
+      gutter: 0,
     };
   },
 };

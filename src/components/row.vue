@@ -13,6 +13,11 @@ export default {
   props: {
     gutter: [String, Number],
   },
+  mounted() {
+    this.$children.forEach((vm) => {
+      vm.$data.gutter = this.gutter;
+    });
+  },
 };
 </script>
 
