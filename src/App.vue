@@ -52,6 +52,18 @@
         <v-col span="4"></v-col>
         <v-col span="5" offset="3"></v-col>
       </v-row>
+      <v-row align="left">
+        <v-col span="4"></v-col>
+        <v-col span="6" offset="3"></v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col span="4"></v-col>
+        <v-col span="6" offset="3"></v-col>
+      </v-row>
+      <v-row align="right">
+        <v-col span="4"></v-col>
+        <v-col span="6" offset="3"></v-col>
+      </v-row>
     </div>
   </div>
 </template>
@@ -85,3 +97,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.vigour-col {
+  border: 1px solid grey;
+  height: 50px;
+}
+</style>

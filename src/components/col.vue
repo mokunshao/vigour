@@ -1,6 +1,6 @@
 <template>
-  <div class="vigour-col" :class="colClasses" :style="colStyle">
-    <div style="border: 1px solid green; height: 100px;">
+  <div class="vigour-col-wrapper" :class="colClasses" :style="colStyle">
+    <div class="vigour-col">
       <slot></slot>
     </div>
   </div>
@@ -37,8 +37,10 @@ export default {
 
 <style lang="scss">
 .vigour-col {
-  width: 100%;
-  box-sizing: border-box;
+  &-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   @for $i from 1 through 24 {
     &-span-#{$i} {
