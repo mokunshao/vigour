@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { mount } from '@vue/test-utils';
-// import sinon from 'sinon';
 import Row from '@/components/row.vue';
 import Col from '@/components/col.vue';
 
@@ -20,5 +19,17 @@ describe('row.vue', () => {
     expect(marginLeft).to.be.equal(marginRight);
     const { paddingLeft, paddingRight } = wrapper.element.children[0].style;
     expect(paddingLeft).to.be.equal(paddingRight).to.be.equal(`${gutter / 2}px`);
+  });
+  it('Row 接受 align 属性', () => {
+    const wrapper = mount(Row, {
+      propsData: {
+        align: 'center',
+      },
+    });
+    expect(wrapper.classes('vigour-row-center')).to.be.true;
+    wrapper.setProps({ align: 'left' });
+    expect(wrapper.classes('vigour-row-left')).to.be.true;
+    wrapper.setProps({ align: 'right' });
+    expect(wrapper.classes('vigour-row-right')).to.be.true;
   });
 });
