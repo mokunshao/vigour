@@ -8,7 +8,7 @@
 
 <script>
 const validator = obj => Object.keys(obj).reduce((pre, key) => ['span', 'offset'].includes(key), false);
-const createClass = (obj, size) => {
+const createClasses = (obj, size) => {
   const result = [];
   if (Object.prototype.toString.call(obj) === '[object Object]') {
     Object.entries(obj).forEach(([key, value]) => result.push(`vigour-col-${key}-${size}-${value}`));
@@ -61,12 +61,12 @@ export default {
         lg,
       } = this;
       return [
-        span && `vigour-col-span-${span}`,
-        offset && `vigour-col-offset-${offset}`,
-        ...(createClass(xs, 'xs')),
-        ...(createClass(sm, 'sm')),
-        ...(createClass(md, 'md')),
-        ...(createClass(lg, 'lg')),
+        (span || span === 0) && `vigour-col-span-${span}`,
+        (offset || offset === 0) && `vigour-col-offset-${offset}`,
+        ...(createClasses(xs, 'xs')),
+        ...(createClasses(sm, 'sm')),
+        ...(createClasses(md, 'md')),
+        ...(createClasses(lg, 'lg')),
       ];
     },
   },
