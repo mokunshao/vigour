@@ -75,7 +75,7 @@
       </v-row>
     </div>
     <div>
-      <v-row>
+      <v-row gutter="30">
         <v-col
           span="2"
           offset="3"
