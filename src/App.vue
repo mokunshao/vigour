@@ -74,7 +74,7 @@
         <v-col span="6" offset="3"></v-col>
       </v-row>
     </div>
-    <div>
+    <div v-show="false">
       <v-row gutter="30">
         <v-col
           span="2"
@@ -96,6 +96,37 @@
         >
       </v-row>
     </div>
+    <div>
+      <v-layout class="layout-common" style="height: 50vh;">
+        <v-header class="layout-common">header</v-header>
+        <v-content class="layout-common">content</v-content>
+        <v-footer class="layout-common">footer</v-footer>
+      </v-layout>
+      <v-layout class="layout-common" style="height: 50vh;">
+        <v-header class="layout-common">header</v-header>
+        <v-layout>
+          <v-aside class="layout-common">aside</v-aside>
+          <v-content class="layout-common">content</v-content>
+        </v-layout>
+        <v-footer class="layout-common">footer</v-footer>
+      </v-layout>
+      <v-layout class="layout-common" style="height: 50vh;">
+        <v-header class="layout-common">header</v-header>
+        <v-layout>
+          <v-content class="layout-common">content</v-content>
+          <v-aside class="layout-common">aside</v-aside>
+        </v-layout>
+        <v-footer class="layout-common">footer</v-footer>
+      </v-layout>
+      <v-layout class="layout-common" style="height: 50vh;">
+        <v-aside class="layout-common">aside</v-aside>
+        <v-layout>
+          <v-header class="layout-common">header</v-header>
+          <v-content class="layout-common">content</v-content>
+          <v-footer class="layout-common">footer</v-footer>
+        </v-layout>
+      </v-layout>
+    </div>
   </div>
 </template>
 
@@ -105,6 +136,11 @@ import buttonGroup from './components/button-group.vue';
 import input from './components/input.vue';
 import row from './components/row.vue';
 import col from './components/col.vue';
+import layout from './components/layout.vue';
+import header from './components/header.vue';
+import content from './components/content.vue';
+import footer from './components/footer.vue';
+import aside from './components/aside.vue';
 
 export default {
   name: 'app',
@@ -114,6 +150,11 @@ export default {
     'v-input': input,
     'v-row': row,
     'v-col': col,
+    'v-layout': layout,
+    'v-header': header,
+    'v-content': content,
+    'v-footer': footer,
+    'v-aside': aside,
   },
   data() {
     return {
@@ -130,8 +171,15 @@ export default {
 </script>
 
 <style lang="scss">
-.vigour-col {
-  border: 1px solid grey;
-  height: 50px;
+#app {
+  .vigour-col {
+    border: 1px solid grey;
+    height: 50px;
+  }
+
+  .layout-common {
+    border: 1px solid grey;
+    padding: 2em;
+  }
 }
 </style>
