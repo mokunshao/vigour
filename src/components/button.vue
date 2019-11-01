@@ -5,7 +5,11 @@
     :class="[`vigour-button-${iconPosition}`]"
     @click="onClick"
   >
-    <v-icon v-if="loading" :class="'vigour-button-icon-loading'" name="loading" />
+    <v-icon
+      v-if="loading"
+      :class="'vigour-button-icon-loading'"
+      name="loading"
+    />
     <v-icon
       class="vigour-button-icon"
       v-if="icon && !loading"
@@ -54,8 +58,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../common.scss';
+<style lang="scss" scoped>
+@import "../common.scss";
 
 @keyframes spin {
   0% {

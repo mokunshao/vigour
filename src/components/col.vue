@@ -73,7 +73,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .vigour-col {
   &-wrapper {
     width: 100%;

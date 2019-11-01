@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .vigour-icon {
   height: 1em;
   width: 1em;

@@ -1,5 +1,8 @@
 <template>
-  <div class="vigour-input-wrapper" :class="{ 'vigour-input-wrapper-error': error }">
+  <div
+    class="vigour-input-wrapper"
+    :class="{ 'vigour-input-wrapper-error': error }"
+  >
     <input
       type="text"
       :value="value"
@@ -49,8 +52,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../common.scss';
+<style lang="scss" scoped>
+@import "../common.scss";
 
 .vigour-input {
   border-radius: 3px;
