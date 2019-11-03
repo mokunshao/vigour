@@ -1,131 +1,144 @@
 <template>
   <div id="app">
-    <div v-show="false">
-      <v-button>Hello</v-button>
-      <v-button icon="loading">Loading</v-button>
-      <v-button icon="settings" :loading="loading" @click="loading = !loading"
-        >Settings</v-button
+    <div v-if="false">
+      <vigour-button>Hello</vigour-button>
+      <vigour-button icon="loading">Loading</vigour-button>
+      <vigour-button
+        icon="settings"
+        :loading="loading"
+        @click="loading = !loading"
+        >Settings</vigour-button
       >
-      <v-button icon="left">Left</v-button>
-      <v-button icon="right" icon-position="right">Right</v-button>
-      <v-button-group>
-        <v-button
+      <vigour-button icon="left">Left</vigour-button>
+      <vigour-button icon="right" icon-position="right">Right</vigour-button>
+      <vigour-button-group>
+        <vigour-button
           icon="thumbs-up"
           :loading="loading"
           @click="loading = !loading"
-          >Thumbs Up</v-button
+          >Thumbs Up</vigour-button
         >
-        <v-button icon="upload" :loading="loading" @click="loading = !loading"
-          >Upload</v-button
+        <vigour-button
+          icon="upload"
+          :loading="loading"
+          @click="loading = !loading"
+          >Upload</vigour-button
         >
-        <v-button icon="download" :loading="loading" @click="loading = !loading"
-          >Download</v-button
+        <vigour-button
+          icon="download"
+          :loading="loading"
+          @click="loading = !loading"
+          >Download</vigour-button
         >
-      </v-button-group>
-      <v-button icon="loading" icon-position="right">Hello</v-button>
+      </vigour-button-group>
+      <vigour-button icon="loading" icon-position="right">Hello</vigour-button>
     </div>
-    <div v-show="false">
-      <v-input value="111"></v-input>
-      <v-input value="222" disabled></v-input>
-      <v-input value="333" readonly></v-input>
-      <v-input v-model="num" error="N/A"></v-input>
+    <div v-if="false">
+      <vigour-input value="111"></vigour-input>
+      <vigour-input value="222" disabled></vigour-input>
+      <vigour-input value="333" readonly></vigour-input>
+      <vigour-input v-model="num" error="N/A"></vigour-input>
     </div>
-    <div v-show="false">
-      <v-row>
-        <v-col>1</v-col>
-        <v-col>2</v-col>
-      </v-row>
-      <v-row>
-        <v-col>1</v-col>
-        <v-col>2</v-col>
-        <v-col>3</v-col>
-        <v-col>4</v-col>
-      </v-row>
-      <v-row>
-        <v-col span="2"></v-col>
-        <v-col></v-col>
-      </v-row>
-      <v-row>
-        <v-col span="3"></v-col>
-        <v-col span="21"></v-col>
-      </v-row>
-      <v-row>
-        <v-col span="4"></v-col>
-        <v-col span="6"></v-col>
-      </v-row>
-      <v-row>
-        <v-col span="4"></v-col>
-        <v-col span="5" offset="3"></v-col>
-      </v-row>
-      <v-row gutter="20">
-        <v-col span="4"></v-col>
-        <v-col span="5" offset="3"></v-col>
-      </v-row>
-      <v-row align="left">
-        <v-col span="4"></v-col>
-        <v-col span="6" offset="3"></v-col>
-      </v-row>
-      <v-row align="center">
-        <v-col span="4"></v-col>
-        <v-col span="6" offset="3"></v-col>
-      </v-row>
-      <v-row align="right">
-        <v-col span="4"></v-col>
-        <v-col span="6" offset="3"></v-col>
-      </v-row>
+    <div v-if="false">
+      <vigour-row>
+        <vigour-col>1</vigour-col>
+        <vigour-col>2</vigour-col>
+      </vigour-row>
+      <vigour-row>
+        <vigour-col>1</vigour-col>
+        <vigour-col>2</vigour-col>
+        <vigour-col>3</vigour-col>
+        <vigour-col>4</vigour-col>
+      </vigour-row>
+      <vigour-row>
+        <vigour-col span="2"></vigour-col>
+        <vigour-col></vigour-col>
+      </vigour-row>
+      <vigour-row>
+        <vigour-col span="3"></vigour-col>
+        <vigour-col span="21"></vigour-col>
+      </vigour-row>
+      <vigour-row>
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="6"></vigour-col>
+      </vigour-row>
+      <vigour-row>
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="5" offset="3"></vigour-col>
+      </vigour-row>
+      <vigour-row gutter="20">
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="5" offset="3"></vigour-col>
+      </vigour-row>
+      <vigour-row align="left">
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="6" offset="3"></vigour-col>
+      </vigour-row>
+      <vigour-row align="center">
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="6" offset="3"></vigour-col>
+      </vigour-row>
+      <vigour-row align="right">
+        <vigour-col span="4"></vigour-col>
+        <vigour-col span="6" offset="3"></vigour-col>
+      </vigour-row>
     </div>
-    <div v-show="false">
-      <v-row gutter="30">
-        <v-col
+    <div v-if="false">
+      <vigour-row gutter="30">
+        <vigour-col
           span="2"
           offset="3"
           :lg="{ span: 12 }"
           :md="{ span: 6 }"
           :sm="{ span: 3, offset: 4 }"
           :xs="{ span: 24, offset: 0 }"
-          >1</v-col
+          >1</vigour-col
         >
-        <v-col
+        <vigour-col
           span="2"
           offset="3"
           :lg="{ span: 12 }"
           :md="{ span: 6 }"
           :sm="{ span: 3, offset: 4 }"
           :xs="{ span: 24, offset: 0 }"
-          >2</v-col
+          >2</vigour-col
         >
-      </v-row>
+      </vigour-row>
+    </div>
+    <div v-if="false">
+      <vigour-layout class="layout-common" style="height: 50vh;">
+        <vigour-header class="layout-common">header</vigour-header>
+        <vigour-content class="layout-common">content</vigour-content>
+        <vigour-footer class="layout-common">footer</vigour-footer>
+      </vigour-layout>
+      <vigour-layout class="layout-common" style="height: 50vh;">
+        <vigour-header class="layout-common">header</vigour-header>
+        <vigour-layout>
+          <vigour-aside class="layout-common">aside</vigour-aside>
+          <vigour-content class="layout-common">content</vigour-content>
+        </vigour-layout>
+        <vigour-footer class="layout-common">footer</vigour-footer>
+      </vigour-layout>
+      <vigour-layout class="layout-common" style="height: 50vh;">
+        <vigour-header class="layout-common">header</vigour-header>
+        <vigour-layout>
+          <vigour-content class="layout-common">content</vigour-content>
+          <vigour-aside class="layout-common">aside</vigour-aside>
+        </vigour-layout>
+        <vigour-footer class="layout-common">footer</vigour-footer>
+      </vigour-layout>
+      <vigour-layout class="layout-common" style="height: 50vh;">
+        <vigour-aside class="layout-common">aside</vigour-aside>
+        <vigour-layout>
+          <vigour-header class="layout-common">header</vigour-header>
+          <vigour-content class="layout-common">content</vigour-content>
+          <vigour-footer class="layout-common">footer</vigour-footer>
+        </vigour-layout>
+      </vigour-layout>
     </div>
     <div>
-      <v-layout class="layout-common" style="height: 50vh;">
-        <v-header class="layout-common">header</v-header>
-        <v-content class="layout-common">content</v-content>
-        <v-footer class="layout-common">footer</v-footer>
-      </v-layout>
-      <v-layout class="layout-common" style="height: 50vh;">
-        <v-header class="layout-common">header</v-header>
-        <v-layout>
-          <v-aside class="layout-common">aside</v-aside>
-          <v-content class="layout-common">content</v-content>
-        </v-layout>
-        <v-footer class="layout-common">footer</v-footer>
-      </v-layout>
-      <v-layout class="layout-common" style="height: 50vh;">
-        <v-header class="layout-common">header</v-header>
-        <v-layout>
-          <v-content class="layout-common">content</v-content>
-          <v-aside class="layout-common">aside</v-aside>
-        </v-layout>
-        <v-footer class="layout-common">footer</v-footer>
-      </v-layout>
-      <v-layout class="layout-common" style="height: 50vh;">
-        <v-aside class="layout-common">aside</v-aside>
-        <v-layout>
-          <v-header class="layout-common">header</v-header>
-          <v-content class="layout-common">content</v-content>
-          <v-footer class="layout-common">footer</v-footer>
-        </v-layout>
-      </v-layout>
+      <vigour-button @click="showToast">Show Toast</vigour-button>
+      <vigour-toast></vigour-toast>
     </div>
   </div>
 </template>
@@ -142,19 +155,20 @@ import content from './components/content.vue';
 import footer from './components/footer.vue';
 import aside from './components/aside.vue';
 
+
 export default {
   name: 'app',
   components: {
-    'v-button': button,
-    'v-button-group': buttonGroup,
-    'v-input': input,
-    'v-row': row,
-    'v-col': col,
-    'v-layout': layout,
-    'v-header': header,
-    'v-content': content,
-    'v-footer': footer,
-    'v-aside': aside,
+    [button.name]: button,
+    [buttonGroup.name]: buttonGroup,
+    [input.name]: input,
+    [row.name]: row,
+    [col.name]: col,
+    [layout.name]: layout,
+    [header.name]: header,
+    [content.name]: content,
+    [footer.name]: footer,
+    [aside.name]: aside,
   },
   data() {
     return {
@@ -166,6 +180,12 @@ export default {
     change(e) {
       console.log(e.target.value);
     },
+    showToast() {
+      this.$toast('😯');
+    },
+  },
+  mounted() {
+    // this.showToast();
   },
 };
 </script>
