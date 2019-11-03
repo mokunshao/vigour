@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-toast">
+  <div class="vigour-toast" :class="toastClasses">
     <div class="vigour-toast-text">
       <slot
         >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque,
@@ -9,7 +9,7 @@
       >
     </div>
     <div
-      v-if="closeButton"
+      v-if="closeButton.text"
       class="vigour-toast-button"
       @click="onClickCloseButton"
     >
@@ -33,15 +33,15 @@ export default {
     closeButton: {
       type: Object,
       validator(obj) {
-        if (typeof obj.text !== 'string' && typeof obj.text !== 'number') return false;
-        if (typeof obj.callback !== 'function') return false;
+        if (obj.text && typeof obj.text !== 'string' && typeof obj.text !== 'number') return false;
+        if (obj.callback && typeof obj.callback !== 'function') return false;
         return true;
       },
     },
     position: {
       type: String,
       validator(value) {
-        return ['top', 'center', 'bottom'].includes(value);
+        return ['top', 'center', 'bottom'].indexOf(value) > -1;
       },
     },
   },
@@ -64,7 +64,11 @@ export default {
       this.$destroy();
     },
   },
-
+  computed: {
+    toastClasses() {
+      return { [this.position ? `vigour-toast-${this.position}` : 'vigour-toast-top']: true };
+    },
+  },
 };
 </script>
 
@@ -73,17 +77,31 @@ export default {
 
 .vigour-toast {
   position: fixed;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1em;
   border-radius: $borderRadius;
-  margin-top: 0.5em;
+  margin: 0.5em;
   background-color: $color3;
   color: white;
   display: flex;
   flex-direction: row;
   box-shadow: $boxShadow;
+  top: 0;
+
+  &-top {
+    top: 0;
+  }
+
+  &-center {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-bottom {
+    top: auto;
+    bottom: 0;
+  }
 
   .vigour-toast-text {
     padding: $padding;
@@ -95,6 +113,7 @@ export default {
     border-left: 1px solid white;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 }
 </style>

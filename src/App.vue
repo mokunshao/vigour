@@ -189,7 +189,8 @@ export default {
             console.log('已经关闭');
           },
         },
-        position: 'bottom',
+        autoClose: false,
+        position: 'top',
       });
     },
   },
