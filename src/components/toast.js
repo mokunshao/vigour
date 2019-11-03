@@ -2,6 +2,10 @@ import toast from './toast.vue';
 
 let toastInstance;
 
+function afterDestroyed() {
+  toastInstance = null;
+}
+
 function createToast(Vue, message, propsData) {
   const Contructor = Vue.extend(toast);
   const vm = new Contructor({
@@ -9,6 +13,7 @@ function createToast(Vue, message, propsData) {
   });
   vm.$slots.default = message;
   vm.$mount();
+  vm.$on('hook:destroyed', afterDestroyed);
   document.body.appendChild(vm.$el);
   return vm;
 }
@@ -16,6 +21,8 @@ function createToast(Vue, message, propsData) {
 export default {
   install(Vue) {
     Vue.prototype.$toast = (message, propsData) => {
+      console.log(toastInstance);
+
       if (toastInstance) {
         toastInstance.removeNode();
       }
