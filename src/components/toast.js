@@ -13,7 +13,7 @@ function createToast(Vue, message, propsData) {
   });
   vm.$slots.default = message;
   vm.$mount();
-  vm.$on('hook:destroyed', afterDestroyed);
+  vm.$once('hook:destroyed', afterDestroyed);
   document.body.appendChild(vm.$el);
   return vm;
 }
@@ -21,11 +21,10 @@ function createToast(Vue, message, propsData) {
 export default {
   install(Vue) {
     Vue.prototype.$toast = (message, propsData) => {
-      console.log(toastInstance);
-
       if (toastInstance) {
         toastInstance.removeNode();
       }
+
       toastInstance = createToast(Vue, message, propsData);
     };
     Vue.component(toast.name, toast);
