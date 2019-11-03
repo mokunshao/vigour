@@ -138,7 +138,7 @@
     </div>
     <div>
       <vigour-button @click="showToast">Show Toast</vigour-button>
-      <vigour-toast></vigour-toast>
+      <!-- <vigour-toast :autoClose="false">we</vigour-toast> -->
     </div>
   </div>
 </template>
@@ -181,11 +181,19 @@ export default {
       console.log(e.target.value);
     },
     showToast() {
-      this.$toast('😯');
+      this.$toast(<h1>😯</h1>, {
+        closeButton: {
+          text: '关闭',
+          callback(vm) {
+            console.log(vm);
+            console.log('已经关闭');
+          },
+        },
+      });
     },
   },
   mounted() {
-    // this.showToast();
+    this.showToast();
   },
 };
 </script>
