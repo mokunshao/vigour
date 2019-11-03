@@ -1,12 +1,7 @@
 <template>
   <div class="vigour-toast" :class="toastClasses">
     <div class="vigour-toast-text">
-      <slot
-        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque,
-        inventore itaque aspernatur quod, ullam ex reprehenderit minima fugiat
-        voluptates eius consectetur perferendis similique magni provident.
-        Distinctio saepe at aperiam?</slot
-      >
+      <slot></slot>
     </div>
     <div
       v-if="closeButton.text"
@@ -75,13 +70,44 @@ export default {
 <style lang="scss" scoped>
 @import "../common.scss";
 
+$animation-duration: 500ms;
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+
+  100% {
+    transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translate(-50%, -100%);
+  }
+
+  100% {
+    transform: translate(-50%, 0%);
+  }
+}
+
 .vigour-toast {
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0%);
   font-size: 1em;
   border-radius: $borderRadius;
-  margin: 0.5em;
   background-color: $color3;
   color: white;
   display: flex;
@@ -90,15 +116,22 @@ export default {
   top: 0;
 
   &-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    animation: slide-down $animation-duration;
     top: 0;
   }
 
   &-center {
+    animation: fade-in $animation-duration;
     top: 50%;
     transform: translate(-50%, -50%);
   }
 
   &-bottom {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation: slide-up $animation-duration;
     top: auto;
     bottom: 0;
   }

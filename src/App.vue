@@ -137,7 +137,9 @@
       </vigour-layout>
     </div>
     <div>
-      <vigour-button @click="showToast">Show Toast</vigour-button>
+      <vigour-button @click="showToast">Show Top Toast</vigour-button>
+      <vigour-button @click="showToast2">Show Center Toast</vigour-button>
+      <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
       <!-- <vigour-toast :autoClose="false">we</vigour-toast> -->
     </div>
   </div>
@@ -193,9 +195,32 @@ export default {
         position: 'top',
       });
     },
-  },
-  mounted() {
-    this.showToast();
+    showToast2() {
+      this.$toast(<i>Attention <strong>please</strong></i>, {
+        closeButton: {
+          text: '关闭',
+          callback(vm) {
+            console.log(vm);
+            console.log('已经关闭');
+          },
+        },
+        autoClose: false,
+        position: 'center',
+      });
+    },
+    showToast3() {
+      this.$toast(<i>Attention <strong>please</strong></i>, {
+        closeButton: {
+          text: '关闭',
+          callback(vm) {
+            console.log(vm);
+            console.log('已经关闭');
+          },
+        },
+        autoClose: false,
+        position: 'bottom',
+      });
+    },
   },
 };
 </script>
