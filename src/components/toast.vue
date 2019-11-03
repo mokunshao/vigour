@@ -24,7 +24,7 @@ export default {
   props: {
     autoClose: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     autoCloseDelay: {
       type: Number,
@@ -32,11 +32,16 @@ export default {
     },
     closeButton: {
       type: Object,
-      default() {
-        return {
-          text: 'X',
-          callback() { },
-        };
+      validator(obj) {
+        if (typeof obj.text !== 'string' && typeof obj.text !== 'number') return false;
+        if (typeof obj.callback !== 'function') return false;
+        return true;
+      },
+    },
+    position: {
+      type: String,
+      validator(value) {
+        return ['top', 'center', 'bottom'].includes(value);
       },
     },
   },
@@ -50,7 +55,9 @@ export default {
   methods: {
     onClickCloseButton() {
       this.removeNode();
-      this.closeButton.callback(this);
+      if (typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback(this);
+      }
     },
     removeNode() {
       this.$el.remove();
@@ -84,7 +91,6 @@ export default {
 
   .vigour-toast-button {
     padding: $padding;
-    white-space: nowrap;
     cursor: pointer;
     border-left: 1px solid white;
     display: flex;

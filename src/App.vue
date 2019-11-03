@@ -181,7 +181,7 @@ export default {
       console.log(e.target.value);
     },
     showToast() {
-      this.$toast(<h1>😯</h1>, {
+      this.$toast(<i>Attention <strong>please</strong></i>, {
         closeButton: {
           text: '关闭',
           callback(vm) {
@@ -189,6 +189,7 @@ export default {
             console.log('已经关闭');
           },
         },
+        position: 'bottom',
       });
     },
   },
