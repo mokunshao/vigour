@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
   name: 'vigour-tabs',
   props: {
@@ -18,6 +20,16 @@ export default {
         return ['horizontal', 'vertical'].indexOf(value) > -1;
       },
     },
+  },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus,
+    };
   },
 };
 </script>

@@ -7,6 +7,15 @@
 <script>
 export default {
   name: 'vigour-tabs-pane',
+  inject: ['eventBus'],
+  props: {
+    name: {
+      type: String,
+    },
+  },
+  mounted() {
+    this.eventBus.$on('update:selected', selected => console.log(selected));
+  },
 };
 </script>
 

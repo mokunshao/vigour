@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs-item">
+  <div class="vigour-tabs-item" @click="handleClick">
     <slot></slot>
   </div>
 </template>
@@ -11,6 +11,18 @@ export default {
     disabled: {
       type: Boolean,
     },
+    name: {
+      type: String,
+    },
+  },
+  inject: ['eventBus'],
+  methods: {
+    handleClick() {
+      this.eventBus.$emit('update:selected', this.name);
+    },
+  },
+  mounted() {
+    this.eventBus.$on('update:selected', selected => console.log(selected));
   },
 };
 </script>
