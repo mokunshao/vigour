@@ -146,7 +146,7 @@
       <vigour-tabs :selected.sync="tab" direction="horizontal">
         <vigour-tabs-head>
           <template v-slot:actions>
-            <button>test</button>
+            <vigour-button>test</vigour-button>
           </template>
           <vigour-tabs-item name="tab1"
             ><vigour-icon name="settings" />tab 1</vigour-tabs-item
