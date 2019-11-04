@@ -62,5 +62,21 @@ describe('toast.vue', () => {
       expect(wrapper.exists()).to.eq(false);
       expect(callback.called).to.be.true;
     });
+    it('接受 position', () => {
+      const wrapper = mount(Toast, {
+        slots: {
+          default: 'test',
+        },
+        propsData: {
+          autoClose: false,
+          position: 'center',
+        },
+      });
+      expect(wrapper.classes('vigour-toast-center')).to.be.true;
+      wrapper.setProps({ position: 'bottom' });
+      expect(wrapper.classes('vigour-toast-bottom')).to.be.true;
+      wrapper.setProps({ position: 'top' });
+      expect(wrapper.classes('vigour-toast-top')).to.be.true;
+    });
   });
 });
