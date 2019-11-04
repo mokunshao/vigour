@@ -136,11 +136,25 @@
         </vigour-layout>
       </vigour-layout>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-button @click="showToast">Show Top Toast</vigour-button>
       <vigour-button @click="showToast2">Show Center Toast</vigour-button>
       <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
       <vigour-toast :autoClose="true">message</vigour-toast>
+    </div>
+    <div>
+      <vigour-tabs>
+        <vigour-tabs-head>
+          <vigour-tabs-item></vigour-tabs-item>
+          <vigour-tabs-item></vigour-tabs-item>
+          <vigour-tabs-item></vigour-tabs-item>
+        </vigour-tabs-head>
+        <vigour-tabs-body>
+          <vigour-tabs-pane></vigour-tabs-pane>
+          <vigour-tabs-pane></vigour-tabs-pane>
+          <vigour-tabs-pane></vigour-tabs-pane>
+        </vigour-tabs-body>
+      </vigour-tabs>
     </div>
   </div>
 </template>
@@ -156,6 +170,11 @@ import header from './components/header.vue';
 import content from './components/content.vue';
 import footer from './components/footer.vue';
 import aside from './components/aside.vue';
+import tabs from './components/tabs.vue';
+import tabsHead from './components/tabs-head.vue';
+import tabsBody from './components/tabs-body.vue';
+import tabsItem from './components/tabs-item.vue';
+import tabsPane from './components/tabs-pane.vue';
 
 
 export default {
@@ -171,6 +190,11 @@ export default {
     [content.name]: content,
     [footer.name]: footer,
     [aside.name]: aside,
+    [tabs.name]: tabs,
+    [tabsHead.name]: tabsHead,
+    [tabsBody.name]: tabsBody,
+    [tabsItem.name]: tabsItem,
+    [tabsPane.name]: tabsPane,
   },
   data() {
     return {
