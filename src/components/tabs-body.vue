@@ -12,6 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .vigour-tabs-body {
-  color: red;
+  border: 1px solid black;
 }
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div class="vigour-tabs-head">
     <slot></slot>
+    <div class="vigour-tabs-head-actions">
+      <slot name="actions"></slot>
+    </div>
   </div>
 </template>
 
@@ -12,6 +15,13 @@ export default {
 
 <style lang="scss" scoped>
 .vigour-tabs-head {
-  color: red;
+  border: 1px solid black;
+  display: flex;
+
+  &-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="vigour-tabs-pane"></div>
+  <div class="vigour-tabs-pane">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -9,7 +11,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../common.scss";
+
 .vigour-tabs-pane {
-  color: red;
+  border: 1px solid black;
+  padding: $padding;
 }
 </style>

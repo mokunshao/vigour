@@ -143,16 +143,21 @@
       <vigour-toast :autoClose="true">message</vigour-toast>
     </div>
     <div>
-      <vigour-tabs>
+      <vigour-tabs :selected.sync="tab" direction="horizontal">
         <vigour-tabs-head>
-          <vigour-tabs-item></vigour-tabs-item>
-          <vigour-tabs-item></vigour-tabs-item>
-          <vigour-tabs-item></vigour-tabs-item>
+          <template v-slot:actions>
+            <button>test</button>
+          </template>
+          <vigour-tabs-item name="tab1"
+            ><vigour-icon name="settings" />tab 1</vigour-tabs-item
+          >
+          <vigour-tabs-item name="tab2">tab 2</vigour-tabs-item>
+          <vigour-tabs-item name="tab3" disabled>tab 3</vigour-tabs-item>
         </vigour-tabs-head>
         <vigour-tabs-body>
-          <vigour-tabs-pane></vigour-tabs-pane>
-          <vigour-tabs-pane></vigour-tabs-pane>
-          <vigour-tabs-pane></vigour-tabs-pane>
+          <vigour-tabs-pane class="tab1">tab 1 content</vigour-tabs-pane>
+          <vigour-tabs-pane class="tab2">tab 2 content</vigour-tabs-pane>
+          <vigour-tabs-pane class="tab3">tab 3 content</vigour-tabs-pane>
         </vigour-tabs-body>
       </vigour-tabs>
     </div>
@@ -161,6 +166,7 @@
 
 <script>
 import button from './components/button.vue';
+import icon from './components/icon.vue';
 import buttonGroup from './components/button-group.vue';
 import input from './components/input.vue';
 import row from './components/row.vue';
@@ -182,6 +188,7 @@ export default {
   components: {
     [button.name]: button,
     [buttonGroup.name]: buttonGroup,
+    [icon.name]: icon,
     [input.name]: input,
     [row.name]: row,
     [col.name]: col,
@@ -200,6 +207,7 @@ export default {
     return {
       num: '10',
       loading: false,
+      tab: 'tab1',
     };
   },
   methods: {
