@@ -140,7 +140,7 @@
       <vigour-button @click="showToast">Show Top Toast</vigour-button>
       <vigour-button @click="showToast2">Show Center Toast</vigour-button>
       <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
-      <!-- <vigour-toast :autoClose="false">we</vigour-toast> -->
+      <vigour-toast :autoClose="true">message</vigour-toast>
     </div>
   </div>
 </template>

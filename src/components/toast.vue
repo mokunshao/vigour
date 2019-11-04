@@ -1,10 +1,10 @@
 <template>
-  <div class="vigour-toast" :class="toastClasses">
+  <div class="vigour-toast" :class="toastClasses" v-if="$slots.default">
     <div class="vigour-toast-text">
       <slot></slot>
     </div>
     <div
-      v-if="closeButton.text"
+      v-if="closeButton && closeButton.text"
       class="vigour-toast-button"
       @click="onClickCloseButton"
     >
