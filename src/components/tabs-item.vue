@@ -25,12 +25,15 @@ export default {
     classes() {
       return {
         'vigour-tabs-item-selected': this.selected,
+        'vigour-tabs-item-disabled': this.disabled,
       };
     },
   },
   methods: {
     handleClick() {
-      this.eventBus.$emit('update:selected', this.name, this);
+      if (!this.disabled) {
+        this.eventBus.$emit('update:selected', this.name, this);
+      }
     },
   },
   mounted() {
@@ -50,6 +53,11 @@ export default {
   padding: $padding;
   display: flex;
   align-items: center;
+
+  &-disabled {
+    cursor: not-allowed;
+    color: gray;
+  }
 
   &-selected {
     color: red;
