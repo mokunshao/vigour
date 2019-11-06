@@ -32,7 +32,18 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$emit('update:selected', this.selected);
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === 'vigour-tabs-head') {
+        vm.$children.forEach((vm2) => {
+          if (vm2.$options.name === 'vigour-tabs-item') {
+            if (vm2.$props.name === this.selected) {
+              this.eventBus.$emit('update:selected', this.selected, vm2);
+            }
+          }
+        });
+      }
+    });
+
     this.eventBus.$on('update:selected', (selected) => {
       this.$emit('update:selected', selected);
     });
