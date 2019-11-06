@@ -1,7 +1,7 @@
 <template>
   <div class="vigour-tabs-head">
     <slot></slot>
-    <div class="vigour-tabs-head-underline"></div>
+    <div class="vigour-tabs-head-underline" ref="underline"></div>
     <div class="vigour-tabs-head-actions">
       <slot name="actions"></slot>
     </div>
@@ -14,8 +14,10 @@ export default {
   inject: ['eventBus'],
   mounted() {
     this.eventBus.$on('update:selected', (selected, vm) => {
-      console.log(selected);
-      console.log(vm);
+      const width = vm.$el.offsetWidth;
+      const left = vm.$el.offsetLeft;
+      this.$refs.underline.style.left = `${left}px`;
+      this.$refs.underline.style.width = `${width}px`;
     });
   },
 };
@@ -31,7 +33,7 @@ export default {
     position: absolute;
     bottom: 0;
     border-bottom: 3px solid red;
-    width: 100px;
+    transition: all 300ms;
   }
 
   &-actions {
