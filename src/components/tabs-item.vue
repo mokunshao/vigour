@@ -33,6 +33,7 @@ export default {
     handleClick() {
       if (!this.disabled) {
         this.eventBus.$emit('update:selected', this.name, this);
+        this.$emit('click', this);
       }
     },
   },
