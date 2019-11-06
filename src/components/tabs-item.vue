@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs-item" @click="handleClick">
+  <div class="vigour-tabs-item" @click="handleClick" :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -16,13 +16,27 @@ export default {
     },
   },
   inject: ['eventBus'],
+  data() {
+    return {
+      selected: false,
+    };
+  },
+  computed: {
+    classes() {
+      return {
+        'vigour-tabs-item-selected': this.selected,
+      };
+    },
+  },
   methods: {
     handleClick() {
       this.eventBus.$emit('update:selected', this.name);
     },
   },
   mounted() {
-    this.eventBus.$on('update:selected', selected => console.log(selected));
+    this.eventBus.$on('update:selected', (selected) => {
+      this.selected = this.name === selected;
+    });
   },
 };
 </script>
@@ -36,5 +50,9 @@ export default {
   padding: $padding;
   display: flex;
   align-items: center;
+
+  &-selected {
+    color: red;
+  }
 }
 </style>

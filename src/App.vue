@@ -155,9 +155,9 @@
           <vigour-tabs-item name="tab3" disabled>tab 3</vigour-tabs-item>
         </vigour-tabs-head>
         <vigour-tabs-body>
-          <vigour-tabs-pane class="tab1">tab 1 content</vigour-tabs-pane>
-          <vigour-tabs-pane class="tab2">tab 2 content</vigour-tabs-pane>
-          <vigour-tabs-pane class="tab3">tab 3 content</vigour-tabs-pane>
+          <vigour-tabs-pane name="tab1">tab 1 content</vigour-tabs-pane>
+          <vigour-tabs-pane name="tab2">tab 2 content</vigour-tabs-pane>
+          <vigour-tabs-pane name="tab3">tab 3 content</vigour-tabs-pane>
         </vigour-tabs-body>
       </vigour-tabs>
     </div>

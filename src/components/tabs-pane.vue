@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs-pane">
+  <div class="vigour-tabs-pane" :class="classes" v-show="selected">
     <slot></slot>
   </div>
 </template>
@@ -13,8 +13,22 @@ export default {
       type: String,
     },
   },
+  data() {
+    return {
+      selected: false,
+    };
+  },
+  computed: {
+    classes() {
+      return {
+        'vigour-tabs-pane-selected': this.selected,
+      };
+    },
+  },
   mounted() {
-    this.eventBus.$on('update:selected', selected => console.log(selected));
+    this.eventBus.$on('update:selected', (selected) => {
+      this.selected = this.name === selected;
+    });
   },
 };
 </script>
@@ -25,5 +39,9 @@ export default {
 .vigour-tabs-pane {
   border: 1px solid black;
   padding: $padding;
+
+  &-selected {
+    color: red;
+  }
 }
 </style>
