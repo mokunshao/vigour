@@ -15,6 +15,7 @@ export default {
   data() { return { visible: false }; },
   methods: {
     clickOutside(e) {
+      console.log('clickoutside');
       const condition1 = this.$refs.popover.contains(e.target);
       const condition2 = this.$refs.content.contains(e.target);
       if (!(condition1 || condition2)) {
@@ -24,6 +25,7 @@ export default {
     open() {
       this.visible = true;
       this.$nextTick(() => {
+        this.setPosition();
         document.addEventListener('click', this.clickOutside);
         document.body.appendChild(this.$refs.content);
       });
@@ -38,16 +40,17 @@ export default {
       } else {
         this.open();
       }
-      // const { left, top } = this.$refs.trigger.getBoundingClientRect();
-      // console.log(left, top);
-      // this.$refs.content.style.left = left;
-      // this.$refs.content.style.top = top;
+    },
+    setPosition() {
+      const { left, top } = this.$refs.trigger.getBoundingClientRect();
+      this.$refs.content.style.left = `${left + window.scrollX}px`;
+      this.$refs.content.style.top = `${top + window.scrollY}px`;
     },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .vigour-popover {
   display: inline-flex;
   vertical-align: middle;
@@ -55,6 +58,8 @@ export default {
 
   &-content {
     border: 1px solid red;
+    position: absolute;
+    transform: translateY(-100%);
   }
 }
 </style>
