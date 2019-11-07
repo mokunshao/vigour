@@ -142,7 +142,7 @@
       <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
       <vigour-toast :autoClose="true">message</vigour-toast>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-tabs :selected.sync="tab" direction="horizontal">
         <vigour-tabs-head>
           <template v-slot:actions>
@@ -160,6 +160,22 @@
           <vigour-tabs-pane name="tab3">tab 3 content</vigour-tabs-pane>
         </vigour-tabs-body>
       </vigour-tabs>
+    </div>
+    <div :style="{ padding: '10vh' }">
+      <vigour-popover>
+        <template v-slot:content>
+          <div>test</div>
+          <div>test</div>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
+      <vigour-popover>
+        <template v-slot:content>
+          <div>test</div>
+          <div>test</div>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
     </div>
   </div>
 </template>
@@ -181,6 +197,7 @@ import tabsHead from './components/tabs-head.vue';
 import tabsBody from './components/tabs-body.vue';
 import tabsItem from './components/tabs-item.vue';
 import tabsPane from './components/tabs-pane.vue';
+import popover from './components/popover.vue';
 
 
 export default {
@@ -202,6 +219,7 @@ export default {
     [tabsBody.name]: tabsBody,
     [tabsItem.name]: tabsItem,
     [tabsPane.name]: tabsPane,
+    [popover.name]: popover,
   },
   data() {
     return {
