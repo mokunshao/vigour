@@ -245,6 +245,22 @@
         <vigour-button>点击</vigour-button>
       </vigour-popover>
     </div>
+    <div :style="{ padding: '10vh' }">
+      <vigour-popover position="top">
+        <template v-slot:content="{ close }">
+          <div>test</div>
+          <vigour-button @click="close">close</vigour-button>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
+      <vigour-popover position="top">
+        <template v-slot:content="slotProps">
+          <div>test</div>
+          <vigour-button @click="slotProps.close">close</vigour-button>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
+    </div>
   </div>
 </template>
 

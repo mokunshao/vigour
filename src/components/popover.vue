@@ -6,7 +6,7 @@
       ref="content"
       v-if="visible"
     >
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <div class="vigour-popover-trigger" ref="trigger">
       <slot></slot>
