@@ -164,7 +164,10 @@
     <div :style="{ padding: '10vh' }">
       <vigour-popover>
         <template v-slot:content>
-          <div>test</div>
+          <div>
+            test test test test test test test test test test test test test
+            test test test test test test test test
+          </div>
           <div>test</div>
         </template>
         <vigour-button>点击</vigour-button>

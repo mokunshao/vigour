@@ -107,12 +107,12 @@ $animation-duration: 500ms;
   left: 50%;
   transform: translate(-50%, 0%);
   font-size: 1em;
-  border-radius: $borderRadius;
+  border-radius: $border-radius;
   background-color: $color3;
   color: white;
   display: flex;
   flex-direction: row;
-  box-shadow: $boxShadow;
+  box-shadow: $box-shadow;
   top: 0;
 
   &-top {

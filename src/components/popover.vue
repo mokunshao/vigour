@@ -15,7 +15,6 @@ export default {
   data() { return { visible: false }; },
   methods: {
     clickOutside(e) {
-      console.log('clickoutside');
       const condition1 = this.$refs.popover.contains(e.target);
       const condition2 = this.$refs.content.contains(e.target);
       if (!(condition1 || condition2)) {
@@ -51,15 +50,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../common.scss";
+
 .vigour-popover {
   display: inline-flex;
   vertical-align: middle;
   position: relative;
 
   &-content {
-    border: 1px solid red;
+    border: 1px solid $color1;
     position: absolute;
     transform: translateY(-100%);
+    padding: $padding;
+    margin-top: -10px;
+    border-radius: $border-radius;
+    max-width: 20em;
+    background-color: white;
+    filter: drop-shadow(1px 1px 1px #888);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      border: 10px solid transparent;
+      position: absolute;
+    }
+
+    &::before {
+      border-top-color: $color1;
+      top: 100%;
+    }
+
+    &::after {
+      border-top-color: white;
+      top: calc(100% - 1px);
+    }
   }
 }
 </style>
