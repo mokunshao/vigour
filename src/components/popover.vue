@@ -33,23 +33,25 @@ export default {
       },
     },
   },
-  data() { return { visible: false }; },
+  data() { return { visible: false, timer: null }; },
   mounted() {
     if (this.trigger === 'click') {
-      this.$refs.trigger.addEventListener('click', this.clickTrigger);
+      this.$refs.trigger.addEventListener('click', this.click);
     }
     if (this.trigger === 'hover') {
-      this.$refs.trigger.addEventListener('mouseenter', this.clickTrigger);
-      this.$refs.trigger.addEventListener('mouseleave', this.close);
+      this.$refs.trigger.addEventListener('mouseenter', this.mouseenter);
+      this.$refs.trigger.addEventListener('mouseleave', this.mouseleave);
     }
   },
   destroyed() {
     if (this.trigger === 'click') {
-      this.$refs.trigger.removeEventListener('click', this.clickTrigger);
+      this.$refs.trigger.removeEventListener('click', this.click);
     }
     if (this.trigger === 'hover') {
-      this.$refs.trigger.removeEventListener('mouseenter', this.clickTrigger);
-      this.$refs.trigger.removeEventListener('mouseleave', this.close);
+      this.$refs.trigger.removeEventListener('mouseenter', this.mouseenter);
+      this.$refs.trigger.removeEventListener('mouseleave', this.mouseleave);
+      this.$refs.content.removeEventListener('mouseenter', this.contentMouseenter);
+      this.$refs.content.removeEventListener('mouseleave', this.contentMouseleave);
     }
   },
   methods: {
@@ -66,13 +68,14 @@ export default {
         this.setPosition();
         document.addEventListener('click', this.clickOutside);
         document.body.appendChild(this.$refs.content);
+        this.bindContentEvent();
       });
     },
     close() {
       this.visible = false;
       document.removeEventListener('click', this.clickOutside);
     },
-    clickTrigger() {
+    click() {
       if (this.visible) {
         this.close();
       } else {
@@ -104,6 +107,26 @@ export default {
       };
       content.style.left = `${positions[this.position].left}px`;
       content.style.top = `${positions[this.position].top}px`;
+    },
+    bindContentEvent() {
+      if (this.trigger === 'hover') {
+        this.$refs.content.addEventListener('mouseenter', this.contentMouseenter);
+        this.$refs.content.addEventListener('mouseleave', this.contentMouseleave);
+      }
+    },
+    mouseenter() {
+      this.open();
+    },
+    mouseleave() {
+      this.timer = setTimeout(() => {
+        this.close();
+      }, 2000);
+    },
+    contentMouseenter() {
+      clearInterval(this.timer);
+    },
+    contentMouseleave() {
+      this.close();
     },
   },
 };
