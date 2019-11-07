@@ -8,7 +8,7 @@
     >
       <slot name="content"></slot>
     </div>
-    <div class="vigour-popover-trigger" ref="trigger" @click="clickTrigger">
+    <div class="vigour-popover-trigger" ref="trigger">
       <slot></slot>
     </div>
   </div>
@@ -25,8 +25,33 @@ export default {
         return ['top', 'left', 'bottom', 'right'].indexOf(value) > -1;
       },
     },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(value) {
+        return ['click', 'hover'].indexOf(value) > -1;
+      },
+    },
   },
   data() { return { visible: false }; },
+  mounted() {
+    if (this.trigger === 'click') {
+      this.$refs.trigger.addEventListener('click', this.clickTrigger);
+    }
+    if (this.trigger === 'hover') {
+      this.$refs.trigger.addEventListener('mouseenter', this.clickTrigger);
+      this.$refs.trigger.addEventListener('mouseleave', this.close);
+    }
+  },
+  destroyed() {
+    if (this.trigger === 'click') {
+      this.$refs.trigger.removeEventListener('click', this.clickTrigger);
+    }
+    if (this.trigger === 'hover') {
+      this.$refs.trigger.removeEventListener('mouseenter', this.clickTrigger);
+      this.$refs.trigger.removeEventListener('mouseleave', this.close);
+    }
+  },
   methods: {
     clickOutside(e) {
       const condition1 = this.$refs.popover.contains(e.target);
@@ -113,6 +138,11 @@ export default {
       transform: translateY(-100%);
       margin-top: -10px;
 
+      &::before,
+      &::after {
+        border-bottom: none;
+      }
+
       &::before {
         top: 100%;
         border-top-color: $color1;
@@ -126,6 +156,11 @@ export default {
 
     &-bottom {
       margin-top: 10px;
+
+      &::before,
+      &::after {
+        border-top: none;
+      }
 
       &::before {
         bottom: 100%;
@@ -145,6 +180,7 @@ export default {
       &::before,
       &::after {
         top: 10px;
+        border-right: none;
       }
 
       &::before {
@@ -164,6 +200,7 @@ export default {
       &::before,
       &::after {
         top: 10px;
+        border-left: none;
       }
 
       &::before {
