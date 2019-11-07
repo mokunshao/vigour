@@ -59,19 +59,26 @@ export default {
         left, top, height, width,
       } = this.$refs.trigger.getBoundingClientRect();
       const { content } = this.$refs;
-      if (this.position === 'top') {
-        content.style.left = `${left + window.scrollX}px`;
-        content.style.top = `${top + window.scrollY}px`;
-      } else if (this.position === 'bottom') {
-        content.style.left = `${left + window.scrollX}px`;
-        content.style.top = `${top + height + window.scrollY}px`;
-      } else if (this.position === 'left') {
-        content.style.left = `${left + window.scrollX}px`;
-        content.style.top = `${top + window.scrollY}px`;
-      } else if (this.position === 'right') {
-        content.style.left = `${left + width + window.scrollX}px`;
-        content.style.top = `${top + window.scrollY}px`;
-      }
+      const positions = {
+        top: {
+          left: left + window.scrollX,
+          top: top + window.scrollY,
+        },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + height + window.scrollY,
+        },
+        left: {
+          left: left + window.scrollX,
+          top: top + window.scrollY,
+        },
+        right: {
+          left: left + width + window.scrollX,
+          top: top + window.scrollY,
+        },
+      };
+      content.style.left = `${positions[this.position].left}px`;
+      content.style.top = `${positions[this.position].top}px`;
     },
   },
 };
