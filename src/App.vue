@@ -162,7 +162,7 @@
       </vigour-tabs>
     </div>
     <div :style="{ padding: '10vh' }">
-      <vigour-popover>
+      <vigour-popover position="top">
         <template v-slot:content>
           <div>
             test test test test test test test test test test test test test
@@ -172,9 +172,32 @@
         </template>
         <vigour-button>点击</vigour-button>
       </vigour-popover>
-      <vigour-popover>
+      <vigour-popover position="bottom">
         <template v-slot:content>
+          <div>
+            test test test test test test test test test test test test test
+            test test test test test test test test
+          </div>
           <div>test</div>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
+      <vigour-popover position="left">
+        <template v-slot:content>
+          <div>
+            test test test test test test test test test test test test test
+            test test test test test test test test
+          </div>
+          <div>test</div>
+        </template>
+        <vigour-button>点击</vigour-button>
+      </vigour-popover>
+      <vigour-popover position="right">
+        <template v-slot:content>
+          <div>
+            test test test test test test test test test test test test test
+            test test test test test test test test
+          </div>
           <div>test</div>
         </template>
         <vigour-button>点击</vigour-button>

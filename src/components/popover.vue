@@ -1,6 +1,11 @@
 <template>
   <div class="vigour-popover" ref="popover">
-    <div class="vigour-popover-content" ref="content" v-if="visible">
+    <div
+      class="vigour-popover-content"
+      :class="[`vigour-popover-content-${position}`]"
+      ref="content"
+      v-if="visible"
+    >
       <slot name="content"></slot>
     </div>
     <div class="vigour-popover-trigger" ref="trigger" @click="clickTrigger">
@@ -12,6 +17,15 @@
 <script>
 export default {
   name: 'vigour-popover',
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator(value) {
+        return ['top', 'left', 'bottom', 'right'].indexOf(value) > -1;
+      },
+    },
+  },
   data() { return { visible: false }; },
   methods: {
     clickOutside(e) {
@@ -41,9 +55,23 @@ export default {
       }
     },
     setPosition() {
-      const { left, top } = this.$refs.trigger.getBoundingClientRect();
-      this.$refs.content.style.left = `${left + window.scrollX}px`;
-      this.$refs.content.style.top = `${top + window.scrollY}px`;
+      const {
+        left, top, height, width,
+      } = this.$refs.trigger.getBoundingClientRect();
+      const { content } = this.$refs;
+      if (this.position === 'top') {
+        content.style.left = `${left + window.scrollX}px`;
+        content.style.top = `${top + window.scrollY}px`;
+      } else if (this.position === 'bottom') {
+        content.style.left = `${left + window.scrollX}px`;
+        content.style.top = `${top + height + window.scrollY}px`;
+      } else if (this.position === 'left') {
+        content.style.left = `${left + window.scrollX}px`;
+        content.style.top = `${top + window.scrollY}px`;
+      } else if (this.position === 'right') {
+        content.style.left = `${left + width + window.scrollX}px`;
+        content.style.top = `${top + window.scrollY}px`;
+      }
     },
   },
 };
@@ -60,9 +88,7 @@ export default {
   &-content {
     border: 1px solid $color1;
     position: absolute;
-    transform: translateY(-100%);
     padding: $padding;
-    margin-top: -10px;
     border-radius: $border-radius;
     max-width: 20em;
     background-color: white;
@@ -76,14 +102,72 @@ export default {
       position: absolute;
     }
 
-    &::before {
-      border-top-color: $color1;
-      top: 100%;
+    &-top {
+      transform: translateY(-100%);
+      margin-top: -10px;
+
+      &::before {
+        top: 100%;
+        border-top-color: $color1;
+      }
+
+      &::after {
+        top: calc(100% - 1px);
+        border-top-color: white;
+      }
     }
 
-    &::after {
-      border-top-color: white;
-      top: calc(100% - 1px);
+    &-bottom {
+      margin-top: 10px;
+
+      &::before {
+        bottom: 100%;
+        border-bottom-color: $color1;
+      }
+
+      &::after {
+        bottom: calc(100% - 1px);
+        border-bottom-color: white;
+      }
+    }
+
+    &-left {
+      transform: translateX(-100%);
+      margin-left: -10px;
+
+      &::before,
+      &::after {
+        top: 10px;
+      }
+
+      &::before {
+        left: 100%;
+        border-left-color: $color1;
+      }
+
+      &::after {
+        left: calc(100% - 1px);
+        border-left-color: white;
+      }
+    }
+
+    &-right {
+      margin-left: 10px;
+
+      &::before,
+      &::after {
+        top: 10px;
+      }
+
+      &::before {
+        right: 100%;
+        border-right-color: $color1;
+      }
+
+      &::after {
+        right: calc(100% - 1px);
+        border-right-color: white;
+      }
     }
   }
 }
