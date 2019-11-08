@@ -202,7 +202,7 @@ export default {
 
       &::before,
       &::after {
-        top: 10px;
+        top: 5px;
         border-right: none;
       }
 
@@ -222,7 +222,7 @@ export default {
 
       &::before,
       &::after {
-        top: 10px;
+        top: 5px;
         border-left: none;
       }
 
