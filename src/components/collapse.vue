@@ -11,6 +11,10 @@ export default {
     value: {
       type: Array,
     },
+    single: {
+      type: Boolean,
+      default: false,
+    },
   },
   model: {
     event: 'change',
@@ -18,8 +22,20 @@ export default {
   mounted() {
     this.$children.forEach((vm) => {
       vm.$on('click', (value) => {
-        const newValue = this.value.includes(value) ? [] : [value];
-        this.$emit('change', newValue);
+        if (this.single) {
+          const newValue = this.value.includes(value) ? [] : [value];
+          this.$emit('change', newValue);
+        } else {
+          const newValue = JSON.parse(JSON.stringify(this.value));
+          const index = newValue.indexOf(value);
+          if (index === -1) {
+            newValue.push(value);
+          }
+          if (index >= 0) {
+            newValue.splice(index, 1);
+          }
+          this.$emit('change', newValue);
+        }
       });
     });
   },

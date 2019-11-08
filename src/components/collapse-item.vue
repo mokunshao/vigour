@@ -34,6 +34,8 @@ export default {
 .vigour-collapse-item {
   &-title {
     border: 1px solid $color1;
+    background-color: $color3;
+    color: white;
     margin-top: -1px;
     margin-right: -1px;
     margin-left: -1px;

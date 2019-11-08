@@ -264,11 +264,26 @@
       </div>
     </div>
     <div>
-      <vigour-collapse v-model="unfold">
-        <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
-        <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
-        <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
-      </vigour-collapse>
+      <div>
+        <vigour-collapse v-model="unfold" single>
+          <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
+          <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
+          <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
+        </vigour-collapse>
+        <blockquote>
+          <pre>{{ unfold }}</pre>
+        </blockquote>
+      </div>
+      <div>
+        <vigour-collapse v-model="unfold2">
+          <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
+          <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
+          <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
+        </vigour-collapse>
+        <blockquote>
+          <pre>{{ unfold2 }}</pre>
+        </blockquote>
+      </div>
     </div>
   </div>
 </template>
@@ -324,6 +339,7 @@ export default {
       loading: false,
       tab: 'tab1',
       unfold: ['title 1'],
+      unfold2: ['title 1', 'title 2'],
     };
   },
   methods: {
