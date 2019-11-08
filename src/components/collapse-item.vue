@@ -1,6 +1,6 @@
 <template>
   <div class="vigour-collapse-item">
-    <div class="vigour-collapse-item-title" @click="show = !show">
+    <div class="vigour-collapse-item-title" @click="click">
       {{ title }}
     </div>
     <div class="vigour-collapse-item-content" v-show="show">
@@ -17,10 +17,13 @@ export default {
       type: String,
     },
   },
-  data() {
-    return {
-      show: true,
-    };
+  computed: {
+    show() {
+      return this.$parent.$props.value.includes(this.title);
+    },
+  },
+  methods: {
+    click() { this.$emit('click', this.title); },
   },
 };
 </script>

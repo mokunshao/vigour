@@ -7,6 +7,22 @@
 <script>
 export default {
   name: 'vigour-collapse',
+  props: {
+    value: {
+      type: Array,
+    },
+  },
+  model: {
+    event: 'change',
+  },
+  mounted() {
+    this.$children.forEach((vm) => {
+      vm.$on('click', (value) => {
+        const newValue = this.value.includes(value) ? [] : [value];
+        this.$emit('change', newValue);
+      });
+    });
+  },
 };
 </script>
 

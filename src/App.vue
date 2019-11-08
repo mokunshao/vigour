@@ -264,7 +264,7 @@
       </div>
     </div>
     <div>
-      <vigour-collapse>
+      <vigour-collapse v-model="unfold">
         <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
         <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
         <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
@@ -323,6 +323,7 @@ export default {
       num: '10',
       loading: false,
       tab: 'tab1',
+      unfold: ['title 1'],
     };
   },
   methods: {
