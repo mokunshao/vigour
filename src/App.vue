@@ -161,105 +161,114 @@
         </vigour-tabs-body>
       </vigour-tabs>
     </div>
-    <div :style="{ padding: '10vh' }">
-      <vigour-popover position="top" trigger="hover">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="bottom" trigger="hover">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="left" trigger="hover">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="right" trigger="hover">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
+    <div v-if="false">
+      <div :style="{ padding: '10vh' }">
+        <vigour-popover position="top" trigger="hover">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="bottom" trigger="hover">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="left" trigger="hover">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="right" trigger="hover">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+      </div>
+      <div :style="{ padding: '10vh' }">
+        <vigour-popover position="top">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="bottom">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="left">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="right">
+          <template v-slot:content>
+            <div>
+              test test test test test test test test test test test test test
+              test test test test test test test test
+            </div>
+            <div>test</div>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+      </div>
+      <div :style="{ padding: '10vh' }">
+        <vigour-popover position="top">
+          <template v-slot:content="{ close }">
+            <div>test</div>
+            <vigour-button @click="close">close</vigour-button>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+        <vigour-popover position="top">
+          <template v-slot:content="slotProps">
+            <div>test</div>
+            <vigour-button @click="slotProps.close">close</vigour-button>
+          </template>
+          <vigour-button>点击</vigour-button>
+        </vigour-popover>
+      </div>
     </div>
-    <div :style="{ padding: '10vh' }">
-      <vigour-popover position="top">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="bottom">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="left">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="right">
-        <template v-slot:content>
-          <div>
-            test test test test test test test test test test test test test
-            test test test test test test test test
-          </div>
-          <div>test</div>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-    </div>
-    <div :style="{ padding: '10vh' }">
-      <vigour-popover position="top">
-        <template v-slot:content="{ close }">
-          <div>test</div>
-          <vigour-button @click="close">close</vigour-button>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
-      <vigour-popover position="top">
-        <template v-slot:content="slotProps">
-          <div>test</div>
-          <vigour-button @click="slotProps.close">close</vigour-button>
-        </template>
-        <vigour-button>点击</vigour-button>
-      </vigour-popover>
+    <div>
+      <vigour-collapse>
+        <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
+        <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
+        <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
+      </vigour-collapse>
     </div>
   </div>
 </template>
@@ -282,6 +291,8 @@ import tabsBody from './components/tabs-body.vue';
 import tabsItem from './components/tabs-item.vue';
 import tabsPane from './components/tabs-pane.vue';
 import popover from './components/popover.vue';
+import collapse from './components/collapse.vue';
+import collapseItem from './components/collapse-item.vue';
 
 
 export default {
@@ -304,6 +315,8 @@ export default {
     [tabsItem.name]: tabsItem,
     [tabsPane.name]: tabsPane,
     [popover.name]: popover,
+    [collapse.name]: collapse,
+    [collapseItem.name]: collapseItem,
   },
   data() {
     return {
