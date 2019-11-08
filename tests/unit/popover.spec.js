@@ -19,4 +19,18 @@ describe('Popover.vue', () => {
     wrapper.setData({ visible: true });
     expect(wrapper.vm.$refs.content.classList.contains('vigour-popover-content-left')).to.be.true;
   });
+  it('接受 trigger 参数', () => {
+    const wrapper = mount(Popover, {
+      propsData: {
+        trigger: 'hover',
+      },
+      slots: {
+        default: '<button id="button">button</button>',
+        content: '<div id="content">content</div>',
+      },
+    });
+    const event = new Event('mouseenter');
+    wrapper.vm.$refs.trigger.dispatchEvent(event);
+    expect(wrapper.vm.$refs.content).to.exist;
+  });
 });
