@@ -5,3 +5,13 @@ before_install:
   - npm install -g yarn --cache-min 999999999
 install:
   - yarn
+script:
+  - yarn docs:build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN # a token generated on github allowing travis to push code on you repository
+  keep-history: true
+  on:
+    branch: master
