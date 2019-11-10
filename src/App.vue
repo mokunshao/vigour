@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="false">
+    <div v-if="true">
       <vigour-button>Hello</vigour-button>
       <vigour-button icon="loading">Loading</vigour-button>
       <vigour-button
