@@ -37,18 +37,18 @@
 <script>
 import Button from '../../../src/components/button.vue';
 import ButtonGroup from '../../../src/components/button-group.vue';
-import Icon from '../../../src/components/icon.vue';
+// import Icon from '../../../src/components/icon.vue';
 
 export default {
   name: 'button-example',
   components: {
     [Button.name]: Button,
     [ButtonGroup.name]: ButtonGroup,
-    [Icon.name]: Icon
+    // [Icon.name]: Icon
   },
   data() {
     return {
-      loading: true
+      loading: false
     }
   }
 }
