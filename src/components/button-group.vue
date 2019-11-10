@@ -7,15 +7,6 @@
 <script>
 export default {
   name: 'vigour-button-group',
-  mounted() {
-    this.$el.children.forEach((element) => {
-      if (element.nodeName !== 'BUTTON') {
-        console.warn(
-          `<v-button-group> 的子元素应全部是 <v-button>, 不能把 <${element.nodeName.toLowerCase()}> 作为子元素`,
-        );
-      }
-    });
-  },
 };
 </script>
 
