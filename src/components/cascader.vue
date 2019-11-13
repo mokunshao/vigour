@@ -2,10 +2,11 @@
   <div class="vigour-cascader">
     <div class="trigger"><slot></slot></div>
     <div class="content">
-      <div v-for="item in options" :key="item.name">
-        {{ item.name }}
-        <vigour-cascader-item :options="item.children"></vigour-cascader-item>
-      </div>
+      <vigour-cascader-item
+        v-for="item in options"
+        :key="item.name"
+        :option="item"
+      ></vigour-cascader-item>
     </div>
   </div>
 </template>

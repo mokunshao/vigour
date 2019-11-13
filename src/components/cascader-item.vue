@@ -1,9 +1,11 @@
 <template>
   <div class="vigour-cascader-item">
-    <div v-for="item in options" :key="item.name">
-      {{ item.name }}
-      <vigour-cascader-item :options="item.children"></vigour-cascader-item>
-    </div>
+    {{ option.name }}
+    <vigour-cascader-item
+      v-for="item in option.children"
+      :key="item.name"
+      :option="item"
+    ></vigour-cascader-item>
   </div>
 </template>
 
@@ -11,8 +13,8 @@
 export default {
   name: 'vigour-cascader-item',
   props: {
-    options: {
-      type: Array,
+    option: {
+      type: Object,
     },
   },
 };
