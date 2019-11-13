@@ -286,7 +286,7 @@
       </div>
     </div>
     <div>
-      <vigour-cascader>test</vigour-cascader>
+      <vigour-cascader :options="options">test</vigour-cascader>
     </div>
   </div>
 </template>
@@ -345,6 +345,7 @@ export default {
       tab: 'tab1',
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],
+      options: [{ name: '广东', children: [{ name: '广州', children: [{ name: '白云' }, { name: '荔湾' }] }, { name: '云浮', children: [{ name: '新兴' }] }] }, { name: '广西', children: [{ name: '南宁', children: [{ name: '江南' }] }, { name: '梧州' }] }],
     };
   },
   methods: {
