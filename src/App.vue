@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="true">
+    <div v-if="false">
       <vigour-button>Hello</vigour-button>
       <vigour-button icon="loading">Loading</vigour-button>
       <vigour-button
@@ -263,7 +263,7 @@
         </vigour-popover>
       </div>
     </div>
-    <div>
+    <div v-if="false">
       <div>
         <vigour-collapse v-model="unfold" single>
           <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
@@ -284,6 +284,9 @@
           <pre>{{ unfold2 }}</pre>
         </blockquote>
       </div>
+    </div>
+    <div>
+      <vigour-cascader>test</vigour-cascader>
     </div>
   </div>
 </template>
@@ -308,6 +311,7 @@ import tabsPane from './components/tabs-pane.vue';
 import popover from './components/popover.vue';
 import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
+import cascader from './components/cascader.vue';
 
 
 export default {
@@ -332,6 +336,7 @@ export default {
     [popover.name]: popover,
     [collapse.name]: collapse,
     [collapseItem.name]: collapseItem,
+    [cascader.name]: cascader,
   },
   data() {
     return {
