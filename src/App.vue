@@ -286,7 +286,8 @@
       </div>
     </div>
     <div>
-      <vigour-cascader :options="options">test</vigour-cascader>
+      <vigour-cascader :options="options"> </vigour-cascader>
+      <div>123</div>
     </div>
   </div>
 </template>
