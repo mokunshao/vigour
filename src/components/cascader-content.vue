@@ -8,11 +8,13 @@
         @click="leftSelected = option"
       >
         {{ option.name }}
+        {{ option.children ? ">" : "" }}
       </div>
     </div>
     <vigour-cascader-content
       :options="subColumn"
       v-if="subColumn"
+      class="vigour-cascader-content-subColumn"
     ></vigour-cascader-content>
   </div>
 </template>
@@ -51,9 +53,14 @@ export default {
   flex-direction: row;
   align-items: stretch;
 
+  &-subColumn {
+    border-left: 1px solid black;
+  }
+
   &-tab {
-    border: 1px solid black;
     padding: $padding;
+    cursor: pointer;
+    border-bottom: 1px solid black;
   }
 }
 </style>

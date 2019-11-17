@@ -27,10 +27,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../common.scss";
+
 .vigour-cascader {
   position: relative;
 
-  &-content-wrapper,
   &-trigger {
     border: 1px solid black;
   }
@@ -38,6 +39,8 @@ export default {
   &-content-wrapper {
     position: absolute;
     background-color: white;
+    // border: 1px solid black;
+    box-shadow: $box-shadow;
   }
 }
 </style>
