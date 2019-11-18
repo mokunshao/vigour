@@ -286,7 +286,7 @@
       </div>
     </div>
     <div>
-      <vigour-cascader :options="options"> </vigour-cascader>
+      <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
     </div>
   </div>
@@ -347,6 +347,7 @@ export default {
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],
       options: [{ name: '广东', children: [{ name: '广州', children: [{ name: '白云' }, { name: '荔湾' }] }, { name: '云浮', children: [{ name: '新兴' }] }] }, { name: '广西', children: [{ name: '南宁', children: [{ name: '江南' }] }, { name: '梧州' }] }],
+      selected: [],
     };
   },
   methods: {

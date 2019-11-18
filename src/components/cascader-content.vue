@@ -53,6 +53,11 @@ export default {
   flex-direction: row;
   align-items: stretch;
 
+  &-column {
+    height: 200px;
+    overflow-y: scroll;
+  }
+
   &-subColumn {
     border-left: 1px solid black;
   }
