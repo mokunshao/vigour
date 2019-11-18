@@ -1,7 +1,7 @@
 <template>
-  <div class="vigour-cascader">
+  <div class="vigour-cascader" v-click-outside="close">
     <div class="vigour-cascader-trigger" @click="visible = !visible">input</div>
-    <div class="vigour-cascader-content-wrapper" v-show="visible">
+    <div class="vigour-cascader-content-wrapper" v-if="visible">
       <vigour-cascader-content :options="options"></vigour-cascader-content>
     </div>
   </div>
@@ -17,11 +17,32 @@ export default {
     options: {
       type: Array,
     },
+    selected: {
+      type: Array,
+      default() { return []; },
+    },
   },
   data() {
     return {
       visible: true,
     };
+  },
+  methods: {
+    close() {
+      this.visible = false;
+    },
+  },
+  directives: {
+    clickOutside: {
+      inserted(el, bindings) {
+        document.addEventListener('click', (e) => {
+          if (e.target === el || el.contains(e.target)) {
+            return;
+          }
+          bindings.value();
+        });
+      },
+    },
   },
 };
 </script>
@@ -39,8 +60,7 @@ export default {
   &-content-wrapper {
     position: absolute;
     background-color: white;
-    // border: 1px solid black;
-    box-shadow: $box-shadow;
+    border: 1px solid black;
   }
 }
 </style>
