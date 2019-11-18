@@ -288,6 +288,9 @@
     <div>
       <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
+      <vigour-cascader v-model="selected2" :options="options2">
+      </vigour-cascader>
+      <div>123</div>
     </div>
   </div>
 </template>
@@ -314,8 +317,20 @@ import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
 
+import cityList from './components/data.json';
+
+function fetchData(pid) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(cityList.filter(item => item.pid === pid));
+    }, 1);
+  });
+}
 
 export default {
+  async mounted() {
+    this.options2 = await fetchData('0');
+  },
   name: 'app',
   components: {
     [button.name]: button,
@@ -346,8 +361,10 @@ export default {
       tab: 'tab1',
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],
-      options: [{ name: '广东', children: [{ name: '广州', children: [{ name: '白云' }, { name: '荔湾' }] }, { name: '云浮', children: [{ name: '新兴' }] }] }, { name: '广西', children: [{ name: '南宁', children: [{ name: '江南' }] }, { name: '梧州' }] }],
+      options: [{ label: '广东', children: [{ label: '广州', children: [{ label: '白云' }, { label: '荔湾' }] }, { label: '云浮', children: [{ label: '新兴' }] }] }, { label: '广西', children: [{ label: '南宁', children: [{ label: '江南' }] }, { label: '梧州' }] }],
       selected: [],
+      options2: [],
+      selected2: [],
     };
   },
   methods: {

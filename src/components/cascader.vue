@@ -1,7 +1,8 @@
 <template>
   <div class="vigour-cascader" v-click-outside="close">
     <div class="vigour-cascader-trigger" @click="toggle">
-      {{ value }}
+      <!-- <input type="text" :value="result" readonly /> -->
+      {{ result }}
     </div>
     <div class="vigour-cascader-content-wrapper" v-if="visible">
       <vigour-cascader-content
@@ -32,7 +33,7 @@ export default {
   },
   data() {
     return {
-      visible: true,
+      visible: false,
     };
   },
   methods: {
@@ -44,6 +45,11 @@ export default {
     },
     change(value) {
       this.$emit('input', value);
+    },
+  },
+  computed: {
+    result() {
+      return this.value.map(item => item.label).join('/');
     },
   },
   directives: {
@@ -68,6 +74,7 @@ export default {
   position: relative;
 
   &-trigger {
+    // display: inline-flex;
     border: 1px solid black;
   }
 

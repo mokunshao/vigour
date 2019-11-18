@@ -4,10 +4,10 @@
       <div
         class="vigour-cascader-content-tab"
         v-for="option in options"
-        :key="option.name"
+        :key="option.label"
         @click="() => select(option)"
       >
-        {{ option.name }}
+        {{ option.label }}
       </div>
     </div>
     <vigour-cascader-content
