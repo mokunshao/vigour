@@ -38,23 +38,16 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      leftSelected: null,
-    };
-  },
   computed: {
-    subColumn: {
-      get() {
-        return this.leftSelected && this.leftSelected.children;
-      },
+    subColumn() {
+      return this.value[this.level] && this.value[this.level].children;
     },
   },
   methods: {
     select(option) {
-      this.leftSelected = option;
       const valueCopy = JSON.parse(JSON.stringify(this.value));
       valueCopy[this.level] = option;
+      valueCopy.splice(this.level + 1);
       this.$emit('change', valueCopy);
     },
     change(value) {
