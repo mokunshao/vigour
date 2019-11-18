@@ -5,16 +5,18 @@
         class="vigour-cascader-content-tab"
         v-for="option in options"
         :key="option.name"
-        @click="leftSelected = option"
+        @click="() => select(option)"
       >
         {{ option.name }}
-        {{ option.children ? ">" : "" }}
       </div>
     </div>
     <vigour-cascader-content
+      v-if="subColumn && subColumn.length"
+      class="vigour-cascader-content-sub-column"
       :options="subColumn"
-      v-if="subColumn"
-      class="vigour-cascader-content-subColumn"
+      :value="value"
+      :level="level + 1"
+      @change="change"
     ></vigour-cascader-content>
   </div>
 </template>
@@ -25,6 +27,15 @@ export default {
   props: {
     options: {
       type: Array,
+      required: true,
+    },
+    value: {
+      type: Array,
+      required: true,
+    },
+    level: {
+      type: Number,
+      required: true,
     },
   },
   data() {
@@ -35,11 +46,19 @@ export default {
   computed: {
     subColumn: {
       get() {
-        if (this.leftSelected && this.leftSelected.children) {
-          return this.leftSelected.children;
-        }
-        return null;
+        return this.leftSelected && this.leftSelected.children;
       },
+    },
+  },
+  methods: {
+    select(option) {
+      this.leftSelected = option;
+      const valueCopy = JSON.parse(JSON.stringify(this.value));
+      valueCopy[this.level] = option;
+      this.$emit('change', valueCopy);
+    },
+    change(value) {
+      this.$emit('change', value);
     },
   },
 };
@@ -58,7 +77,7 @@ export default {
     overflow-y: scroll;
   }
 
-  &-subColumn {
+  &-sub-column {
     border-left: 1px solid black;
   }
 

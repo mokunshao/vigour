@@ -1,8 +1,15 @@
 <template>
   <div class="vigour-cascader" v-click-outside="close">
-    <div class="vigour-cascader-trigger" @click="visible = !visible">input</div>
+    <div class="vigour-cascader-trigger" @click="toggle">
+      {{ value }}
+    </div>
     <div class="vigour-cascader-content-wrapper" v-if="visible">
-      <vigour-cascader-content :options="options"></vigour-cascader-content>
+      <vigour-cascader-content
+        :options="options"
+        :value="value"
+        :level="0"
+        @change="change"
+      ></vigour-cascader-content>
     </div>
   </div>
 </template>
@@ -16,10 +23,11 @@ export default {
   props: {
     options: {
       type: Array,
+      required: true,
     },
-    selected: {
+    value: {
       type: Array,
-      default() { return []; },
+      required: true,
     },
   },
   data() {
@@ -30,6 +38,12 @@ export default {
   methods: {
     close() {
       this.visible = false;
+    },
+    toggle() {
+      this.visible = !this.visible;
+    },
+    change(value) {
+      this.$emit('input', value);
     },
   },
   directives: {
