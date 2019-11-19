@@ -288,7 +288,7 @@
     <div>
       <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
-      <vigour-cascader v-model="selected2" :options="options2">
+      <vigour-cascader v-model="selected2" :options="options2" @input="input">
       </vigour-cascader>
       <div>123</div>
     </div>
@@ -368,6 +368,12 @@ export default {
     };
   },
   methods: {
+    async input(value) {
+      const currentItem = value[value.length - 1];
+      const children = await fetchData(currentItem.id);
+      this.$set(currentItem, 'children', children);
+      currentItem.children = children;
+    },
     change(e) {
       console.log(e.target.value);
     },

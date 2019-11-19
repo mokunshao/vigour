@@ -1,8 +1,7 @@
 <template>
   <div class="vigour-cascader" v-click-outside="close">
     <div class="vigour-cascader-trigger" @click="toggle">
-      <!-- <input type="text" :value="result" readonly /> -->
-      {{ result }}
+      <input type="text" :value="result" readonly />
     </div>
     <div class="vigour-cascader-content-wrapper" v-if="visible">
       <vigour-cascader-content
@@ -72,13 +71,15 @@ export default {
 
 .vigour-cascader {
   position: relative;
+  display: inline-flex;
 
   &-trigger {
-    // display: inline-flex;
     border: 1px solid black;
   }
 
   &-content-wrapper {
+    top: 100%;
+    width: max-content;
     position: absolute;
     background-color: white;
     border: 1px solid black;
