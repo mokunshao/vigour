@@ -288,7 +288,11 @@
     <div>
       <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
-      <vigour-cascader v-model="selected2" :options="options2" @input="input">
+      <vigour-cascader
+        v-model="selected2"
+        :options.sync="options2"
+        :lazyload="lazyload"
+      >
       </vigour-cascader>
       <div>123</div>
     </div>
@@ -368,15 +372,17 @@ export default {
     };
   },
   methods: {
-    async input(value) {
-      const currentItem = value[value.length - 1];
-      const children = await fetchData(currentItem.id);
-      this.$set(currentItem, 'children', children);
-      currentItem.children = children;
+    async lazyload(id, callback) {
+      const children = await fetchData(id);
+      callback(children);
     },
-    change(e) {
-      console.log(e.target.value);
-    },
+    // async input(value) {
+    // const currentItem = value[value.length - 1];
+    // const children = await fetchData(currentItem.id);
+    // this.$set(currentItem, 'children', children);
+    // currentItem.children = children;
+    //   console.log(value, 'top');
+    // },
     showToast() {
       this.$toast(<i>Attention <strong>please</strong></i>, {
         closeButton: {

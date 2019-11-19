@@ -40,7 +40,16 @@ export default {
   },
   computed: {
     subColumn() {
-      return this.value[this.level] && this.value[this.level].children;
+      // return this.value[this.level] && this.value[this.level].children;
+      if (this.value[this.level] && this.value[this.level].id) {
+        const current = this.options.find(item => item.id === this.value[this.level].id);
+        return current.children;
+      }
+      if (this.value[this.level] && this.value[this.level].label) {
+        const current = this.options.find(item => item.label === this.value[this.level].label);
+        return current.children;
+      }
+      return null;
     },
   },
   methods: {

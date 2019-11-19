@@ -29,6 +29,9 @@ export default {
       type: Array,
       required: true,
     },
+    lazyload: {
+      type: Function,
+    },
   },
   data() {
     return {
@@ -42,7 +45,32 @@ export default {
     toggle() {
       this.visible = !this.visible;
     },
+    appendChildren(id, children) {
+      const optionsCopy = JSON.parse(JSON.stringify(this.options));
+      let stack = [...optionsCopy];
+      let index = 0;
+      let current = stack[index];
+      while (current) {
+        if (current.id !== id) {
+          if (current.children) {
+            stack = stack.concat(current.children);
+          }
+        } else {
+          break;
+        }
+        current = stack[index += 1];
+      }
+      if (current) {
+        current.children = children;
+        this.$emit('update:options', optionsCopy);
+      }
+    },
     change(value) {
+      if (this.lazyload) {
+        const lastItem = value[value.length - 1];
+        const { id } = lastItem;
+        this.lazyload(id, (children) => { this.appendChildren(id, children); });
+      }
       this.$emit('input', value);
     },
   },
