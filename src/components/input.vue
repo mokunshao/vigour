@@ -86,11 +86,11 @@ export default {
   }
 
   &-error-icon {
-    fill: $dangerColor;
+    fill: $red;
   }
 
   &-error-message {
-    color: $dangerColor;
+    color: $red;
   }
 }
 </style>
