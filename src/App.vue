@@ -298,6 +298,7 @@
     </div>
     <div>
       <vigour-checkbox v-model="checkboxValue">123</vigour-checkbox>
+      <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
     </div>
   </div>
 </template>

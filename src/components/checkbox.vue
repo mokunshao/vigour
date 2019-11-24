@@ -5,9 +5,12 @@
       type="checkbox"
       :checked="value"
       @change="change"
+      :disabled="disabled"
     />
     <span class="vigour-checkbox-checkmark" />
-    <slot></slot>
+    <div class="vigour-checkbox-children">
+      <slot></slot>
+    </div>
   </label>
 </template>
 
@@ -18,6 +21,10 @@ export default {
     value: {
       type: Boolean,
       required: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -72,6 +79,16 @@ export default {
       border-width: 0 0.1em 0.1em 0;
       transform: translate(-50%, -50%) rotate(45deg);
     }
+  }
+
+  &-input:disabled ~ &-checkmark {
+    background-color: $grey;
+    border-color: $grey;
+  }
+
+  &-input:disabled ~ &-checkmark,
+  &-input:disabled ~ &-children {
+    cursor: not-allowed;
   }
 }
 </style>
