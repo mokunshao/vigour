@@ -296,9 +296,14 @@
       </vigour-cascader>
       <div>123</div>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-checkbox v-model="checkboxValue">123</vigour-checkbox>
       <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
+    </div>
+    <div>
+      <vigour-radio value="one" name="test">one</vigour-radio>
+      <vigour-radio value="two" name="test">two</vigour-radio>
+      <vigour-radio value="three" name="test" disabled>three</vigour-radio>
     </div>
   </div>
 </template>
@@ -325,6 +330,7 @@ import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
 import checkbox from './components/checkbox.vue';
+import radio from './components/radio.vue';
 
 import cityList from './components/data.json';
 
@@ -363,6 +369,7 @@ export default {
     [collapseItem.name]: collapseItem,
     [cascader.name]: cascader,
     [checkbox.name]: checkbox,
+    [radio.name]: radio,
   },
   data() {
     return {
@@ -376,6 +383,9 @@ export default {
       options2: [],
       selected2: [],
       checkboxValue: true,
+      radio: false,
+      radio2: true,
+      radio3: false,
     };
   },
   methods: {
