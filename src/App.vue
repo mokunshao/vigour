@@ -285,7 +285,7 @@
         </blockquote>
       </div>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
       <vigour-cascader
@@ -295,6 +295,9 @@
       >
       </vigour-cascader>
       <div>123</div>
+    </div>
+    <div>
+      <vigour-checkbox v-model="checkboxValue">123</vigour-checkbox>
     </div>
   </div>
 </template>
@@ -320,6 +323,7 @@ import popover from './components/popover.vue';
 import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
+import checkbox from './components/checkbox.vue';
 
 import cityList from './components/data.json';
 
@@ -357,6 +361,7 @@ export default {
     [collapse.name]: collapse,
     [collapseItem.name]: collapseItem,
     [cascader.name]: cascader,
+    [checkbox.name]: checkbox,
   },
   data() {
     return {
@@ -369,6 +374,7 @@ export default {
       selected: [],
       options2: [],
       selected2: [],
+      checkboxValue: true,
     };
   },
   methods: {
