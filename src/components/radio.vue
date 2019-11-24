@@ -7,7 +7,6 @@
       :disabled="disabled"
       v-model="theValue"
       class="vigour-radio-input"
-      @change="change"
     />
     <span class="vigour-radio-checkmark" />
     <div class="vigour-radio-children">
@@ -19,18 +18,13 @@
 <script>
 export default {
   name: 'vigour-radio',
-  methods: {
-    change(e) {
-      this.$emit('input', e.target.value);
-    },
-  },
   computed: {
     theValue: {
       get() {
         return this.value;
       },
       set(value) {
-        return value;
+        this.$emit('input', value);
       },
     },
   },
