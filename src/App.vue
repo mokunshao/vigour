@@ -301,9 +301,16 @@
       <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
     </div>
     <div>
-      <vigour-radio value="one" name="test">one</vigour-radio>
-      <vigour-radio value="two" name="test">two</vigour-radio>
-      <vigour-radio value="three" name="test" disabled>three</vigour-radio>
+      <vigour-radio label="one" name="test" v-model="radioValue"
+        >one</vigour-radio
+      >
+      <vigour-radio label="two" name="test" v-model="radioValue"
+        >two</vigour-radio
+      >
+      <vigour-radio label="three" name="test" disabled v-model="radioValue"
+        >three</vigour-radio
+      >
+      <div>{{ radioValue }}</div>
     </div>
   </div>
 </template>
@@ -383,9 +390,7 @@ export default {
       options2: [],
       selected2: [],
       checkboxValue: true,
-      radio: false,
-      radio2: true,
-      radio3: false,
+      radioValue: 'two',
     };
   },
   methods: {

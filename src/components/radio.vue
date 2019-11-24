@@ -3,9 +3,11 @@
     <input
       type="radio"
       :name="name"
-      :value="value"
+      :value="label"
       :disabled="disabled"
+      v-model="theValue"
       class="vigour-radio-input"
+      @change="change"
     />
     <span class="vigour-radio-checkmark" />
     <div class="vigour-radio-children">
@@ -17,17 +19,36 @@
 <script>
 export default {
   name: 'vigour-radio',
+  methods: {
+    change(e) {
+      this.$emit('input', e.target.value);
+    },
+  },
+  computed: {
+    theValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        return value;
+      },
+    },
+  },
   props: {
     name: {
       type: String,
     },
-    value: {
+    value: {},
+    label: {
       type: String,
     },
     disabled: {
       type: Boolean,
     },
     checked: {
+      type: Boolean,
+    },
+    defaultChecked: {
       type: Boolean,
     },
   },
