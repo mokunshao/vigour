@@ -21,11 +21,21 @@ export default {
   computed: {
     theValue: {
       get() {
+        if (this.inGroup) {
+          return this.$parent.value;
+        }
         return this.value;
       },
       set(value) {
-        this.$emit('input', value);
+        if (this.inGroup) {
+          this.$parent.$emit('input', value);
+        } else {
+          this.$emit('input', value);
+        }
       },
+    },
+    inGroup() {
+      return this.$parent.$options.name === 'vigour-radio-group';
     },
   },
   props: {

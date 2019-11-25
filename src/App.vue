@@ -301,16 +301,17 @@
       <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
     </div>
     <div>
-      <vigour-radio label="one" name="test" v-model="radioValue"
-        >one</vigour-radio
-      >
-      <vigour-radio label="two" name="test" v-model="radioValue"
-        >two</vigour-radio
-      >
-      <vigour-radio label="three" name="test" disabled v-model="radioValue"
+      <vigour-radio label="one" v-model="radioValue">one</vigour-radio>
+      <vigour-radio label="two" v-model="radioValue">two</vigour-radio>
+      <vigour-radio label="three" disabled v-model="radioValue"
         >three</vigour-radio
       >
       <div>{{ radioValue }}</div>
+      <vigour-radio-group v-model="radioValue2">
+        <vigour-radio label="male">male</vigour-radio>
+        <vigour-radio label="female">female</vigour-radio>
+      </vigour-radio-group>
+      {{ radioValue2 }}
     </div>
   </div>
 </template>
@@ -338,6 +339,7 @@ import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
 import checkbox from './components/checkbox.vue';
 import radio from './components/radio.vue';
+import radioGroup from './components/radio-group.vue';
 
 import cityList from './components/data.json';
 
@@ -377,6 +379,7 @@ export default {
     [cascader.name]: cascader,
     [checkbox.name]: checkbox,
     [radio.name]: radio,
+    [radioGroup.name]: radioGroup,
   },
   data() {
     return {
@@ -391,6 +394,7 @@ export default {
       selected2: [],
       checkboxValue: true,
       radioValue: 'two',
+      radioValue2: 'female',
     };
   },
   methods: {
