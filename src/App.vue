@@ -300,7 +300,7 @@
       <vigour-checkbox v-model="checkboxValue">123</vigour-checkbox>
       <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-radio label="one" v-model="radioValue">one</vigour-radio>
       <vigour-radio label="two" v-model="radioValue">two</vigour-radio>
       <vigour-radio label="three" disabled v-model="radioValue"
@@ -312,6 +312,10 @@
         <vigour-radio label="female">female</vigour-radio>
       </vigour-radio-group>
       {{ radioValue2 }}
+    </div>
+    <div>
+      <vigour-toggle v-model="toggleValue">text</vigour-toggle>
+      <vigour-toggle v-model="toggleValue" disabled>text</vigour-toggle>
     </div>
   </div>
 </template>
@@ -340,6 +344,7 @@ import cascader from './components/cascader.vue';
 import checkbox from './components/checkbox.vue';
 import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
+import toggle from './components/toggle.vue';
 
 import cityList from './components/data.json';
 
@@ -380,6 +385,7 @@ export default {
     [checkbox.name]: checkbox,
     [radio.name]: radio,
     [radioGroup.name]: radioGroup,
+    [toggle.name]: toggle,
   },
   data() {
     return {
@@ -395,6 +401,7 @@ export default {
       checkboxValue: true,
       radioValue: 'two',
       radioValue2: 'female',
+      toggleValue: true,
     };
   },
   methods: {
