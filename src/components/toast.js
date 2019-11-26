@@ -7,8 +7,8 @@ function afterDestroyed() {
 }
 
 function createToast(Vue, message, propsData) {
-  const Contructor = Vue.extend(toast);
-  const vm = new Contructor({
+  const Constructor = Vue.extend(toast);
+  const vm = new Constructor({
     propsData,
   });
   vm.$slots.default = message;
