@@ -1,7 +1,7 @@
 <template>
   <div class="vigour-dialog-wrapper" v-if="visible">
-    <div class="vigour-dialog-mask" v-if="mask"></div>
-    <div class="vigour-dialog" :class="{ [`vigour-dialog-shadow`]: !mask }">
+    <div class="vigour-dialog-mask" v-if="mask" @click="clickMask"></div>
+    <div class="vigour-dialog">
       <div class="vigour-dialog-header">
         <vigour-button class="vigour-dialog-header-close" @click="close"
           >X</vigour-button
@@ -33,12 +33,21 @@ export default {
     },
     mask: {
       type: Boolean,
-      default: false,
+      default: true,
+    },
+    closeOnClickMask: {
+      type: Boolean,
+      default: true,
     },
   },
   methods: {
     close() {
       this.$emit('update:visible', false);
+    },
+    clickMask() {
+      if (this.closeOnClickMask) {
+        this.close();
+      }
     },
   },
 };
@@ -55,6 +64,7 @@ export default {
   background-color: white;
   padding: 0.5em;
   border: 1px solid black;
+  box-shadow: $box-shadow;
 
   &-mask {
     position: fixed;
@@ -63,10 +73,6 @@ export default {
     top: 0;
     bottom: 0;
     background-color: rgba($color: #000, $alpha: 0.1);
-  }
-
-  &-shadow {
-    box-shadow: $box-shadow;
   }
 
   &-header {
