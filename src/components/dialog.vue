@@ -3,6 +3,7 @@
     <div class="vigour-dialog-mask" v-if="mask" @click="clickMask"></div>
     <div class="vigour-dialog">
       <div class="vigour-dialog-header">
+        {{ title }}
         <vigour-button class="vigour-dialog-header-close" @click="close"
           >X</vigour-button
         >
@@ -39,6 +40,7 @@ export default {
       type: Boolean,
       default: true,
     },
+    title: {},
   },
   methods: {
     close() {
@@ -77,6 +79,7 @@ export default {
 
   &-header {
     display: flex;
+    align-items: center;
 
     &-close {
       appearance: none;
