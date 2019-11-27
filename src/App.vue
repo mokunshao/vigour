@@ -317,11 +317,19 @@
       <vigour-toggle v-model="toggleValue">text</vigour-toggle>
       <vigour-toggle v-model="toggleValue" disabled>text</vigour-toggle>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-button @click="showNotification">show notification</vigour-button>
       <vigour-button @click="showNotification2"
         >show notification2</vigour-button
       >
+    </div>
+    <div>
+      <vigour-button @click="dialogVisable = !dialogVisable"
+        >show/hide dialog</vigour-button
+      >
+      <vigour-dialog :visible.sync="dialogVisable">
+        <div>hello world</div>
+      </vigour-dialog>
     </div>
   </div>
 </template>
@@ -351,6 +359,7 @@ import checkbox from './components/checkbox.vue';
 import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
 import toggle from './components/toggle.vue';
+import dialog from './components/dialog.vue';
 
 import cityList from './components/data.json';
 
@@ -392,6 +401,7 @@ export default {
     [radio.name]: radio,
     [radioGroup.name]: radioGroup,
     [toggle.name]: toggle,
+    [dialog.name]: dialog,
   },
   data() {
     return {
@@ -408,6 +418,7 @@ export default {
       radioValue: 'two',
       radioValue2: 'female',
       toggleValue: true,
+      dialogVisable: true,
     };
   },
   methods: {
