@@ -13,7 +13,7 @@ export default {
         vm.$mount();
         document.body.appendChild(vm.$el);
       }
-      Instance.$data.list = [...Instance.$data.list, obj];
+      Instance.add(obj);
     };
   },
 };

@@ -2,21 +2,49 @@
   <div class="vigour-notification">
     <div
       class="vigour-notification-content"
-      v-for="(item, index) in list"
-      :key="index"
+      v-for="item in list"
+      :key="item.id"
     >
       {{ item.content }}
+      <button @click="remove(item.id)">close</button>
     </div>
   </div>
 </template>
 
 <script>
+
+let id = 0;
+
+function getId() {
+  const result = `notification_${id}`;
+  id += 1;
+  console.log(id);
+  return result;
+}
+
 export default {
   name: 'vigour-notification',
   data() {
     return {
       list: [],
     };
+  },
+  methods: {
+    add(notice) {
+      const addId = getId();
+      const newNotice = { ...notice, id: addId };
+      this.list.push(newNotice);
+      // setTimeout(() => {
+      //   this.remove(addId);
+      // }, 1000);
+    },
+    remove(removeId) {
+      this.list.forEach((item, index) => {
+        if (item.id === removeId) {
+          this.list.splice(index, 1);
+        }
+      });
+    },
   },
 };
 </script>
