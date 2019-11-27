@@ -31,11 +31,15 @@ export default {
   transform: translateX(-50%);
 
   &-content {
+    background-color: white;
     box-shadow: $box-shadow;
     border: 1px solid black;
     padding: $padding;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
   }
 }
 </style>
