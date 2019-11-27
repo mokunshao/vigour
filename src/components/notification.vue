@@ -18,7 +18,6 @@ let id = 0;
 function getId() {
   const result = `notification_${id}`;
   id += 1;
-  console.log(id);
   return result;
 }
 
@@ -34,9 +33,12 @@ export default {
       const addId = getId();
       const newNotice = { ...notice, id: addId };
       this.list.push(newNotice);
-      // setTimeout(() => {
-      //   this.remove(addId);
-      // }, 1000);
+      if (newNotice.duration === 0) {
+        return;
+      }
+      setTimeout(() => {
+        this.remove(addId);
+      }, newNotice.duration || 3000);
     },
     remove(removeId) {
       this.list.forEach((item, index) => {

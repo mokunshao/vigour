@@ -462,7 +462,7 @@ export default {
       });
     },
     showNotification() {
-      this.$notify({ content: '你好世界' });
+      this.$notify({ content: '你好世界', duration: 0 });
     },
     showNotification2() {
       this.$notify({ content: 'Hello World' });
