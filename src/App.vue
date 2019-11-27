@@ -313,9 +313,15 @@
       </vigour-radio-group>
       {{ radioValue2 }}
     </div>
-    <div>
+    <div v-if="false">
       <vigour-toggle v-model="toggleValue">text</vigour-toggle>
       <vigour-toggle v-model="toggleValue" disabled>text</vigour-toggle>
+    </div>
+    <div>
+      <vigour-button @click="showNotification">show notification</vigour-button>
+      <vigour-button @click="showNotification2"
+        >show notification2</vigour-button
+      >
     </div>
   </div>
 </template>
@@ -454,6 +460,12 @@ export default {
         autoClose: false,
         position: 'bottom',
       });
+    },
+    showNotification() {
+      this.$notify({ content: '你好世界' });
+    },
+    showNotification2() {
+      this.$notify({ content: 'Hello World' });
     },
   },
 };
