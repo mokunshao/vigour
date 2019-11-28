@@ -1,39 +1,6 @@
 <template>
   <div id="app">
     <div v-if="true">
-      <vigour-button>Hello</vigour-button>
-      <vigour-button icon="loading">Loading</vigour-button>
-      <vigour-button
-        icon="settings"
-        :loading="loading"
-        @click="loading = !loading"
-        >Settings</vigour-button
-      >
-      <vigour-button icon="left">Left</vigour-button>
-      <vigour-button icon="right" icon-position="right">Right</vigour-button>
-      <vigour-button-group>
-        <vigour-button
-          icon="thumbs-up"
-          :loading="loading"
-          @click="loading = !loading"
-          >Thumbs Up</vigour-button
-        >
-        <vigour-button
-          icon="upload"
-          :loading="loading"
-          @click="loading = !loading"
-          >Upload</vigour-button
-        >
-        <vigour-button
-          icon="download"
-          :loading="loading"
-          @click="loading = !loading"
-          >Download</vigour-button
-        >
-      </vigour-button-group>
-      <vigour-button icon="loading" icon-position="right">Hello</vigour-button>
-    </div>
-    <div v-if="false">
       <vigour-input value="111"></vigour-input>
       <vigour-input value="222" disabled></vigour-input>
       <vigour-input value="333" readonly></vigour-input>
@@ -406,7 +373,6 @@ export default {
   data() {
     return {
       num: '10',
-      loading: false,
       tab: 'tab1',
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],

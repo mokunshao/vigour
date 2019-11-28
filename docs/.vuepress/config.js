@@ -3,19 +3,21 @@ const path = require('path');
 module.exports = {
   base: '/vigour/',
   title: 'Vigour',
-  description: 'Yet another UI Library based on Vue 2.X .',
+  description: 'A UI components library that based on Vue 2.X .',
   themeConfig: {
     navbar: true,
     nav: [
       { text: 'GitHub', link: 'https://github.com/mokunshao/vigour' },
     ],
     sidebar: [
-      ['/', 'Get Started 入门'],
+      ['/', 'Getting Started'],
       {
-        title: 'Components 组件',
+        title: 'Components',
         collapsable: false,
         children: [
           '/components/button',
+          '/components/icon',
+          '/components/input',
         ]
       },
     ],
