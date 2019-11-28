@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="false">
+    <div v-if="true">
       <vigour-button>Hello</vigour-button>
       <vigour-button icon="loading">Loading</vigour-button>
       <vigour-button
@@ -323,7 +323,7 @@
         >show notification2</vigour-button
       >
     </div>
-    <div>
+    <div v-if="false">
       <vigour-button @click="dialogVisable = !dialogVisable"
         >show/hide dialog</vigour-button
       >
