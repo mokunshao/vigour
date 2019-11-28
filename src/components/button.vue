@@ -7,7 +7,7 @@
   >
     <v-icon
       v-if="loading"
-      :class="'vigour-button-icon-loading'"
+      class="vigour-button-icon-loading vigour-button-icon"
       name="loading"
     />
     <v-icon
