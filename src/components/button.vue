@@ -2,7 +2,7 @@
   <button
     type="text"
     class="vigour-button"
-    :class="[`vigour-button-${iconPosition}`]"
+    :class="[`vigour-button-${iconPosition}`, `vigour-button-${kind}`]"
     @click="onClick"
   >
     <v-icon
@@ -48,6 +48,13 @@ export default {
       required: false,
       default: false,
     },
+    kind: {
+      type: String,
+      default: 'normal',
+      validator(value) {
+        return ['primary', 'normal'].includes(value);
+      },
+    },
   },
   methods: {
     onClick(e) {
@@ -72,12 +79,9 @@ export default {
 }
 
 .vigour-button {
-  -webkit-appearance: none;
+  appearance: none;
   outline: none;
   padding: 0.3em 0.5em;
-  color: $white;
-  background-color: $black;
-  border: 1px solid $black;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -86,20 +90,36 @@ export default {
   transition: all 500ms;
   font-size: 1em;
 
+  &-normal {
+    color: $black;
+    background-color: $grey;
+    border: 1px solid $grey;
+
+    &:hover,
+    &:focus {
+      background-color: $grey2;
+      border: 1px solid $grey2;
+    }
+  }
+
+  &-primary {
+    color: $white;
+    background-color: $black;
+    border: 1px solid $black;
+
+    &:hover,
+    &:focus {
+      background-color: $black2;
+      border: 1px solid $black2;
+    }
+  }
+
   &-right &-icon {
     order: 2;
   }
 
   &-right &-text {
     order: 1;
-  }
-
-  &:hover {
-    background-color: $black2;
-  }
-
-  &:focus {
-    background-color: $black2;
   }
 
   &-icon-loading {
