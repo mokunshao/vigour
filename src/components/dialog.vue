@@ -41,6 +41,13 @@ export default {
       default: true,
     },
     title: {},
+    closeOnEsc: {
+      type: Boolean,
+      default: true,
+    },
+    preventBackgroundScrolling: {
+      type: Boolean,
+    },
   },
   methods: {
     close() {
@@ -50,6 +57,36 @@ export default {
       if (this.closeOnClickMask) {
         this.close();
       }
+    },
+    EscapeHandler(e) {
+      if (e.key === 'Escape' && this.visible) {
+        this.close();
+      }
+    },
+  },
+  destroyed() {
+    document.removeEventListener('keydown', this.EscapeHandler);
+  },
+  watch: {
+    visible: {
+      immediate: true,
+      handler(visible) {
+        if (visible) {
+          if (this.preventBackgroundScrolling) {
+            document.body.style.setProperty('overflow', 'hidden');
+          }
+          if (this.closeOnEsc) {
+            document.addEventListener('keydown', this.EscapeHandler);
+          }
+        } else {
+          if (this.preventBackgroundScrolling) {
+            document.body.style.removeProperty('overflow');
+          }
+          if (this.closeOnEsc) {
+            document.removeEventListener('keydown', this.EscapeHandler);
+          }
+        }
+      },
     },
   },
 };
