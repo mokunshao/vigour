@@ -43,4 +43,28 @@ title: Input
 ></vigour-input>
 ```
 
+### Read Only
+
+<input-example-5></input-example-5>
+
+```vue
+<vigour-input v-model="value" readonly></vigour-input>
+```
+
+### Disabled
+
+<input-example-6></input-example-6>
+
+```vue
+<vigour-input v-model="value" disabled></vigour-input>
+```
+
 ## Props
+
+| prop | type | default value | available value|
+| -----| ---- | ---- | --- | --- |
+| v-model | `any` | - | - |
+| clearable | `boolean` | `false` | - |
+| placeholder | `string` | - | - |
+| readonly | `boolean` | `false` | - |
+| disabled | `boolean` | `false` | - |
