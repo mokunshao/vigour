@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="true">
-      <vigour-input value="111"></vigour-input>
+      <vigour-input value="111" placeholder="222"></vigour-input>
       <vigour-input value="222" disabled></vigour-input>
       <vigour-input value="333" readonly></vigour-input>
       <vigour-input v-model="num" error="N/A"></vigour-input>

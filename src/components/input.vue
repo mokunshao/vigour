@@ -4,15 +4,14 @@
     :class="{ 'vigour-input-wrapper-error': error }"
   >
     <input
+      v-bind="$attrs"
       type="text"
       :value="value"
       class="vigour-input"
-      :disabled="disabled"
-      :readonly="readonly"
-      @change="$emit('change', $event)"
-      @input="$emit('input', $event.target.value)"
-      @blur="$emit('blur', $event)"
-      @focus="$emit('focus', $event)"
+      v-on="{
+        ...$listeners,
+        input: event => $emit('input', event.target.value)
+      }"
     />
     <template v-if="error">
       <v-icon name="info" class="vigour-input-error-icon"></v-icon>
@@ -26,27 +25,19 @@ import icon from './icon.vue';
 
 export default {
   name: 'vigour-input',
+  inheritAttrs: false,
+  model: {
+    prop: 'value',
+    event: 'input',
+  },
   components: {
     'v-icon': icon,
   },
   props: {
     value: {
-      type: [String, Number],
-      required: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
-      required: false,
     },
     error: {
       type: String,
-      required: false,
     },
   },
 };
@@ -56,8 +47,8 @@ export default {
 @import "../common.scss";
 
 .vigour-input {
+  appearance: none;
   border-radius: 3px;
-  border: 1px solid $color3;
   padding: 0.3em 0.5em;
   font-size: 1em;
 
@@ -67,22 +58,13 @@ export default {
     vertical-align: middle;
   }
 
-  &:hover {
-    border-color: $color2;
-  }
-
   &:focus {
-    border-color: $color2;
     outline: none;
-    box-shadow: inset 0 0 0 1px lighten($color: $color2, $amount: 20%);
   }
 
   &[disabled],
   &:read-only {
     cursor: not-allowed;
-    border-color: $color4;
-    color: $color4;
-    box-shadow: none;
   }
 
   &-error-icon {
