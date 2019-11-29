@@ -2,7 +2,6 @@
   <div class="vigour-input-wrapper">
     <input
       v-bind="$attrs"
-      type="text"
       :value="value"
       class="vigour-input"
       v-on="{
