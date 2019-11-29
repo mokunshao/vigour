@@ -48,9 +48,11 @@ export default {
 
 .vigour-input {
   appearance: none;
-  border-radius: 3px;
   padding: 0.3em 0.5em;
   font-size: 1em;
+  border: 2px solid $grey2;
+  background-color: $grey2;
+  box-sizing: border-box;
 
   &-wrapper {
     display: inline-flex;
@@ -60,11 +62,14 @@ export default {
 
   &:focus {
     outline: none;
+    border: 2px solid $black;
+    background-color: $grey;
   }
 
   &[disabled],
   &:read-only {
     cursor: not-allowed;
+    background-color: $grey;
   }
 
   &-error-icon {
