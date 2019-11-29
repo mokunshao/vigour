@@ -4,7 +4,12 @@
       <vigour-input value="111" placeholder="222"></vigour-input>
       <vigour-input value="222" disabled></vigour-input>
       <vigour-input value="333" readonly></vigour-input>
-      <vigour-input v-model="num" error="N/A"></vigour-input>
+      <vigour-input v-model="num" error="the errer message"></vigour-input>
+      <vigour-input
+        v-model="num"
+        clearable
+        error="the errer message"
+      ></vigour-input>
     </div>
     <div v-if="false">
       <vigour-row>

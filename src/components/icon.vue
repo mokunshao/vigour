@@ -1,5 +1,5 @@
 <template>
-  <svg class="vigour-icon" aria-hidden="true">
+  <svg class="vigour-icon" aria-hidden="true" v-on="$listeners" v-bind="$attrs">
     <use :xlink:href="`#icon-${name}`"></use>
   </svg>
 </template>

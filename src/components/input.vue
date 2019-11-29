@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="vigour-input-wrapper"
-    :class="{ 'vigour-input-wrapper-error': error }"
-  >
+  <div class="vigour-input-wrapper">
     <input
       v-bind="$attrs"
       type="text"
@@ -13,10 +10,12 @@
         input: event => $emit('input', event.target.value)
       }"
     />
-    <template v-if="error">
-      <v-icon name="info" class="vigour-input-error-icon"></v-icon>
-      <span class="vigour-input-error-message">{{ error }}</span>
-    </template>
+    <vigour-icon
+      class="vigour-input-clear"
+      v-if="clearable && value"
+      @click="clear"
+      name="clear"
+    ></vigour-icon>
   </div>
 </template>
 
@@ -26,18 +25,26 @@ import icon from './icon.vue';
 export default {
   name: 'vigour-input',
   inheritAttrs: false,
+  components: {
+    [icon.name]: icon,
+  },
   model: {
     prop: 'value',
     event: 'input',
-  },
-  components: {
-    'v-icon': icon,
   },
   props: {
     value: {
     },
     error: {
       type: String,
+    },
+    clearable: {
+      type: Boolean,
+    },
+  },
+  methods: {
+    clear() {
+      this.$emit('input', '');
     },
   },
 };
@@ -53,11 +60,20 @@ export default {
   border: 2px solid $grey2;
   background-color: $grey2;
   box-sizing: border-box;
+  transition: all 200ms;
 
   &-wrapper {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
+    position: relative;
+  }
+
+  &-clear {
+    position: absolute;
+    right: 0.3em;
+    cursor: pointer;
+    fill: currentColor;
   }
 
   &:focus {
@@ -70,14 +86,7 @@ export default {
   &:read-only {
     cursor: not-allowed;
     background-color: $grey;
-  }
-
-  &-error-icon {
-    fill: $red;
-  }
-
-  &-error-message {
-    color: $red;
+    border-color: $grey;
   }
 }
 </style>
