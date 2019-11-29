@@ -36,18 +36,18 @@ describe('input.vue', () => {
       const inputElement = wrapper.find('input').element;
       expect(inputElement.readOnly).to.equal(true);
     });
-    it('接收 error', () => {
-      const errorMessage = 'error message';
-      const wrapper = mount(Input, {
-        propsData: {
-          error: errorMessage,
-        },
-      });
-      const icon = wrapper.find('use').element;
-      expect(icon.getAttribute('xlink:href')).to.equal('#icon-info');
-      const errorText = wrapper.find('.vigour-input-error-message');
-      expect(errorText.text()).to.be.equal(errorMessage);
-    });
+    // it('接收 error', () => {
+    //   const errorMessage = 'error message';
+    //   const wrapper = mount(Input, {
+    //     propsData: {
+    //       error: errorMessage,
+    //     },
+    //   });
+    //   const icon = wrapper.find('use').element;
+    //   expect(icon.getAttribute('xlink:href')).to.equal('#icon-info');
+    //   const errorText = wrapper.find('.vigour-input-error-message');
+    //   expect(errorText.text()).to.be.equal(errorMessage);
+    // });
   });
   describe('事件', () => {
     it('支持 change/input/focus/blur 事件', () => {
