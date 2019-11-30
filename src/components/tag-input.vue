@@ -48,10 +48,9 @@ export default {
   },
   methods: {
     addTag() {
-      if (this.newTag.length === 0 || this.tags.includes(this.newTag)) {
-        return;
+      if (this.newTag.length !== 0 && !this.tags.includes(this.newTag)) {
+        this.$emit('update', [...this.tags, this.newTag]);
       }
-      this.$emit('update', [...this.tags, this.newTag]);
       this.clearInput();
     },
     removeTag(tag) {
