@@ -1,10 +1,14 @@
 <template>
   <div class="vigour-tag-input">
-    <span v-for="tag in tags" :key="tag">
-      <span>{{ tag }}</span
-      ><button @click="removeTag(tag)">&times;</button>
+    <span v-for="tag in tags" :key="tag" class="vigour-tag-input-tag">
+      <span class="vigour-tag-input-text">{{ tag }}</span
+      ><span @click="removeTag(tag)" class="vigour-tag-input-remove">
+        &times;
+      </span>
     </span>
     <input
+      class="vigour-tag-input-input"
+      placeholder="Add tag..."
       type="text"
       :value="input"
       @input="input = $event.target.value"
@@ -58,7 +62,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../common.scss";
+
 .vigour-tag-input {
-  border: 1px solid red;
+  border: 2px solid $black;
+  padding: 0.3em;
+  display: inline-flex;
+
+  &-tag {
+    display: inline-flex;
+    background-color: $grey;
+    margin-right: 0.1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+
+    &:not(:first-child) {
+      margin-left: 0.1em;
+    }
+
+    &:hover {
+      background-color: $grey2;
+    }
+  }
+
+  &-remove {
+    cursor: pointer;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  &-input {
+    border: none;
+    outline: none;
+    font-size: inherit;
+  }
 }
 </style>
