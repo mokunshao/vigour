@@ -73,6 +73,7 @@ export default {
   border: 2px solid $black;
   padding: 0.3em;
   display: inline-flex;
+  flex-wrap: wrap;
 
   &-tag {
     display: inline-flex;
