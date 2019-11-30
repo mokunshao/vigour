@@ -37,7 +37,6 @@ export default {
 <style lang="scss" scoped>
 .vigour-row {
   display: flex;
-  flex-wrap: wrap;
   box-sizing: border-box;
 
   &-left {
