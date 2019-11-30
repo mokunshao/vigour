@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <vigour-tag-input v-model="tags"></vigour-tag-input>
+      <vigour-tag-input v-model="tags" @input="test"></vigour-tag-input>
     </div>
     <div v-if="false">
       <vigour-row>
@@ -382,6 +382,9 @@ export default {
     async lazyload(id, callback) {
       const children = await fetchData(id);
       callback(children);
+    },
+    test() {
+      console.log('test');
     },
     // async input(value) {
     // const currentItem = value[value.length - 1];

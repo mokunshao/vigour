@@ -7,8 +7,10 @@
       </span>
     </span>
     <input
+      v-on="$listeners"
+      v-bind="$attrs"
       class="vigour-tag-input-input"
-      placeholder="Add tag..."
+      :placeholder="placeholder"
       type="text"
       :value="input"
       @input="input = $event.target.value"
@@ -28,6 +30,10 @@ export default {
   props: {
     tags: {
       type: Array,
+    },
+    placeholder: {
+      type: String,
+      default: 'Add tag...',
     },
   },
   data() {
