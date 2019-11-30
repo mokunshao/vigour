@@ -1,15 +1,7 @@
 <template>
   <div id="app">
-    <div v-if="true">
-      <vigour-input value="111" placeholder="222"></vigour-input>
-      <vigour-input value="222" disabled></vigour-input>
-      <vigour-input value="333" readonly></vigour-input>
-      <vigour-input v-model="num" error="the errer message"></vigour-input>
-      <vigour-input
-        v-model="num"
-        clearable
-        error="the errer message"
-      ></vigour-input>
+    <div>
+      <vigour-tag-input v-model="tags"></vigour-tag-input>
     </div>
     <div v-if="false">
       <vigour-row>
@@ -307,10 +299,6 @@
 </template>
 
 <script>
-import button from './components/button.vue';
-import icon from './components/icon.vue';
-import buttonGroup from './components/button-group.vue';
-import input from './components/input.vue';
 import row from './components/row.vue';
 import col from './components/col.vue';
 import layout from './components/layout.vue';
@@ -332,6 +320,7 @@ import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
 import toggle from './components/toggle.vue';
 import dialog from './components/dialog.vue';
+import tagInput from './components/tag-input.vue';
 
 import cityList from './components/data.json';
 
@@ -349,10 +338,6 @@ export default {
   },
   name: 'app',
   components: {
-    [button.name]: button,
-    [buttonGroup.name]: buttonGroup,
-    [icon.name]: icon,
-    [input.name]: input,
     [row.name]: row,
     [col.name]: col,
     [layout.name]: layout,
@@ -374,10 +359,10 @@ export default {
     [radioGroup.name]: radioGroup,
     [toggle.name]: toggle,
     [dialog.name]: dialog,
+    [tagInput.name]: tagInput,
   },
   data() {
     return {
-      num: '10',
       tab: 'tab1',
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],
@@ -390,6 +375,7 @@ export default {
       radioValue2: 'female',
       toggleValue: true,
       dialogVisable: true,
+      tags: ['one', 'two'],
     };
   },
   methods: {
