@@ -1,14 +1,13 @@
 <template>
   <div class="vigour-tag-input">
-    <ul v-for="tag in tags" :key="tag">
-      <li>
-        <span>{{ tag }}</span
-        ><button @click="removeTag(tag)">x</button>
-      </li>
-    </ul>
+    <span v-for="tag in tags" :key="tag">
+      <span>{{ tag }}</span
+      ><button @click="removeTag(tag)">&times;</button>
+    </span>
     <input
       type="text"
-      v-model="input"
+      :value="input"
+      @input="input = $event.target.value"
       @keydown.enter.prevent="addTag"
       @keydown.backspace="handleBackspace"
     />
@@ -23,7 +22,9 @@ export default {
     event: 'update',
   },
   props: {
-    tags: {},
+    tags: {
+      type: Array,
+    },
   },
   data() {
     return {
@@ -47,7 +48,7 @@ export default {
       this.$emit('update', this.tags.filter(t => t !== tag));
     },
     handleBackspace() {
-      if (this.newTag.length === 0) { this.$emit('update', this.tags.slice(0, 1)); }
+      if (this.newTag.length === 0) { this.$emit('update', this.tags.slice(0, -1)); }
     },
     clearInput() {
       this.input = '';
