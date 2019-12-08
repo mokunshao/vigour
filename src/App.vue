@@ -1,41 +1,5 @@
 <template>
   <div id="app">
-    <div v-if="true">
-      <vigour-row align="left">
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="6" offset="3"></vigour-col>
-      </vigour-row>
-      <vigour-row align="center">
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="6" offset="3"></vigour-col>
-      </vigour-row>
-      <vigour-row align="right">
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="6" offset="3"></vigour-col>
-      </vigour-row>
-    </div>
-    <div v-if="false">
-      <vigour-row gutter="30">
-        <vigour-col
-          span="2"
-          offset="3"
-          :lg="{ span: 12 }"
-          :md="{ span: 6 }"
-          :sm="{ span: 3, offset: 4 }"
-          :xs="{ span: 24, offset: 0 }"
-          >1</vigour-col
-        >
-        <vigour-col
-          span="2"
-          offset="3"
-          :lg="{ span: 12 }"
-          :md="{ span: 6 }"
-          :sm="{ span: 3, offset: 4 }"
-          :xs="{ span: 24, offset: 0 }"
-          >2</vigour-col
-        >
-      </vigour-row>
-    </div>
     <div v-if="false">
       <vigour-layout class="layout-common" style="height: 50vh;">
         <vigour-header class="layout-common">header</vigour-header>

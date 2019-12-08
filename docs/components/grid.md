@@ -77,18 +77,48 @@ title: Grid
 </vigour-row>
 ```
 
+<grid-example-6></grid-example-6>
+
+```vue
+<vigour-row>
+  <vigour-col
+    span="12"
+    offset="0"
+    :lg="{ span: 11, offset: 0 }"
+    :md="{ span: 6, offset: 0 }"
+    :sm="{ span: 3, offset: 0 }"
+    :xs="{ span: 12, offset: 0 }"
+  >
+    <div class="color3">1</div>
+  </vigour-col>
+  <vigour-col
+    span="12"
+    offset="0"
+    :lg="{ span: 11, offset: 2 }"
+    :md="{ span: 6, offset: 0 }"
+    :sm="{ span: 3, offset: 4 }"
+    :xs="{ span: 12, offset: 0 }"
+  >
+    <div class="color4">2</div>
+  </vigour-col>
+</vigour-row>
+```
 ## Props
 
 ### Row
 
 | prop | type | default value | available value|
 | -----| ---- | ---- | --- | --- |
-| gutter | `string` | - | - |
-| align | `string` | - | - |
+| gutter | `number` | - | `0~24` |
+| align | `string` | - | `'left','center','right'` |
 
 ### Col
 
 | prop | type | default value | available value|
 | -----| ---- | ---- | --- | --- |
-| span | `string` | - | - |
-| offset | `string` | - | - |
+| span | `number` | - | `0~24` |
+| offset | `number` | - | `0~24` |
+| lg | `{span?:number,offset?:number}` | - | - |
+| md | `{span?:number,offset?:number}` | - | - |
+| sm | `{span?:number,offset?:number}` | - | - |
+| xs | `{span?:number,offset?:number}` | - | - |
