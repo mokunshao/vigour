@@ -2,18 +2,6 @@
   <div id="app">
     <div v-if="true">
       <vigour-row>
-        <vigour-col span="2"></vigour-col>
-        <vigour-col></vigour-col>
-      </vigour-row>
-      <vigour-row>
-        <vigour-col span="3"></vigour-col>
-        <vigour-col span="21"></vigour-col>
-      </vigour-row>
-      <vigour-row>
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="6"></vigour-col>
-      </vigour-row>
-      <vigour-row>
         <vigour-col span="4"></vigour-col>
         <vigour-col span="5" offset="3"></vigour-col>
       </vigour-row>
