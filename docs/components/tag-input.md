@@ -13,3 +13,4 @@ title: Tag Input
 | prop | type | default value | available value|
 | -----| ---- | ---- | --- | --- |
 | v-model | `array<string>` | - | - |
+| placeholder | `string` | `'Add tag...'` | - |
