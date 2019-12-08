@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <div>
-      <vigour-tag-input v-model="tags" @input="test"></vigour-tag-input>
-    </div>
     <div v-if="false">
       <vigour-row>
         <vigour-col>1</vigour-col>
@@ -320,7 +317,6 @@ import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
 import toggle from './components/toggle.vue';
 import dialog from './components/dialog.vue';
-import tagInput from './components/tag-input.vue';
 
 import cityList from './components/data.json';
 
@@ -359,7 +355,6 @@ export default {
     [radioGroup.name]: radioGroup,
     [toggle.name]: toggle,
     [dialog.name]: dialog,
-    [tagInput.name]: tagInput,
   },
   data() {
     return {
@@ -375,7 +370,6 @@ export default {
       radioValue2: 'female',
       toggleValue: true,
       dialogVisable: true,
-      tags: ['one', 'two'],
     };
   },
   methods: {
