@@ -74,9 +74,12 @@ export default {
   padding: 0.3em;
   display: inline-flex;
   flex-wrap: wrap;
+  min-height: 1.5em;
+  box-sizing: content-box;
 
   &-tag {
     display: inline-flex;
+    align-items: center;
     background-color: $grey;
     margin-right: 0.1em;
     padding-left: 0.2em;
