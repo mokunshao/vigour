@@ -6,7 +6,7 @@ title: Tag Input
 
 ## Example
 
-<tag-input-1></tag-input-1>
+<tag-input-example-1></tag-input-example-1>
 
 ## Props
 
