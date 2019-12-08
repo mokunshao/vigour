@@ -38,5 +38,57 @@ title: Grid
 </vigour-row>
 ```
 
+<grid-example-3></grid-example-3>
+
+```vue
+<vigour-row>
+  <vigour-col span="4" class="color1">1</vigour-col>
+  <vigour-col span="5" offset="3" class="color2">2</vigour-col>
+</vigour-row>
+```
+
+<grid-example-4></grid-example-4>
+
+```vue
+<vigour-row gutter="20">
+  <vigour-col span="4">
+    <div class="color3">1</div>
+  </vigour-col>
+  <vigour-col span="5" offset="3">
+    <div class="color4">2</div>
+  </vigour-col>
+</vigour-row>
+```
+
+<grid-example-5></grid-example-5>
+
+```vue
+<vigour-row align="left">
+  <vigour-col span="4">1</vigour-col>
+  <vigour-col span="6" offset="3">2</vigour-col>
+</vigour-row>
+<vigour-row align="center">
+  <vigour-col span="4">1</vigour-col>
+  <vigour-col span="6" offset="3">2</vigour-col>
+</vigour-row>
+<vigour-row align="right">
+  <vigour-col span="4">1</vigour-col>
+  <vigour-col span="6" offset="3">2</vigour-col>
+</vigour-row>
+```
+
 ## Props
 
+### Row
+
+| prop | type | default value | available value|
+| -----| ---- | ---- | --- | --- |
+| gutter | `string` | - | - |
+| align | `string` | - | - |
+
+### Col
+
+| prop | type | default value | available value|
+| -----| ---- | ---- | --- | --- |
+| span | `string` | - | - |
+| offset | `string` | - | - |

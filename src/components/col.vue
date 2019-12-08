@@ -47,9 +47,6 @@ export default {
       gutter: 0,
     };
   },
-  updated() {
-    console.log(this);
-  },
   computed: {
     colStyle() {
       const { gutter } = this;

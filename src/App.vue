@@ -1,14 +1,6 @@
 <template>
   <div id="app">
     <div v-if="true">
-      <vigour-row>
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="5" offset="3"></vigour-col>
-      </vigour-row>
-      <vigour-row gutter="20">
-        <vigour-col span="4"></vigour-col>
-        <vigour-col span="5" offset="3"></vigour-col>
-      </vigour-row>
       <vigour-row align="left">
         <vigour-col span="4"></vigour-col>
         <vigour-col span="6" offset="3"></vigour-col>
