@@ -18,6 +18,7 @@ module.exports = {
           '/components/button',
           '/components/icon',
           '/components/input',
+          '/components/tag-input',
         ]
       },
     ],
