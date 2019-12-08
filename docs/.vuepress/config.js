@@ -21,6 +21,7 @@ module.exports = {
           '/components/tag-input',
           '/components/grid',
           '/components/layout',
+          '/components/checkbox',
         ]
       },
     ],

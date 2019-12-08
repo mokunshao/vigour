@@ -161,10 +161,6 @@
       <div>123</div>
     </div>
     <div v-if="false">
-      <vigour-checkbox v-model="checkboxValue">123</vigour-checkbox>
-      <vigour-checkbox v-model="checkboxValue" disabled>123</vigour-checkbox>
-    </div>
-    <div v-if="false">
       <vigour-radio label="one" v-model="radioValue">one</vigour-radio>
       <vigour-radio label="two" v-model="radioValue">two</vigour-radio>
       <vigour-radio label="three" disabled v-model="radioValue"
@@ -208,7 +204,6 @@ import popover from './components/popover.vue';
 import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
-import checkbox from './components/checkbox.vue';
 import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
 import toggle from './components/toggle.vue';
@@ -239,7 +234,6 @@ export default {
     [collapse.name]: collapse,
     [collapseItem.name]: collapseItem,
     [cascader.name]: cascader,
-    [checkbox.name]: checkbox,
     [radio.name]: radio,
     [radioGroup.name]: radioGroup,
     [toggle.name]: toggle,
@@ -254,7 +248,6 @@ export default {
       selected: [],
       options2: [],
       selected2: [],
-      checkboxValue: true,
       radioValue: 'two',
       radioValue2: 'female',
       toggleValue: true,
