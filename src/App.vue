@@ -1,37 +1,6 @@
 <template>
   <div id="app">
     <div v-if="false">
-      <vigour-layout class="layout-common" style="height: 50vh;">
-        <vigour-header class="layout-common">header</vigour-header>
-        <vigour-content class="layout-common">content</vigour-content>
-        <vigour-footer class="layout-common">footer</vigour-footer>
-      </vigour-layout>
-      <vigour-layout class="layout-common" style="height: 50vh;">
-        <vigour-header class="layout-common">header</vigour-header>
-        <vigour-layout>
-          <vigour-aside class="layout-common">aside</vigour-aside>
-          <vigour-content class="layout-common">content</vigour-content>
-        </vigour-layout>
-        <vigour-footer class="layout-common">footer</vigour-footer>
-      </vigour-layout>
-      <vigour-layout class="layout-common" style="height: 50vh;">
-        <vigour-header class="layout-common">header</vigour-header>
-        <vigour-layout>
-          <vigour-content class="layout-common">content</vigour-content>
-          <vigour-aside class="layout-common">aside</vigour-aside>
-        </vigour-layout>
-        <vigour-footer class="layout-common">footer</vigour-footer>
-      </vigour-layout>
-      <vigour-layout class="layout-common" style="height: 50vh;">
-        <vigour-aside class="layout-common">aside</vigour-aside>
-        <vigour-layout>
-          <vigour-header class="layout-common">header</vigour-header>
-          <vigour-content class="layout-common">content</vigour-content>
-          <vigour-footer class="layout-common">footer</vigour-footer>
-        </vigour-layout>
-      </vigour-layout>
-    </div>
-    <div v-if="false">
       <vigour-button @click="showToast">Show Top Toast</vigour-button>
       <vigour-button @click="showToast2">Show Center Toast</vigour-button>
       <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
@@ -230,13 +199,6 @@
 </template>
 
 <script>
-import row from './components/row.vue';
-import col from './components/col.vue';
-import layout from './components/layout.vue';
-import header from './components/header.vue';
-import content from './components/content.vue';
-import footer from './components/footer.vue';
-import aside from './components/aside.vue';
 import tabs from './components/tabs.vue';
 import tabsHead from './components/tabs-head.vue';
 import tabsBody from './components/tabs-body.vue';
@@ -268,13 +230,6 @@ export default {
   },
   name: 'app',
   components: {
-    [row.name]: row,
-    [col.name]: col,
-    [layout.name]: layout,
-    [header.name]: header,
-    [content.name]: content,
-    [footer.name]: footer,
-    [aside.name]: aside,
     [tabs.name]: tabs,
     [tabsHead.name]: tabsHead,
     [tabsBody.name]: tabsBody,
@@ -369,17 +324,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-#app {
-  .vigour-col {
-    border: 1px solid grey;
-    height: 50px;
-  }
-
-  .layout-common {
-    border: 1px solid grey;
-    padding: 2em;
-  }
-}
-</style>

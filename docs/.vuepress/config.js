@@ -20,6 +20,7 @@ module.exports = {
           '/components/input',
           '/components/tag-input',
           '/components/grid',
+          '/components/layout',
         ]
       },
     ],
