@@ -1,6 +1,6 @@
 <template>
   <div class="vigour-col-wrapper" :class="colClasses" :style="colStyle">
-    <div class="vigour-col">
+    <div class="vigour-col" v-bind="$attrs">
       <slot></slot>
     </div>
   </div>
@@ -17,6 +17,7 @@ const createClasses = (obj, size) => {
 };
 export default {
   name: 'vigour-col',
+  inheritAttrs: false,
   props: {
     span: {
       type: [String, Number],
@@ -45,6 +46,9 @@ export default {
     return {
       gutter: 0,
     };
+  },
+  updated() {
+    console.log(this);
   },
   computed: {
     colStyle() {

@@ -1,16 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="false">
-      <vigour-row>
-        <vigour-col>1</vigour-col>
-        <vigour-col>2</vigour-col>
-      </vigour-row>
-      <vigour-row>
-        <vigour-col>1</vigour-col>
-        <vigour-col>2</vigour-col>
-        <vigour-col>3</vigour-col>
-        <vigour-col>4</vigour-col>
-      </vigour-row>
+    <div v-if="true">
       <vigour-row>
         <vigour-col span="2"></vigour-col>
         <vigour-col></vigour-col>

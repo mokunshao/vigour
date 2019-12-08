@@ -19,6 +19,7 @@ module.exports = {
           '/components/icon',
           '/components/input',
           '/components/tag-input',
+          '/components/grid',
         ]
       },
     ],
