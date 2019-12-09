@@ -117,4 +117,7 @@ title: Popover
 
 ## Props
 
-
+| prop | type | default value | available value|
+| -----| ---- | ---- | --- | --- |
+| position | `string` | `'top'` | `'top', 'left', 'bottom', 'right'` |
+| trigger | `string` | `'hover'` | `'click', 'hover'` |
