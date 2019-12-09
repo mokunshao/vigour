@@ -50,9 +50,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.vigour-tabs {
-  border: 1px solid black;
-}
-</style>

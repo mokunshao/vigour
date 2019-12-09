@@ -49,7 +49,6 @@ export default {
 @import "../common.scss";
 
 .vigour-tabs-item {
-  border: 1px solid black;
   cursor: pointer;
   padding: $padding;
   display: flex;
@@ -58,10 +57,6 @@ export default {
   &-disabled {
     cursor: not-allowed;
     color: gray;
-  }
-
-  &-selected {
-    color: red;
   }
 }
 </style>

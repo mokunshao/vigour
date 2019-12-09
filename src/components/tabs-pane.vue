@@ -37,11 +37,6 @@ export default {
 @import "../common.scss";
 
 .vigour-tabs-pane {
-  border: 1px solid black;
   padding: $padding;
-
-  &-selected {
-    color: red;
-  }
 }
 </style>

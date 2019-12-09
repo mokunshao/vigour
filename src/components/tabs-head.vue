@@ -25,14 +25,13 @@ export default {
 
 <style lang="scss" scoped>
 .vigour-tabs-head {
-  border: 1px solid black;
   display: flex;
   position: relative;
 
   &-underline {
     position: absolute;
     bottom: 0;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid black;
     transition: all 300ms;
   }
 
