@@ -2,6 +2,9 @@
   <div>
     <vigour-tabs :selected.sync="tab" direction="horizontal">
       <vigour-tabs-head>
+        <template v-slot:actions>
+          <vigour-button>test</vigour-button>
+        </template>
         <vigour-tabs-item name="tab1">tab 1</vigour-tabs-item>
         <vigour-tabs-item name="tab2">tab 2</vigour-tabs-item>
         <vigour-tabs-item name="tab3" disabled>tab 3</vigour-tabs-item>
@@ -21,6 +24,7 @@ import tabsBody from '../../../src/components/tabs-body';
 import tabsHead from '../../../src/components/tabs-head';
 import tabsItem from '../../../src/components/tabs-item';
 import tabsPane from '../../../src/components/tabs-pane';
+import button from '../../../src/components/button';
 
 export default {
   components: {
@@ -29,6 +33,7 @@ export default {
     [tabsHead.name]: tabsHead,
     [tabsItem.name]: tabsItem,
     [tabsPane.name]: tabsPane,
+    [button.name]: button,
   },
   data() {
     return {
