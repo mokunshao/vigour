@@ -1,25 +1,6 @@
 <template>
   <div id="app">
     <div v-if="false">
-      <vigour-tabs :selected.sync="tab" direction="horizontal">
-        <vigour-tabs-head>
-          <template v-slot:actions>
-            <vigour-button>test</vigour-button>
-          </template>
-          <vigour-tabs-item name="tab1"
-            ><vigour-icon name="settings" />tab 1</vigour-tabs-item
-          >
-          <vigour-tabs-item name="tab2">tab 2</vigour-tabs-item>
-          <vigour-tabs-item name="tab3" disabled>tab 3</vigour-tabs-item>
-        </vigour-tabs-head>
-        <vigour-tabs-body>
-          <vigour-tabs-pane name="tab1">tab 1 content</vigour-tabs-pane>
-          <vigour-tabs-pane name="tab2">tab 2 content</vigour-tabs-pane>
-          <vigour-tabs-pane name="tab3">tab 3 content</vigour-tabs-pane>
-        </vigour-tabs-body>
-      </vigour-tabs>
-    </div>
-    <div v-if="false">
       <div :style="{ padding: '10vh' }">
         <vigour-popover position="top" trigger="hover">
           <template v-slot:content>
@@ -176,11 +157,6 @@
 </template>
 
 <script>
-import tabs from './components/tabs.vue';
-import tabsHead from './components/tabs-head.vue';
-import tabsBody from './components/tabs-body.vue';
-import tabsItem from './components/tabs-item.vue';
-import tabsPane from './components/tabs-pane.vue';
 import popover from './components/popover.vue';
 import collapse from './components/collapse.vue';
 import collapseItem from './components/collapse-item.vue';
@@ -206,11 +182,6 @@ export default {
   },
   name: 'app',
   components: {
-    [tabs.name]: tabs,
-    [tabsHead.name]: tabsHead,
-    [tabsBody.name]: tabsBody,
-    [tabsItem.name]: tabsItem,
-    [tabsPane.name]: tabsPane,
     [popover.name]: popover,
     [collapse.name]: collapse,
     [collapseItem.name]: collapseItem,
@@ -222,7 +193,6 @@ export default {
   },
   data() {
     return {
-      tab: 'tab1',
       unfold: ['title 1'],
       unfold2: ['title 1', 'title 2'],
       options: [{ label: '广东', children: [{ label: '广州', children: [{ label: '白云' }, { label: '荔湾' }] }, { label: '云浮', children: [{ label: '新兴' }] }] }, { label: '广西', children: [{ label: '南宁', children: [{ label: '江南' }] }, { label: '梧州' }] }],
