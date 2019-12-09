@@ -108,7 +108,7 @@ $animation-duration: 500ms;
   transform: translate(-50%, 0%);
   font-size: 1em;
   border-radius: $border-radius;
-  background-color: $color3;
+  background-color: $black;
   color: white;
   display: flex;
   flex-direction: row;

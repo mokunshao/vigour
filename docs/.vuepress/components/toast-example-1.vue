@@ -3,7 +3,9 @@
     <vigour-button @click="showToast">Show Top Toast</vigour-button>
     <vigour-button @click="showToast2">Show Center Toast</vigour-button>
     <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
-    <vigour-toast autoClose>message</vigour-toast>
+    <vigour-toast :closeButton="{ text: 'Close' }" :autoClose="false"
+      >Message</vigour-toast
+    >
   </div>
 </template>
 
