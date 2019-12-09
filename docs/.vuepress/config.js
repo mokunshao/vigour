@@ -25,7 +25,8 @@ module.exports = {
           '/components/radio',
           '/components/toast',
           '/components/tabs',
-          '/components/popover'
+          '/components/popover',
+          '/components/collapse',
         ]
       },
     ],

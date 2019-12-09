@@ -1,28 +1,6 @@
 <template>
   <div id="app">
     <div v-if="false">
-      <div>
-        <vigour-collapse v-model="unfold" single>
-          <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
-          <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
-          <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
-        </vigour-collapse>
-        <blockquote>
-          <pre>{{ unfold }}</pre>
-        </blockquote>
-      </div>
-      <div>
-        <vigour-collapse v-model="unfold2">
-          <vigour-collapse-item title="title 1">content 1</vigour-collapse-item>
-          <vigour-collapse-item title="title 2">content 2</vigour-collapse-item>
-          <vigour-collapse-item title="title 3">content 3</vigour-collapse-item>
-        </vigour-collapse>
-        <blockquote>
-          <pre>{{ unfold2 }}</pre>
-        </blockquote>
-      </div>
-    </div>
-    <div v-if="false">
       <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
       <div>123</div>
       <vigour-cascader
@@ -91,8 +69,6 @@ export default {
   },
   data() {
     return {
-      unfold: ['title 1'],
-      unfold2: ['title 1', 'title 2'],
       options: [{ label: '广东', children: [{ label: '广州', children: [{ label: '白云' }, { label: '荔湾' }] }, { label: '云浮', children: [{ label: '新兴' }] }] }, { label: '广西', children: [{ label: '南宁', children: [{ label: '江南' }] }, { label: '梧州' }] }],
       selected: [],
       options2: [],
