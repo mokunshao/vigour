@@ -24,7 +24,8 @@ module.exports = {
           '/components/checkbox',
           '/components/radio',
           '/components/toast',
-          '/components/tabs'
+          '/components/tabs',
+          '/components/popover'
         ]
       },
     ],
