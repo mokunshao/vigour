@@ -10,9 +10,16 @@
         name="right"
       ></vigour-icon>
     </div>
-    <div class="vigour-collapse-item-content" v-show="show">
-      <slot></slot>
-    </div>
+    <transition
+      name="expand"
+      @beforeEnter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
+      <div class="vigour-collapse-item-content" v-show="show">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -36,6 +43,15 @@ export default {
   },
   methods: {
     click() { this.$emit('click', this.title); },
+    beforeEnter(el) {
+      el.style.height = '0';
+    },
+    enter(el) {
+      el.style.height = `${el.scrollHeight}px`;
+    },
+    leave(el) {
+      el.style.height = '0';
+    },
   },
 };
 </script>
@@ -59,10 +75,16 @@ export default {
 
   &-content {
     padding: $padding;
+    transition: height 0.3s linear;
   }
 
   &-show &-title-icon {
     transform: rotate(90deg);
   }
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  overflow: hidden;
 }
 </style>
