@@ -141,7 +141,7 @@ export default {
   position: relative;
 
   &-content {
-    border: 1px solid $color1;
+    border: 1px solid $black;
     position: absolute;
     padding: $padding;
     border-radius: $border-radius;
@@ -168,7 +168,7 @@ export default {
 
       &::before {
         top: 100%;
-        border-top-color: $color1;
+        border-top-color: $black;
       }
 
       &::after {
@@ -187,7 +187,7 @@ export default {
 
       &::before {
         bottom: 100%;
-        border-bottom-color: $color1;
+        border-bottom-color: $black;
       }
 
       &::after {
@@ -208,7 +208,7 @@ export default {
 
       &::before {
         left: 100%;
-        border-left-color: $color1;
+        border-left-color: $black;
       }
 
       &::after {
@@ -228,7 +228,7 @@ export default {
 
       &::before {
         right: 100%;
-        border-right-color: $color1;
+        border-right-color: $black;
       }
 
       &::after {
