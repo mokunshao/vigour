@@ -1,10 +1,12 @@
 <template>
-  <div class="vigour-collapse-item">
+  <div
+    class="vigour-collapse-item"
+    :class="{ [`vigour-collapse-item-show`]: show }"
+  >
     <div class="vigour-collapse-item-title" @click="click">
       {{ title }}
       <vigour-icon
         class="vigour-collapse-item-title-icon"
-        :class="{ [`vigour-collapse-item-title-icon-rotate`]: show }"
         name="right"
       ></vigour-icon>
     </div>
@@ -52,15 +54,15 @@ export default {
     &-icon {
       margin-left: auto;
       transition: all 300ms;
-
-      &-rotate {
-        transform: rotate(90deg);
-      }
     }
   }
 
   &-content {
     padding: $padding;
+  }
+
+  &-show &-title-icon {
+    transform: rotate(90deg);
   }
 }
 </style>
