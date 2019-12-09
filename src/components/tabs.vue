@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs">
+  <div class="vigour-tabs" :class="{ isVertical }">
     <slot></slot>
   </div>
 </template>
@@ -26,6 +26,9 @@ export default {
       eventBus: new Vue(),
     };
   },
+  computed: {
+    isVertical() { return this.direction === 'vertical'; },
+  },
   provide() {
     return {
       eventBus: this.eventBus,
@@ -50,3 +53,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.vigour-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.isVertical {
+  flex-direction: row;
+}
+</style>

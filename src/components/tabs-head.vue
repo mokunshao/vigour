@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs-head">
+  <div class="vigour-tabs-head" :class="{ isVertical }">
     <slot></slot>
     <div class="vigour-tabs-head-underline" ref="underline"></div>
     <div class="vigour-tabs-head-actions">
@@ -14,11 +14,21 @@ export default {
   inject: ['eventBus'],
   mounted() {
     this.eventBus.$on('update:selected', (selected, vm) => {
+      if (this.isVertical) {
+        const height = vm.$el.offsetHeight;
+        const top = vm.$el.offsetTop;
+        this.$refs.underline.style.height = `${height}px`;
+        this.$refs.underline.style.top = `${top}px`;
+        return;
+      }
       const width = vm.$el.offsetWidth;
       const left = vm.$el.offsetLeft;
       this.$refs.underline.style.left = `${left}px`;
       this.$refs.underline.style.width = `${width}px`;
     });
+  },
+  computed: {
+    isVertical() { return this.$parent.direction === 'vertical'; },
   },
 };
 </script>
@@ -39,6 +49,17 @@ export default {
     margin-left: auto;
     display: flex;
     align-items: center;
+  }
+}
+
+.isVertical {
+  flex-direction: column;
+
+  .vigour-tabs-head-underline {
+    bottom: auto;
+    border-bottom: none;
+    right: 0;
+    border-right: 3px solid black;
   }
 }
 </style>

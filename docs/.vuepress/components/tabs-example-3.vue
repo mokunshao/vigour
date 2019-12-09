@@ -1,10 +1,10 @@
 <template>
   <div>
-    <vigour-tabs :selected.sync="tab" direction="horizontal">
+    <vigour-tabs :selected.sync="tab" direction="vertical">
       <vigour-tabs-head>
-        <template v-slot:actions>
+        <!-- <template v-slot:actions>
           <vigour-button>test</vigour-button>
-        </template>
+        </template> -->
         <vigour-tabs-item name="tab1">tab 1</vigour-tabs-item>
         <vigour-tabs-item name="tab2">tab 2</vigour-tabs-item>
         <vigour-tabs-item name="tab3" disabled>tab 3</vigour-tabs-item>
