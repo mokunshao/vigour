@@ -22,6 +22,7 @@ module.exports = {
           '/components/grid',
           '/components/layout',
           '/components/checkbox',
+          '/components/radio',
         ]
       },
     ],

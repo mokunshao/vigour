@@ -161,19 +161,6 @@
       <div>123</div>
     </div>
     <div v-if="false">
-      <vigour-radio label="one" v-model="radioValue">one</vigour-radio>
-      <vigour-radio label="two" v-model="radioValue">two</vigour-radio>
-      <vigour-radio label="three" disabled v-model="radioValue"
-        >three</vigour-radio
-      >
-      <div>{{ radioValue }}</div>
-      <vigour-radio-group v-model="radioValue2">
-        <vigour-radio label="male">male</vigour-radio>
-        <vigour-radio label="female">female</vigour-radio>
-      </vigour-radio-group>
-      {{ radioValue2 }}
-    </div>
-    <div v-if="false">
       <vigour-toggle v-model="toggleValue">text</vigour-toggle>
       <vigour-toggle v-model="toggleValue" disabled>text</vigour-toggle>
     </div>
@@ -248,8 +235,6 @@ export default {
       selected: [],
       options2: [],
       selected2: [],
-      radioValue: 'two',
-      radioValue2: 'female',
       toggleValue: true,
       dialogVisable: true,
     };
