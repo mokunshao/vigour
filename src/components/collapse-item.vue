@@ -14,9 +14,10 @@
       name="expand"
       @beforeEnter="beforeEnter"
       @enter="enter"
+      @beforeLeave="beforeLeave"
       @leave="leave"
     >
-      <div class="vigour-collapse-item-content" v-show="show">
+      <div class="vigour-collapse-item-content" v-show="show" ref="content">
         <slot></slot>
       </div>
     </transition>
@@ -41,12 +42,21 @@ export default {
       return this.$parent.$props.value.includes(this.title);
     },
   },
+  mounted() {
+    const el = this.$refs.content;
+    if (this.show) {
+      el.style.height = `${el.scrollHeight}px`;
+    }
+  },
   methods: {
     click() { this.$emit('click', this.title); },
     beforeEnter(el) {
       el.style.height = '0';
     },
     enter(el) {
+      el.style.height = `${el.scrollHeight}px`;
+    },
+    beforeLeave(el) {
       el.style.height = `${el.scrollHeight}px`;
     },
     leave(el) {
