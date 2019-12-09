@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vigour-tabs :selected.sync="tab" direction="horizontal">
+    <vigour-tabs :selected.sync="tab" direction="vertical">
       <vigour-tabs-head>
         <template v-slot:actions>
           <vigour-button>Button</vigour-button>
