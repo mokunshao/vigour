@@ -46,12 +46,8 @@ export default {
 @import "../common.scss";
 
 .vigour-collapse {
-  border: 1px solid $color1;
-  border-radius: $border-radius;
-
-  &-item:first-child &-item-title {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-  }
+  border-bottom: 1px solid $black2;
+  border-left: 1px solid $black2;
+  border-right: 1px solid $black2;
 }
 </style>

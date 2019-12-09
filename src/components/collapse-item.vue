@@ -2,6 +2,11 @@
   <div class="vigour-collapse-item">
     <div class="vigour-collapse-item-title" @click="click">
       {{ title }}
+      <vigour-icon
+        class="vigour-collapse-item-title-icon"
+        :class="{ [`vigour-collapse-item-title-icon-rotate`]: show }"
+        name="right"
+      ></vigour-icon>
     </div>
     <div class="vigour-collapse-item-content" v-show="show">
       <slot></slot>
@@ -10,8 +15,13 @@
 </template>
 
 <script>
+import icon from './icon.vue';
+
 export default {
   name: 'vigour-collapse-item',
+  components: {
+    [icon.name]: icon,
+  },
   props: {
     title: {
       type: String,
@@ -33,15 +43,20 @@ export default {
 
 .vigour-collapse-item {
   &-title {
-    border: 1px solid $color1;
-    background-color: $color3;
-    color: white;
-    margin-top: -1px;
-    margin-right: -1px;
-    margin-left: -1px;
-    margin-bottom: -1px;
+    border-top: 1px solid $black2;
     padding: $padding;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      margin-left: auto;
+      transition: all 300ms;
+
+      &-rotate {
+        transform: rotate(90deg);
+      }
+    }
   }
 
   &-content {
