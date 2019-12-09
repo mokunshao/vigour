@@ -1,5 +1,8 @@
 <template>
-  <div class="vigour-tabs-head" :class="{ isVertical }">
+  <div
+    class="vigour-tabs-head"
+    :class="{ [`vigour-tabs-head-vertical`]: isVertical }"
+  >
     <slot></slot>
     <div class="vigour-tabs-head-underline" ref="underline"></div>
     <div class="vigour-tabs-head-actions">
@@ -37,6 +40,7 @@ export default {
 .vigour-tabs-head {
   display: flex;
   position: relative;
+  flex-direction: row;
 
   &-underline {
     position: absolute;
@@ -50,12 +54,12 @@ export default {
     display: flex;
     align-items: center;
   }
-}
 
-.isVertical {
-  flex-direction: column;
+  &-vertical {
+    flex-direction: column;
+  }
 
-  .vigour-tabs-head-underline {
+  &-vertical &-underline {
     bottom: auto;
     border-bottom: none;
     right: 0;

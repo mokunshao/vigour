@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-tabs" :class="{ isVertical }">
+  <div class="vigour-tabs" :class="{ [`vigour-tabs-vertical`]: isVertical }">
     <slot></slot>
   </div>
 </template>
@@ -58,9 +58,9 @@ export default {
 .vigour-tabs {
   display: flex;
   flex-direction: column;
-}
 
-.isVertical {
-  flex-direction: row;
+  &-vertical {
+    flex-direction: row;
+  }
 }
 </style>
