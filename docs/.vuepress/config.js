@@ -23,6 +23,7 @@ module.exports = {
           '/components/layout',
           '/components/checkbox',
           '/components/radio',
+          '/components/toast',
         ]
       },
     ],
