@@ -63,29 +63,35 @@ export default {
         this.close();
       }
     },
+    handleEvent(visible) {
+      if (visible) {
+        if (this.preventBackgroundScrolling) {
+          document.body.style.setProperty('overflow', 'hidden');
+        }
+        if (this.closeOnEsc) {
+          document.addEventListener('keydown', this.EscapeHandler);
+        }
+      }
+      if (!visible) {
+        if (this.preventBackgroundScrolling) {
+          document.body.style.removeProperty('overflow');
+        }
+        if (this.closeOnEsc) {
+          document.removeEventListener('keydown', this.EscapeHandler);
+        }
+      }
+    },
   },
   destroyed() {
     document.removeEventListener('keydown', this.EscapeHandler);
   },
+  mounted() {
+    this.handleEvent(this.visible);
+  },
   watch: {
     visible: {
-      immediate: true,
       handler(visible) {
-        if (visible) {
-          if (this.preventBackgroundScrolling) {
-            document.body.style.setProperty('overflow', 'hidden');
-          }
-          if (this.closeOnEsc) {
-            document.addEventListener('keydown', this.EscapeHandler);
-          }
-        } else {
-          if (this.preventBackgroundScrolling) {
-            document.body.style.removeProperty('overflow');
-          }
-          if (this.closeOnEsc) {
-            document.removeEventListener('keydown', this.EscapeHandler);
-          }
-        }
+        this.handleEvent(visible);
       },
     },
   },
