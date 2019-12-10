@@ -84,6 +84,29 @@ title: Dialog
 </vigour-dialog>
 ```
 
+### Custom Footer
+
+<dialog-example-7></dialog-example-7>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog :visible.sync="dialogVisable">
+  <div>hello world</div>
+  <template v-slot:footer>
+    <div>
+      <vigour-button @click="dialogVisable = !dialogVisable"
+        >Yes</vigour-button
+      >
+      <vigour-button @click="dialogVisable = !dialogVisable"
+        >No</vigour-button
+      >
+    </div>
+  </template>
+</vigour-dialog>
+```
+
 ## Props
 
 | prop | type | default value | available value|
