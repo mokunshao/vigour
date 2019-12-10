@@ -28,6 +28,7 @@ module.exports = {
           '/components/popover',
           '/components/collapse',
           '/components/toggle',
+          '/components/dialog',
         ]
       },
     ],

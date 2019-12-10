@@ -18,22 +18,11 @@
         >show notification2</vigour-button
       >
     </div>
-    <div v-if="false">
-      <vigour-button @click="dialogVisable = !dialogVisable"
-        >show/hide dialog</vigour-button
-      >
-      <vigour-dialog :visible.sync="dialogVisable">
-        <div>hello world</div>
-      </vigour-dialog>
-    </div>
   </div>
 </template>
 
 <script>
 import cascader from './components/cascader.vue';
-import radio from './components/radio.vue';
-import radioGroup from './components/radio-group.vue';
-import toggle from './components/toggle.vue';
 import dialog from './components/dialog.vue';
 
 import cityList from './components/data.json';
@@ -53,9 +42,6 @@ export default {
   name: 'app',
   components: {
     [cascader.name]: cascader,
-    [radio.name]: radio,
-    [radioGroup.name]: radioGroup,
-    [toggle.name]: toggle,
     [dialog.name]: dialog,
   },
   data() {
