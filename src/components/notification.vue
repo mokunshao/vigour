@@ -6,12 +6,17 @@
       :key="item.id"
     >
       {{ item.content }}
-      <button @click="remove(item.id)">close</button>
+      <vigour-button
+        class="vigour-notification-content-button"
+        @click="remove(item.id)"
+        >close</vigour-button
+      >
     </div>
   </div>
 </template>
 
 <script>
+import button from './button.vue';
 
 let id = 0;
 
@@ -23,6 +28,9 @@ function getId() {
 
 export default {
   name: 'vigour-notification',
+  components: {
+    [button.name]: button,
+  },
   data() {
     return {
       list: [],
@@ -70,6 +78,12 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    display: flex;
+    align-items: center;
+
+    &-button {
+      margin-left: 0.5em;
+    }
   }
 }
 </style>
