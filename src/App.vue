@@ -11,10 +11,7 @@
       </vigour-cascader>
       <div>123</div>
     </div>
-    <div v-if="false">
-      <vigour-toggle v-model="toggleValue">text</vigour-toggle>
-      <vigour-toggle v-model="toggleValue" disabled>text</vigour-toggle>
-    </div>
+
     <div v-if="false">
       <vigour-button @click="showNotification">show notification</vigour-button>
       <vigour-button @click="showNotification2"
@@ -33,9 +30,6 @@
 </template>
 
 <script>
-import popover from './components/popover.vue';
-import collapse from './components/collapse.vue';
-import collapseItem from './components/collapse-item.vue';
 import cascader from './components/cascader.vue';
 import radio from './components/radio.vue';
 import radioGroup from './components/radio-group.vue';
@@ -58,9 +52,6 @@ export default {
   },
   name: 'app',
   components: {
-    [popover.name]: popover,
-    [collapse.name]: collapse,
-    [collapseItem.name]: collapseItem,
     [cascader.name]: cascader,
     [radio.name]: radio,
     [radioGroup.name]: radioGroup,
@@ -73,7 +64,6 @@ export default {
       selected: [],
       options2: [],
       selected2: [],
-      toggleValue: true,
       dialogVisable: true,
     };
   },
