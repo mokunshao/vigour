@@ -29,6 +29,7 @@ module.exports = {
           '/components/collapse',
           '/components/toggle',
           '/components/dialog',
+          '/components/notification',
         ]
       },
     ],
