@@ -44,14 +44,21 @@ export default {
     }
   },
   destroyed() {
+    document.removeEventListener('click', this.clickOutside);
     if (this.trigger === 'click') {
-      this.$refs.trigger.removeEventListener('click', this.click);
+      if (this.$refs.trigger) {
+        this.$refs.trigger.removeEventListener('click', this.click);
+      }
     }
     if (this.trigger === 'hover') {
-      this.$refs.trigger.removeEventListener('mouseenter', this.mouseenter);
-      this.$refs.trigger.removeEventListener('mouseleave', this.mouseleave);
-      this.$refs.content.removeEventListener('mouseenter', this.contentMouseenter);
-      this.$refs.content.removeEventListener('mouseleave', this.contentMouseleave);
+      if (this.$refs.trigger) {
+        this.$refs.trigger.removeEventListener('mouseenter', this.mouseenter);
+        this.$refs.trigger.removeEventListener('mouseleave', this.mouseleave);
+      }
+      if (this.$refs.content) {
+        this.$refs.content.removeEventListener('mouseenter', this.contentMouseenter);
+        this.$refs.content.removeEventListener('mouseleave', this.contentMouseleave);
+      }
     }
   },
   methods: {
