@@ -4,7 +4,7 @@ title: Getting Started
 
 # Introduction
 
-Vigour - A UI components libaray based on Vue 2.x .
+Vigour - A UI components libaray based on Vue 2.x . It's SSR Friendly.
 
 # Installation
 
