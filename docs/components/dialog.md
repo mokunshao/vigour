@@ -10,7 +10,7 @@ title: Dialog
 
 <dialog-example-1></dialog-example-1>
 
-```vue
+```html
 <vigour-button @click="dialogVisable = !dialogVisable"
   >show/hide dialog</vigour-button
 >
@@ -19,9 +19,70 @@ title: Dialog
 </vigour-dialog>
 ```
 
-## No Mask
+### No Mask
 
 <dialog-example-2></dialog-example-2>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog :visible.sync="dialogVisable" :mask="false">
+  <div>hello world</div>
+</vigour-dialog>
+```
+
+### Don't Close When Clicked the Mask
+
+<dialog-example-3></dialog-example-3>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog :visible.sync="dialogVisable" :closeOnClickMask="false">
+  <div>hello world</div>
+</vigour-dialog>
+```
+
+### Don't Close When 'ESC' Key is Pressed
+
+<dialog-example-4></dialog-example-4>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog :visible.sync="dialogVisable" :closeOnEsc="false">
+  <div>hello world</div>
+</vigour-dialog>
+```
+
+### Prevent Background Scrolling
+
+<dialog-example-5></dialog-example-5>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog :visible.sync="dialogVisable" preventBackgroundScrolling>
+  <div>hello world</div>
+</vigour-dialog>
+```
+
+### Add Title
+
+<dialog-example-6></dialog-example-6>
+
+```html
+<vigour-button @click="dialogVisable = !dialogVisable"
+  >show/hide dialog</vigour-button
+>
+<vigour-dialog title="Attention" :visible.sync="dialogVisable">
+  <div>hello world</div>
+</vigour-dialog>
+```
 
 ## Props
 
