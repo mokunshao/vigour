@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-    <div v-if="false">
-      <vigour-cascader v-model="selected" :options="options"> </vigour-cascader>
+    <div v-if="true">
+      <vigour-cascader
+        placeholder="选择地点"
+        v-model="selected"
+        :options="options"
+      >
+      </vigour-cascader>
       <div>123</div>
       <vigour-cascader
+        placeholder="选择地点"
         v-model="selected2"
         :options.sync="options2"
         :lazyload="lazyload"
@@ -23,7 +29,6 @@
 
 <script>
 import cascader from './components/cascader.vue';
-import dialog from './components/dialog.vue';
 
 import cityList from './components/data.json';
 
@@ -42,7 +47,6 @@ export default {
   name: 'app',
   components: {
     [cascader.name]: cascader,
-    [dialog.name]: dialog,
   },
   data() {
     return {

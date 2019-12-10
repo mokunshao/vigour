@@ -1,7 +1,15 @@
 <template>
   <div class="vigour-cascader" v-click-outside="close">
     <div class="vigour-cascader-trigger" @click="toggle">
-      <input type="text" :value="result" readonly />
+      <vigour-input
+        type="text"
+        :value="result"
+        readonly
+        clearable
+        @input="clearInput"
+        v-bind="$attrs"
+        v-on="$listeners"
+      />
     </div>
     <div class="vigour-cascader-content-wrapper" v-if="visible">
       <vigour-cascader-content
@@ -16,10 +24,14 @@
 
 <script>
 import cascaderContent from './cascader-content.vue';
+import input from './input.vue';
 
 export default {
   name: 'vigour-cascader',
-  components: { [cascaderContent.name]: cascaderContent },
+  components: {
+    [cascaderContent.name]: cascaderContent,
+    [input.name]: input,
+  },
   props: {
     options: {
       type: Array,
@@ -39,6 +51,9 @@ export default {
     };
   },
   methods: {
+    clearInput() {
+      this.$emit('input', []);
+    },
     close() {
       this.visible = false;
     },
@@ -101,16 +116,13 @@ export default {
   position: relative;
   display: inline-flex;
 
-  &-trigger {
-    border: 1px solid black;
-  }
-
   &-content-wrapper {
+    box-shadow: $box-shadow;
     top: 100%;
     width: max-content;
     position: absolute;
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
   }
 }
 </style>

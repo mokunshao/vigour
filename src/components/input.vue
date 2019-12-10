@@ -81,8 +81,7 @@ export default {
     background-color: $grey;
   }
 
-  &[disabled],
-  &:read-only {
+  &[disabled] {
     cursor: not-allowed;
     background-color: $grey;
     border-color: $grey;
