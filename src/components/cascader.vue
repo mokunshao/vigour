@@ -6,9 +6,13 @@
         :value="result"
         readonly
         clearable
-        @input="clearInput"
         v-bind="$attrs"
-        v-on="$listeners"
+        v-on="{
+          ...$listeners,
+          input() {
+            clearInput();
+          }
+        }"
       />
     </div>
     <div class="vigour-cascader-content-wrapper" v-if="visible">
