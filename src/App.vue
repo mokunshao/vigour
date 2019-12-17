@@ -41,7 +41,15 @@
       </vigour-dropdown>
     </div>
     <div>
-      <vigour-formatted-input template="xxx-xxx-xxx"></vigour-formatted-input>
+      <vigour-formatted-input></vigour-formatted-input>
+      <br />
+      <vigour-formatted-input
+        template="XXX.XXX.XXX.XXX"
+      ></vigour-formatted-input>
+      <br />
+      <vigour-formatted-input
+        template="XXX-XXX-XXX-XXX"
+      ></vigour-formatted-input>
     </div>
     <div></div>
   </div>

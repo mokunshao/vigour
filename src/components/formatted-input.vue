@@ -1,6 +1,10 @@
 <template>
   <div class="vigour-formatted-input">
-    <vigour-input :placeholder="template" v-model="number2"></vigour-input>
+    <vigour-input
+      :placeholder="template"
+      v-model="number2"
+      clearable
+    ></vigour-input>
   </div>
 </template>
 
@@ -12,7 +16,7 @@ export default {
   props: {
     template: {
       type: String,
-      default() { return 'xxx-xxx-xxx-xxx'; },
+      default() { return 'XXXX XXXX XXXX XXXX'; },
     },
   },
   data() {
@@ -21,9 +25,30 @@ export default {
     };
   },
   computed: {
+    format() {
+      let x = 1;
+      return this.template.replace(/X+/g, () => {
+        const y = x;
+        x += 1;
+        return `$${y}`;
+      });
+    },
+    regex() {
+      let regex = '^';
+      this.template.match(/X+/g).forEach((value) => {
+        regex += `(\\d{${value.length}})?`;
+      });
+      return regex;
+    },
+    theRegex() {
+      return new RegExp(this.regex, 'g');
+    },
     number2: {
       get() {
-        return this.number.replace(/[^(0-9)]/g, '');
+        if (this.number === '') return '';
+        return this.number.replace(/[^0-9]/g, '')
+          .replace(this.theRegex, this.format)
+          .substr(0, this.template.length);
       },
       set(value) {
         this.number = value;
