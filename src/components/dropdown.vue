@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div class="vigour-dropdown-content" v-if="contentVisible" ref="content">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
   </div>
 </template>
@@ -16,14 +16,19 @@ export default {
   destroyed() {
     if (this.contentVisible) {
       this.removeClickEvent();
+      this.removeEscEvent();
     }
   },
   watch: {
     contentVisible(visible) {
       if (visible) {
         this.addClickEvent();
+        this.addKeyEscEvent();
+        this.addScrollEvent();
       } else {
         this.removeClickEvent();
+        this.removeEscEvent();
+        this.removeScrollEvent();
       }
     },
   },
@@ -36,15 +41,21 @@ export default {
     triggerElement() {
       return this.$refs.trigger;
     },
-    triggerElementPosition() {
-      return this.triggerElement.getBoundingClientRect();
-    },
     contentElement() {
       return this.$refs.content;
     },
   },
   methods: {
-    when2Close(e) {
+    scrollEvent() {
+      this.setPosition();
+    },
+    addScrollEvent() {
+      document.addEventListener('scroll', this.scrollEvent);
+    },
+    removeScrollEvent() {
+      document.removeEventListener('scroll', this.scrollEvent);
+    },
+    clickEvent(e) {
       const { target } = e;
       const a = this.contentElement && this.contentElement.contains(target);
       const b = this.triggerElement.contains(target);
@@ -53,16 +64,19 @@ export default {
       }
     },
     addClickEvent() {
-      document.addEventListener('click', this.when2Close);
+      document.addEventListener('click', this.clickEvent);
     },
     removeClickEvent() {
-      document.removeEventListener('click', this.when2Close);
+      document.removeEventListener('click', this.clickEvent);
     },
     addKeyEscEvent() {
       document.addEventListener('keydown', this.escEvent);
     },
+    removeEscEvent() {
+      document.removeEventListener('keydown', this.escEvent);
+    },
     escEvent(e) {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && this.contentVisible) {
         this.close();
       }
     },
@@ -79,9 +93,20 @@ export default {
       this.open();
       this.$nextTick(() => {
         document.body.appendChild(this.contentElement);
-        this.contentElement.style.top = `${this.triggerElementPosition.top + this.triggerElementPosition.height + 5}px`;
-        this.contentElement.style.minWidth = `${this.triggerElementPosition.width}px`;
+        this.setWidth();
+        this.setPosition();
       });
+    },
+    setWidth() {
+      const { style } = this.contentElement;
+      const triggerElementPosition = this.triggerElement.getBoundingClientRect();
+      style.minWidth = `${triggerElementPosition.width}px`;
+    },
+    setPosition() {
+      const { style } = this.contentElement;
+      const triggerElementPosition = this.triggerElement.getBoundingClientRect();
+      style.top = `${triggerElementPosition.top + triggerElementPosition.height}px`;
+      style.left = `${triggerElementPosition.left}px`;
     },
   },
 };
@@ -91,7 +116,6 @@ export default {
 @import "../common.scss";
 
 .vigour-dropdown {
-  border: 1px solid red;
   display: inline-flex;
 
   &-trigger {
@@ -102,7 +126,6 @@ export default {
     position: fixed;
     background-color: white;
     box-shadow: $box-shadow;
-    border: 1px solid black;
   }
 }
 </style>

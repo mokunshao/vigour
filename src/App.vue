@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
     <div v-if="false">
       <vigour-cascader
         placeholder="选择地点"
@@ -19,9 +19,23 @@
     </div>
     <div>
       <vigour-dropdown>
-        21212
-        <template #content>
-          1212212121212212
+        <button>options</button>
+        <template #content="{close}">
+          <div
+            style="border-bottom: 1px solid red;"
+            v-for="i in 4"
+            :key="i"
+            @click="close"
+          >
+            {{ i }}
+          </div>
+        </template>
+      </vigour-dropdown>
+      <br />
+      <vigour-dropdown>
+        <button>options</button>
+        <template #content="{close}">
+          <h1>hello world</h1>
         </template>
       </vigour-dropdown>
     </div>
