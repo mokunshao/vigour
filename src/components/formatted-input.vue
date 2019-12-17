@@ -1,10 +1,11 @@
 <template>
   <div class="vigour-formatted-input">
-    <vigour-input
+    <input
       :placeholder="template"
-      v-model="number2"
-      clearable
-    ></vigour-input>
+      :value="number2"
+      ref="input"
+      @input="input"
+    />
   </div>
 </template>
 
@@ -19,6 +20,21 @@ export default {
       default() { return 'XXXX XXXX XXXX XXXX'; },
     },
     value: {},
+  },
+  methods: {
+    input(e) {
+      const { value } = e.target;
+      let result;
+      if (value.trim() === '') {
+        result = '';
+      } else {
+        result = value.replace(/[^0-9]/g, '')
+          .replace(this.theRegex, this.format)
+          .substr(0, this.template.length);
+      }
+      this.$refs.input.value = result;
+      // this.$emit('input', result);
+    },
   },
   computed: {
     format() {
@@ -44,16 +60,7 @@ export default {
         return this.value;
       },
       set(value) {
-        let temp;
-        if (value.trim() === '') {
-          temp = '';
-        } else {
-          temp = value.replace(/[^0-9]/g, '')
-            .replace(this.theRegex, this.format)
-            .substr(0, this.template.length);
-          console.log(temp);
-        }
-        this.$emit('input', temp);
+        this.$emit('input', value);
       },
     },
   },
