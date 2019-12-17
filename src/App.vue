@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="true">
+    <div v-if="false">
       <vigour-cascader
         placeholder="选择地点"
         v-model="selected"
@@ -17,13 +17,21 @@
       </vigour-cascader>
       <div>123</div>
     </div>
+    <div>
+      <vigour-dropdown>
+        21212
+        <template #content>
+          1212212121212212
+        </template>
+      </vigour-dropdown>
+    </div>
   </div>
 </template>
 
 <script>
 import cascader from './components/cascader.vue';
-
 import cityList from './components/data.json';
+import dropdown from './components/dropdown.vue';
 
 function fetchData(pid) {
   return new Promise((resolve) => {
@@ -40,6 +48,7 @@ export default {
   name: 'app',
   components: {
     [cascader.name]: cascader,
+    [dropdown.name]: dropdown,
   },
   data() {
     return {
