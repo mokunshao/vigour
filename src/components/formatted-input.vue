@@ -1,10 +1,11 @@
 <template>
   <div class="vigour-formatted-input">
-    <input
+    <vigour-input
       :placeholder="template"
       :value="number2"
       ref="input"
       @input="input"
+      clearable
     />
   </div>
 </template>
@@ -22,8 +23,9 @@ export default {
     value: {},
   },
   methods: {
-    input(e) {
-      const { value } = e.target;
+    input(v) {
+      const inputElement = this.$refs.input.$el.querySelector('.vigour-input');
+      const value = v;
       let result;
       if (value.trim() === '') {
         result = '';
@@ -32,8 +34,8 @@ export default {
           .replace(this.theRegex, this.format)
           .substr(0, this.template.length);
       }
-      this.$refs.input.value = result;
-      // this.$emit('input', result);
+      inputElement.value = result;
+      this.$emit('input', result);
     },
   },
   computed: {
