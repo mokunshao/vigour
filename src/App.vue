@@ -1,5 +1,6 @@
 <template>
-  <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
+  <!-- <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;"> -->
+  <div id="app">
     <div v-if="false">
       <vigour-cascader
         placeholder="选择地点"
@@ -17,7 +18,7 @@
       </vigour-cascader>
       <div>123</div>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-dropdown>
         <button>options</button>
         <template #content="{close}">
@@ -39,6 +40,10 @@
         </template>
       </vigour-dropdown>
     </div>
+    <div>
+      <vigour-formatted-input template="xxx-xxx-xxx"></vigour-formatted-input>
+    </div>
+    <div></div>
   </div>
 </template>
 
@@ -46,6 +51,7 @@
 import cascader from './components/cascader.vue';
 import cityList from './components/data.json';
 import dropdown from './components/dropdown.vue';
+import formattedInput from './components/formatted-input.vue';
 
 function fetchData(pid) {
   return new Promise((resolve) => {
@@ -63,6 +69,7 @@ export default {
   components: {
     [cascader.name]: cascader,
     [dropdown.name]: dropdown,
+    [formattedInput.name]: formattedInput,
   },
   data() {
     return {
