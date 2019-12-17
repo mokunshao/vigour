@@ -1,6 +1,6 @@
 <template>
   <div class="vigour-dropdown">
-    <div ref="trigger" class="vigour-dropdown-trigger" @click="click">
+    <div ref="trigger" class="vigour-dropdown-trigger" @click="toggle">
       <slot></slot>
     </div>
     <div class="vigour-dropdown-content" v-if="contentVisible" ref="content">
@@ -22,6 +22,9 @@ export default {
   watch: {
     contentVisible(visible) {
       if (visible) {
+        this.$nextTick(() => {
+          this.appendChild();
+        });
         this.bindAllEvent();
       } else {
         this.removeAllEvent();
@@ -38,7 +41,7 @@ export default {
       return this.$refs.trigger;
     },
     contentElement() {
-      return this.$refs.content;
+      return this.$refs.contentt;
     },
   },
   methods: {
@@ -63,8 +66,8 @@ export default {
     },
     clickEvent(e) {
       const { target } = e;
-      const a = this.contentElement && this.contentElement.contains(target);
-      const b = this.triggerElement.contains(target);
+      const a = this.$refs.content && this.$refs.content.contains(target);
+      const b = this.$refs.trigger.contains(target);
       if (!(a || b)) {
         this.close();
       }
@@ -89,28 +92,29 @@ export default {
     open() {
       this.contentVisible = true;
     },
+    appendChild() {
+      document.body.appendChild(this.$refs.content);
+      this.setWidth();
+      this.setPosition();
+    },
     close() {
       this.contentVisible = false;
-      if (this.contentElement) {
-        document.body.removeChild(this.contentElement);
+    },
+    toggle() {
+      if (this.contentVisible) {
+        this.close();
+      } else {
+        this.open();
       }
     },
-    click() {
-      this.open();
-      this.$nextTick(() => {
-        document.body.appendChild(this.contentElement);
-        this.setWidth();
-        this.setPosition();
-      });
-    },
     setWidth() {
-      const { style } = this.contentElement;
-      const triggerElementPosition = this.triggerElement.getBoundingClientRect();
+      const { style } = this.$refs.content;
+      const triggerElementPosition = this.$refs.trigger.getBoundingClientRect();
       style.minWidth = `${triggerElementPosition.width}px`;
     },
     setPosition() {
-      const { style } = this.contentElement;
-      const triggerElementPosition = this.triggerElement.getBoundingClientRect();
+      const { style } = this.$refs.content;
+      const triggerElementPosition = this.$refs.trigger.getBoundingClientRect();
       style.top = `${triggerElementPosition.top + triggerElementPosition.height}px`;
       style.left = `${triggerElementPosition.left}px`;
     },
