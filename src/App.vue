@@ -41,13 +41,15 @@
       </vigour-dropdown>
     </div>
     <div>
-      <vigour-formatted-input></vigour-formatted-input>
+      <vigour-formatted-input v-model="n1"></vigour-formatted-input>
       <br />
       <vigour-formatted-input
+        v-model="n2"
         template="XXX.XXX.XXX.XXX"
       ></vigour-formatted-input>
       <br />
       <vigour-formatted-input
+        v-model="n3"
         template="XXX-XXX-XXX-XXX"
       ></vigour-formatted-input>
     </div>
@@ -86,6 +88,9 @@ export default {
       options2: [],
       selected2: [],
       dialogVisable: true,
+      n1: '121211212',
+      n2: '',
+      n3: '',
     };
   },
   methods: {

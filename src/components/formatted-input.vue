@@ -18,11 +18,7 @@ export default {
       type: String,
       default() { return 'XXXX XXXX XXXX XXXX'; },
     },
-  },
-  data() {
-    return {
-      number: '',
-    };
+    value: {},
   },
   computed: {
     format() {
@@ -45,13 +41,19 @@ export default {
     },
     number2: {
       get() {
-        if (this.number === '') return '';
-        return this.number.replace(/[^0-9]/g, '')
-          .replace(this.theRegex, this.format)
-          .substr(0, this.template.length);
+        return this.value;
       },
       set(value) {
-        this.number = value;
+        let temp;
+        if (value.trim() === '') {
+          temp = '';
+        } else {
+          temp = value.replace(/[^0-9]/g, '')
+            .replace(this.theRegex, this.format)
+            .substr(0, this.template.length);
+          console.log(temp);
+        }
+        this.$emit('input', temp);
       },
     },
   },
