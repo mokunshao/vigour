@@ -22,13 +22,9 @@ export default {
   watch: {
     contentVisible(visible) {
       if (visible) {
-        this.addClickEvent();
-        this.addKeyEscEvent();
-        this.addScrollEvent();
+        this.bindAllEvent();
       } else {
-        this.removeClickEvent();
-        this.removeEscEvent();
-        this.removeScrollEvent();
+        this.removeAllEvent();
       }
     },
   },
@@ -46,6 +42,16 @@ export default {
     },
   },
   methods: {
+    bindAllEvent() {
+      this.addClickEvent();
+      this.addKeyEscEvent();
+      this.addScrollEvent();
+    },
+    removeAllEvent() {
+      this.removeClickEvent();
+      this.removeEscEvent();
+      this.removeScrollEvent();
+    },
     scrollEvent() {
       this.setPosition();
     },
