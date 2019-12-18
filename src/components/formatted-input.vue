@@ -42,11 +42,13 @@ export default {
   },
   methods: {
     dataTransfer(origin) {
+      origin = origin.replace(/[^0-9]/g, '');
+
       if (origin.trim() === '') return '';
 
       if (origin.length < this.matches[0].length) return origin;
 
-      const result = origin.replace(/[^0-9]/g, '')
+      const result = origin
         .replace(this.theRegex, this.format)
         .substr(0, this.template.length);
 
