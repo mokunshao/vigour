@@ -1,7 +1,7 @@
 <template>
-  <!-- <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;"> -->
-  <div id="app">
-    <div v-if="false">
+  <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
+    <!-- <div id="app"> -->
+    <div v-if="true">
       <vigour-cascader
         placeholder="选择地点"
         v-model="selected"
@@ -40,7 +40,7 @@
         </template>
       </vigour-dropdown>
     </div>
-    <div>
+    <div v-if="false">
       <vigour-formatted-input v-model="n1"></vigour-formatted-input>
       <br />
       <vigour-formatted-input

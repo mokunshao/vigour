@@ -1,6 +1,6 @@
 <template>
   <div class="vigour-cascader" v-click-outside="close">
-    <div class="vigour-cascader-trigger" @click="toggle">
+    <div class="vigour-cascader-trigger" ref="trigger" @click="toggle">
       <vigour-input
         type="text"
         :value="result"
@@ -15,7 +15,7 @@
         }"
       />
     </div>
-    <div class="vigour-cascader-content-wrapper" v-if="visible">
+    <div class="vigour-cascader-content-wrapper" ref="content" v-if="visible">
       <vigour-cascader-content
         :options="options"
         :value="value"
@@ -32,6 +32,7 @@ import input from './input.vue';
 
 export default {
   name: 'vigour-cascader',
+  inheritAttrs: false,
   components: {
     [cascaderContent.name]: cascaderContent,
     [input.name]: input,
@@ -58,11 +59,27 @@ export default {
     clearInput() {
       this.$emit('input', []);
     },
+    setPosition() {
+      this.$nextTick(() => {
+        document.body.appendChild(this.$refs.content);
+        const { left, top, height } = this.$refs.trigger.getBoundingClientRect();
+        this.$refs.content.style.left = `${left + window.scrollX}px`;
+        this.$refs.content.style.top = `${top + height + window.scrollY}px`;
+      });
+    },
+    open() {
+      this.visible = true;
+      this.setPosition();
+    },
     close() {
       this.visible = false;
     },
     toggle() {
-      this.visible = !this.visible;
+      if (this.visible) {
+        this.close();
+      } else {
+        this.open();
+      }
     },
     appendChildren(id, children) {
       const optionsCopy = JSON.parse(JSON.stringify(this.options));
@@ -122,7 +139,6 @@ export default {
 
   &-content-wrapper {
     box-shadow: $box-shadow;
-    top: 100%;
     width: max-content;
     position: absolute;
     background-color: white;
