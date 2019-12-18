@@ -27,16 +27,19 @@ export default {
       value2: this.value,
     };
   },
+  mounted() {
+    this.input(this.value2);
+  },
   methods: {
     dataTransfer(origin) {
-      let result;
-      if (origin.trim() === '') {
-        result = '';
-      } else {
-        result = origin.replace(/[^0-9]/g, '')
-          .replace(this.theRegex, this.format)
-          .substr(0, this.template.length);
-      }
+      if (origin.trim() === '') return '';
+
+      if (origin.length < this.matches[0].length) return origin;
+
+      const result = origin.replace(/[^0-9]/g, '')
+        .replace(this.theRegex, this.format)
+        .substr(0, this.template.length);
+
       return result;
     },
     input(value) {
@@ -48,6 +51,9 @@ export default {
     },
   },
   computed: {
+    matches() {
+      return this.template.match(/X+/g);
+    },
     format() {
       let x = 1;
       return this.template.replace(/X+/g, () => {
