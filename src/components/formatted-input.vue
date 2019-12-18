@@ -2,7 +2,7 @@
   <div class="vigour-formatted-input">
     <vigour-input
       :placeholder="template"
-      :value="value"
+      :value="value2"
       ref="input"
       @input="input"
       clearable
@@ -22,6 +22,11 @@ export default {
     },
     value: {},
   },
+  data() {
+    return {
+      value2: this.value,
+    };
+  },
   methods: {
     dataTransfer(origin) {
       let result;
@@ -38,6 +43,7 @@ export default {
       const inputElement = this.$refs.input.$el.querySelector('.vigour-input');
       const result = this.dataTransfer(value);
       inputElement.value = result;
+      this.value2 = result;
       this.$emit('input', result);
     },
   },
