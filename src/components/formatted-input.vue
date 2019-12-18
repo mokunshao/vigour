@@ -25,10 +25,20 @@ export default {
   data() {
     return {
       value2: this.value,
+      decline: false,
     };
   },
   mounted() {
     this.input(this.value2);
+  },
+  watch: {
+    value2(val, oldVal) {
+      if (val.length < oldVal.length) {
+        this.decline = true;
+      } else {
+        this.decline = false;
+      }
+    },
   },
   methods: {
     dataTransfer(origin) {
@@ -44,7 +54,12 @@ export default {
     },
     input(value) {
       const inputElement = this.$refs.input.$el.querySelector('.vigour-input');
-      const result = this.dataTransfer(value);
+      let result;
+      if (this.decline) {
+        result = value;
+      } else {
+        result = this.dataTransfer(value);
+      }
       inputElement.value = result;
       this.value2 = result;
       this.$emit('input', result);
