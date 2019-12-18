@@ -33,7 +33,7 @@ export default {
   },
   watch: {
     value2(val, oldVal) {
-      if (val.length < oldVal.length) {
+      if (val.length <= oldVal.length) {
         this.decline = true;
       } else {
         this.decline = false;
