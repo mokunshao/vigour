@@ -2,7 +2,7 @@
   <div class="vigour-formatted-input">
     <vigour-input
       :placeholder="template"
-      :value="number2"
+      :value="value"
       ref="input"
       @input="input"
       clearable
@@ -23,17 +23,20 @@ export default {
     value: {},
   },
   methods: {
-    input(v) {
-      const inputElement = this.$refs.input.$el.querySelector('.vigour-input');
-      const value = v;
+    dataTransfer(origin) {
       let result;
-      if (value.trim() === '') {
+      if (origin.trim() === '') {
         result = '';
       } else {
-        result = value.replace(/[^0-9]/g, '')
+        result = origin.replace(/[^0-9]/g, '')
           .replace(this.theRegex, this.format)
           .substr(0, this.template.length);
       }
+      return result;
+    },
+    input(value) {
+      const inputElement = this.$refs.input.$el.querySelector('.vigour-input');
+      const result = this.dataTransfer(value);
       inputElement.value = result;
       this.$emit('input', result);
     },
@@ -56,14 +59,6 @@ export default {
     },
     theRegex() {
       return new RegExp(this.regex, 'g');
-    },
-    number2: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit('input', value);
-      },
     },
   },
   components: {
