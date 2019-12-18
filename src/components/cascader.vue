@@ -1,5 +1,5 @@
 <template>
-  <div class="vigour-cascader" v-click-outside="close">
+  <div class="vigour-cascader" v-click-outside="clickOutside">
     <div class="vigour-cascader-trigger" ref="trigger" @click="toggle">
       <vigour-input
         type="text"
@@ -73,6 +73,13 @@ export default {
     },
     close() {
       this.visible = false;
+      console.log('close');
+    },
+    clickOutside() {
+      return {
+        ref: this.$refs,
+        close: this.close,
+      };
     },
     toggle() {
       if (this.visible) {
@@ -119,10 +126,11 @@ export default {
     clickOutside: {
       inserted(el, bindings) {
         document.addEventListener('click', (e) => {
-          if (e.target === el || el.contains(e.target)) {
-            return;
-          }
-          bindings.value();
+          const { ref: { content }, close } = bindings.value();
+          if (!content) return;
+          if (e.target === el || el.contains(e.target)) return;
+          if (e.target === content || content.contains(e.target)) return;
+          close();
         });
       },
     },
