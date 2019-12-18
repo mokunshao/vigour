@@ -77,7 +77,7 @@ export default {
     },
     clickOutside() {
       return {
-        ref: this.$refs,
+        refs: this.$refs,
         close: this.close,
       };
     },
@@ -125,8 +125,14 @@ export default {
   directives: {
     clickOutside: {
       inserted(el, bindings) {
+        let refs; let close;
         document.addEventListener('click', (e) => {
-          const { ref: { content }, close } = bindings.value();
+          if (!refs || !close) {
+            const { refs: r, close: c } = bindings.value();
+            refs = r;
+            close = c;
+          }
+          const { content } = refs;
           if (!content) return;
           if (e.target === el || el.contains(e.target)) return;
           if (e.target === content || content.contains(e.target)) return;
