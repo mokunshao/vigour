@@ -51,12 +51,15 @@ export default {
     },
   },
   computed: {
+    template2() {
+      return this.template.substr(0, this.value2.length);
+    },
     matches() {
       return this.template.match(/X+/g);
     },
     format() {
       let x = 1;
-      return this.template.replace(/X+/g, () => {
+      return this.template2.replace(/X+/g, () => {
         const y = x;
         x += 1;
         return `$${y}`;
