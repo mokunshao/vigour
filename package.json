@@ -2,6 +2,11 @@
   "name": "vigour",
   "version": "0.0.0",
   "description": "",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "main": "./dist/vigour.umd.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mokunshao/vigour.git"
@@ -15,7 +20,7 @@
   "homepage": "https://github.com/mokunshao/vigour#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name vigour ./src/components/index.js",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "docs:dev": "vuepress dev docs",
