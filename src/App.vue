@@ -1,31 +1,36 @@
 <template>
-  <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
-    <!-- <div id="app"> -->
+  <div>
+    <div style="margin: 0.5em 0;">
+      <vigour-formatted-input v-model="n1"></vigour-formatted-input>
+    </div>
+    <div style="margin: 0.5em 0;">
+      <vigour-formatted-input
+        v-model="n2"
+        template="XXX.XXX.XXX.XXX"
+      ></vigour-formatted-input>
+    </div>
+    <div style="margin: 0.5em 0;">
+      <vigour-formatted-input
+        v-model="n3"
+        template="XXX-XXX-XXX-XXX"
+      ></vigour-formatted-input>
+    </div>
   </div>
 </template>
 
 <script>
+import formattedInput from './components/formatted-input.vue';
 
 export default {
-  name: 'app',
   components: {
+    [formattedInput.name]: formattedInput,
   },
   data() {
     return {
+      n1: '',
+      n2: '',
+      n3: '',
     };
-  },
-  methods: {
-
-    test() {
-      console.log('test');
-    },
-    // async input(value) {
-    // const currentItem = value[value.length - 1];
-    // const children = await fetchData(currentItem.id);
-    // this.$set(currentItem, 'children', children);
-    // currentItem.children = children;
-    //   console.log(value, 'top');
-    // },
   },
 };
 </script>

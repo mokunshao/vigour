@@ -34,5 +34,5 @@ Formatted Input only accept number. It can be used as a credit card input field.
 
 | prop | type | default value | available value|
 | -----| ---- | ---- | --- | --- |
-| v-model | `number` | - | - |
+| v-model | `string` | - | - |
 | template | `string` | `'XXXX XXXX XXXX XXXX'` | - |
