@@ -31,6 +31,7 @@ module.exports = {
           '/components/dialog',
           '/components/notification',
           '/components/cascader',
+          '/components/dropdown',
         ]
       },
     ],
