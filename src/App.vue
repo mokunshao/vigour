@@ -1,23 +1,6 @@
 <template>
   <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
     <!-- <div id="app"> -->
-    <div v-if="true">
-      <vigour-cascader
-        placeholder="选择地点"
-        v-model="selected"
-        :options="options"
-      >
-      </vigour-cascader>
-      <div>123</div>
-      <vigour-cascader
-        placeholder="选择地点"
-        v-model="selected2"
-        :options.sync="options2"
-        :lazyload="lazyload"
-      >
-      </vigour-cascader>
-      <div>123</div>
-    </div>
     <div v-if="false">
       <vigour-dropdown>
         <button>options</button>
@@ -58,35 +41,18 @@
 </template>
 
 <script>
-import cascader from './components/cascader.vue';
-import cityList from './components/data.json';
 import dropdown from './components/dropdown.vue';
 import formattedInput from './components/formatted-input.vue';
 
-function fetchData(pid) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(cityList.filter(item => item.pid === pid));
-    }, 1);
-  });
-}
 
 export default {
-  async mounted() {
-    this.options2 = await fetchData('0');
-  },
   name: 'app',
   components: {
-    [cascader.name]: cascader,
     [dropdown.name]: dropdown,
     [formattedInput.name]: formattedInput,
   },
   data() {
     return {
-      options: [{ label: '广东', children: [{ label: '广州', children: [{ label: '白云' }, { label: '荔湾' }] }, { label: '云浮', children: [{ label: '新兴' }] }] }, { label: '广西', children: [{ label: '南宁', children: [{ label: '江南' }] }, { label: '梧州' }] }],
-      selected: [],
-      options2: [],
-      selected2: [],
       dialogVisable: true,
       n1: '121211212',
       n2: '',
@@ -94,10 +60,7 @@ export default {
     };
   },
   methods: {
-    async lazyload(id, callback) {
-      const children = await fetchData(id);
-      callback(children);
-    },
+
     test() {
       console.log('test');
     },

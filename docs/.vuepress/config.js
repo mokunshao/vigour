@@ -30,6 +30,7 @@ module.exports = {
           '/components/toggle',
           '/components/dialog',
           '/components/notification',
+          '/components/cascader',
         ]
       },
     ],
@@ -52,4 +53,4 @@ module.exports = {
       })
       .end();
   },
-}
+};

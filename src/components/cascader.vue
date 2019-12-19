@@ -73,7 +73,6 @@ export default {
     },
     close() {
       this.visible = false;
-      console.log('close');
     },
     clickOutside() {
       return {
