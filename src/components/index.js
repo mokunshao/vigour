@@ -27,6 +27,46 @@ import tabs from './tabs.vue';
 import tagInput from './tag-input.vue';
 import toggle from './toggle.vue';
 
+import notification from './notification';
+import toast from './toast';
+
+const components = [
+  aside,
+  buttonGroup,
+  button,
+  cascader,
+  checkbox,
+  col,
+  collapseItem,
+  collapse,
+  content,
+  dialog,
+  dropdown,
+  footer,
+  formattedInput,
+  header,
+  icon,
+  input,
+  layout,
+  popover,
+  radioGroup,
+  radio,
+  row,
+  tabsBody,
+  tabsHead,
+  tabsItem,
+  tabsPane,
+  tabs,
+  tagInput,
+  toggle,
+];
+
+const install = (Vue) => {
+  components.forEach((component) => {
+    Vue.use(component);
+  });
+};
+
 export {
   aside,
   buttonGroup,
@@ -56,4 +96,8 @@ export {
   tabs,
   tagInput,
   toggle,
+  toast,
+  notification,
 };
+
+export default install;
