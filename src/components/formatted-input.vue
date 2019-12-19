@@ -35,6 +35,11 @@ export default {
         this.decline = false;
       }
     },
+    format(val, oldVal) {
+      if (val !== oldVal) {
+        this.input(this.value);
+      }
+    },
   },
   methods: {
     dataTransfer(origin) {
@@ -60,9 +65,6 @@ export default {
   computed: {
     template2() {
       return this.template.substr(0, this.value.length);
-    },
-    matches() {
-      return this.template.match(/X+/g);
     },
     format() {
       let x = 1;
