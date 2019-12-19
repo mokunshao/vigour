@@ -1,40 +1,17 @@
 <template>
   <div id="app" style="margin-top: 100vh; margin-bottom: 100vh;">
     <!-- <div id="app"> -->
-    <div v-if="false">
-      <vigour-formatted-input v-model="n1"></vigour-formatted-input>
-      <br />
-      <vigour-formatted-input
-        v-model="n2"
-        template="XXX.XXX.XXX.XXX"
-      ></vigour-formatted-input>
-      <br />
-      <vigour-formatted-input
-        v-model="n3"
-        template="XXX-XXX-XXX-XXX"
-      ></vigour-formatted-input>
-    </div>
-    <div></div>
   </div>
 </template>
 
 <script>
-import dropdown from './components/dropdown.vue';
-import formattedInput from './components/formatted-input.vue';
-
 
 export default {
   name: 'app',
   components: {
-    [dropdown.name]: dropdown,
-    [formattedInput.name]: formattedInput,
   },
   data() {
     return {
-      dialogVisable: true,
-      n1: '121211212',
-      n2: '',
-      n3: '',
     };
   },
   methods: {

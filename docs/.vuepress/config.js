@@ -32,6 +32,7 @@ module.exports = {
           '/components/notification',
           '/components/cascader',
           '/components/dropdown',
+          '/components/formatted-input',
         ]
       },
     ],
