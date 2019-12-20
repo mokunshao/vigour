@@ -63,8 +63,10 @@ const components = [
 
 const install = (Vue) => {
   components.forEach((component) => {
-    Vue.use(component);
+    Vue.component(component.name, component);
   });
+  Vue.use(notification);
+  Vue.use(toast);
 };
 
 export {
@@ -100,4 +102,4 @@ export {
   notification,
 };
 
-export default install;
+export default { install };

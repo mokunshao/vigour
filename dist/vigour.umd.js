@@ -7594,6 +7594,9 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__("4160");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__("b0c0");
+
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
 var web_dom_collections_for_each = __webpack_require__("159b");
 
@@ -7963,9 +7966,6 @@ var es_array_concat = __webpack_require__("99af");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
 var es_array_join = __webpack_require__("a15b");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__("b0c0");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js/array/is-array.js
 var is_array = __webpack_require__("1316");
@@ -10776,16 +10776,21 @@ function createToast(Vue, message, propsData) {
 
 
 
+
 var components = [aside, button_group, components_button, cascader, components_checkbox, col, collapse_item, collapse, content, dialog, dropdown, footer, formatted_input, header, icon, input, layout, popover, radio_group, components_radio, row, tabs_body, tabs_head, tabs_item, tabs_pane, tabs, tag_input, toggle];
 
 var components_install = function install(Vue) {
   components.forEach(function (component) {
-    Vue.use(component);
+    Vue.component(component.name, component);
   });
+  Vue.use(components_notification);
+  Vue.use(components_toast);
 };
 
 
-/* harmony default export */ var src_components = (components_install);
+/* harmony default export */ var src_components = ({
+  install: components_install
+});
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 /* concated harmony reexport aside */__webpack_require__.d(__webpack_exports__, "aside", function() { return aside; });
 /* concated harmony reexport buttonGroup */__webpack_require__.d(__webpack_exports__, "buttonGroup", function() { return button_group; });
