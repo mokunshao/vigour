@@ -10,7 +10,7 @@
     "deploy": "bash deploy.sh",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit --coverage"
   },
   "main": "./dist/vigour.umd.js",
   "files": [
