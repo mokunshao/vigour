@@ -6,6 +6,7 @@ install:
 script:
   - yarn test
   - yarn docs:build
+  - codecov
 deploy:
   provider: pages
   skip-cleanup: true
