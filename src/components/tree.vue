@@ -13,11 +13,27 @@ import TreeItem from './tree-item.vue';
 
 export default {
   name: 'vigour-tree',
+  provide() {
+    return {
+      tree: {
+        onClick: this.onClick,
+        onToggle: this.onToggle,
+      },
+    };
+  },
   components: {
     [TreeItem.name]: TreeItem,
   },
   props: {
-    data: {},
+    data: {
+      type: Array,
+    },
+    onToggle: {
+      type: Function,
+    },
+    onClick: {
+      type: Function,
+    },
   },
 };
 </script>

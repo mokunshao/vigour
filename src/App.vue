@@ -1,5 +1,13 @@
 <template>
-  <vigour-tree :data="json"></vigour-tree>
+  <div>
+    <vigour-tree :data="json"></vigour-tree>
+    <br />
+    <vigour-tree
+      :data="json"
+      :onToggle="onToggle"
+      :onClick="onClick"
+    ></vigour-tree>
+  </div>
 </template>
 
 <script>
@@ -82,6 +90,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    onToggle(data) {
+      console.log(data);
+    },
+    onClick(data) {
+      console.log(data);
+    },
   },
 };
 </script>

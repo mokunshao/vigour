@@ -4,7 +4,7 @@
       <span @click="toggleExpanded" v-if="hasChild">{{
         isExpanded ? "-" : "+"
       }}</span>
-      <span>{{ item.label }}</span>
+      <span @click="handleClickLabel">{{ item.label }}</span>
     </div>
     <ul class="vigour-tree" v-if="hasChild">
       <vigour-tree-item
@@ -18,10 +18,14 @@
 </template>
 
 <script>
+
 export default {
   name: 'vigour-tree-item',
+  inject: ['tree'],
   props: {
-    item: {},
+    item: {
+      type: Object,
+    },
   },
   data() {
     return {
@@ -32,11 +36,21 @@ export default {
     hasChild() {
       return !!(this.item.children && this.item.children.length);
     },
+    itemData() {
+      return {
+        ...this.item,
+        isExpanded: this.isExpanded,
+        hasChild: this.hasChild,
+      };
+    },
   },
   methods: {
     toggleExpanded() {
       this.isExpanded = !this.isExpanded;
-      console.log(this.item.label);
+      if (this.tree.onToggle) this.tree.onToggle(this.itemData);
+    },
+    handleClickLabel() {
+      if (this.tree.onClick) this.tree.onClick(this.itemData);
     },
   },
 };
