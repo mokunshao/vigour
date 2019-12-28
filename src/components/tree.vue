@@ -3,7 +3,7 @@
     <vigour-tree-item
       v-for="(item, index) in data"
       :key="item.id ? item.id : index"
-      :data="item"
+      :item="item"
     ></vigour-tree-item>
   </ul>
 </template>
@@ -24,7 +24,8 @@ export default {
 
 <style lang="scss" scoped>
 .vigour-tree {
-  border: 1px solid black;
-  padding: 1em;
+  padding: 0;
+  margin: 0;
+  margin-left: -1em;
 }
 </style>

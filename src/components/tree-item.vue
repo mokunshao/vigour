@@ -1,11 +1,15 @@
 <template>
   <li class="vigour-tree-item">
-    <span>{{ data.label }}</span>
-    <ul>
+    <div @click="toggleOpen" class="vigour-tree-item-label">
+      <span v-if="hasChild">{{ isExpanded ? "-" : "+" }}</span>
+      <span>{{ item.label }}</span>
+    </div>
+    <ul class="vigour-tree" v-if="hasChild">
       <vigour-tree-item
-        v-for="(item, index) in data.children"
+        v-show="isExpanded"
+        v-for="(item, index) in item.children"
         :key="item.id ? item.id : index"
-        :data="item"
+        :item="item"
       />
     </ul>
   </li>
@@ -14,17 +18,39 @@
 <script>
 export default {
   name: 'vigour-tree-item',
-  components: {
-    // [Tree.name]: Tree,
-  },
   props: {
-    data: {},
+    item: {},
+  },
+  data() {
+    return {
+      isExpanded: false,
+    };
+  },
+  computed: {
+    hasChild() {
+      return !!(this.item.children && this.item.children.length);
+    },
+  },
+  methods: {
+    toggleOpen() {
+      this.isExpanded = !this.isExpanded;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.vigour-tree-tree {
-  border: 1px solid blueviolet;
+.vigour-tree {
+  padding: 0;
+  margin: 0;
+}
+
+.vigour-tree-item {
+  margin-left: 1em;
+  list-style: none;
+
+  &-label {
+    cursor: pointer;
+  }
 }
 </style>
