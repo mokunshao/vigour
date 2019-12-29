@@ -1,12 +1,13 @@
 <template>
   <li class="vigour-tree-item">
     <div class="vigour-tree-item-row">
-      <span
-        class="vigour-tree-item-icon"
+      <vigour-icon
+        name="right"
         @click="toggleExpanded"
         v-if="hasChild"
-        >{{ isExpanded ? "-" : "+" }}</span
-      >
+        class="vigour-tree-item-icon"
+        :class="{ 'vigour-tree-item-icon-rotate': isExpanded }"
+      />
       <span
         class="vigour-tree-item-label"
         :class="{ 'vigour-tree-item-label-selected': selected }"
@@ -26,10 +27,14 @@
 </template>
 
 <script>
+import icon from './icon.vue';
 
 export default {
   name: 'vigour-tree-item',
   inject: ['tree'],
+  components: {
+    [icon.name]: icon,
+  },
   props: {
     item: {
       type: Object,
@@ -83,6 +88,7 @@ export default {
   &-row {
     cursor: pointer;
     display: inline-flex;
+    align-items: center;
   }
 
   &-label {
@@ -92,6 +98,14 @@ export default {
 
     &-selected {
       background-color: $grey;
+    }
+  }
+
+  &-icon {
+    transition: all 0.2s linear;
+
+    &-rotate {
+      transform: rotate(90deg);
     }
   }
 }
