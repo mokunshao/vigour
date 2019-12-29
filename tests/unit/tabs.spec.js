@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 // import { mount } from '@vue/test-utils';
 import Vue from 'vue';
 import Tabs from '../../src/components/tabs.vue';
@@ -12,9 +11,13 @@ Vue.component('vigour-tabs-head', TabsHead);
 Vue.component('vigour-tabs-item', TabsItem);
 Vue.component('vigour-tabs-pane', TabsPane);
 
-describe('tabs.vue', () => {
+describe('Tabs', () => {
   it('存在', () => {
-    expect(Tabs).to.be.ok;
+    expect(Tabs).toBeTruthy();
+    expect(TabsHead).toBeTruthy();
+    expect(TabsBody).toBeTruthy();
+    expect(TabsItem).toBeTruthy();
+    expect(TabsPane).toBeTruthy();
   });
   // it('接受 selected 属性', () => {
   //   const selected = 'tab2';
