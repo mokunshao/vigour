@@ -12,21 +12,18 @@
 </template>
 
 <script>
-import layout from '../../../src/components/layout'
-import footer from '../../../src/components/footer'
-import header from '../../../src/components/header'
-import aside from '../../../src/components/aside'
-import content from '../../../src/components/content'
+import { Layout, Footer, Header, Aside, Content } from '../../../src/components/layout'
 
 export default {
   components: {
-    [layout.name]: layout,
-    [footer.name]: footer,
-    [header.name]: header,
-    [aside.name]: aside,
-    [content.name]: content,
+    [Layout.name]: Layout,
+    [Footer.name]: Footer,
+    [Header.name]: Header,
+    [Aside.name]: Aside,
+    [Content.name]: Content,
   }
 }
+
 </script>
 
 <style lang="scss" scoped>

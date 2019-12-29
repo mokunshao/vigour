@@ -1,4 +1,3 @@
-import aside from './aside.vue';
 import buttonGroup from './button-group.vue';
 import button from './button.vue';
 import cascader from './cascader.vue';
@@ -6,15 +5,11 @@ import checkbox from './checkbox.vue';
 import col from './col.vue';
 import collapseItem from './collapse-item.vue';
 import collapse from './collapse.vue';
-import content from './content.vue';
 import dialog from './dialog.vue';
 import dropdown from './dropdown.vue';
-import footer from './footer.vue';
 import formattedInput from './formatted-input.vue';
-import header from './header.vue';
 import icon from './icon.vue';
 import input from './input.vue';
-import layout from './layout.vue';
 import popover from './popover.vue';
 import radioGroup from './radio-group.vue';
 import radio from './radio.vue';
@@ -30,8 +25,12 @@ import toggle from './toggle.vue';
 import notification from './notification';
 import toast from './toast';
 
+import {
+  Header, Footer, Content, Layout, Aside,
+} from './layout';
+
 const components = [
-  aside,
+  Aside,
   buttonGroup,
   button,
   cascader,
@@ -39,15 +38,15 @@ const components = [
   col,
   collapseItem,
   collapse,
-  content,
+  Content,
   dialog,
   dropdown,
-  footer,
+  Footer,
   formattedInput,
-  header,
+  Header,
   icon,
   input,
-  layout,
+  Layout,
   popover,
   radioGroup,
   radio,
@@ -70,7 +69,7 @@ const install = (Vue) => {
 };
 
 export {
-  aside,
+  Aside,
   buttonGroup,
   button,
   cascader,
@@ -78,15 +77,15 @@ export {
   col,
   collapseItem,
   collapse,
-  content,
+  Content,
   dialog,
   dropdown,
-  footer,
+  Footer,
   formattedInput,
-  header,
+  Header,
   icon,
   input,
-  layout,
+  Layout,
   popover,
   radioGroup,
   radio,
