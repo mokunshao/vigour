@@ -18,6 +18,7 @@ export default {
       tree: {
         onClick: this.onClick,
         onToggle: this.onToggle,
+        state: this,
       },
     };
   },
@@ -34,6 +35,11 @@ export default {
     onClick: {
       type: Function,
     },
+  },
+  data() {
+    return {
+      selected: null,
+    };
   },
 };
 </script>

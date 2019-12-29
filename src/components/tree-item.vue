@@ -1,10 +1,18 @@
 <template>
   <li class="vigour-tree-item">
-    <div class="vigour-tree-item-label">
-      <span @click="toggleExpanded" v-if="hasChild">{{
-        isExpanded ? "-" : "+"
-      }}</span>
-      <span @click="handleClickLabel">{{ item.label }}</span>
+    <div class="vigour-tree-item-row">
+      <span
+        class="vigour-tree-item-icon"
+        @click="toggleExpanded"
+        v-if="hasChild"
+        >{{ isExpanded ? "-" : "+" }}</span
+      >
+      <span
+        class="vigour-tree-item-label"
+        :class="{ 'vigour-tree-item-label-selected': selected }"
+        @click="handleClickLabel"
+        >{{ item.label }}</span
+      >
     </div>
     <ul class="vigour-tree" v-if="hasChild">
       <vigour-tree-item
@@ -43,6 +51,9 @@ export default {
         hasChild: this.hasChild,
       };
     },
+    selected() {
+      return this.tree.state.selected === this.item;
+    },
   },
   methods: {
     toggleExpanded() {
@@ -50,6 +61,7 @@ export default {
       if (this.tree.onToggle) this.tree.onToggle(this.itemData);
     },
     handleClickLabel() {
+      this.tree.state.selected = this.item;
       if (this.tree.onClick) this.tree.onClick(this.itemData);
     },
   },
@@ -57,6 +69,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../common.scss";
+
 .vigour-tree {
   padding: 0;
   margin: 0;
@@ -66,8 +80,19 @@ export default {
   margin-left: 1em;
   list-style: none;
 
-  &-label {
+  &-row {
     cursor: pointer;
+    display: inline-flex;
+  }
+
+  &-label {
+    &:hover {
+      background-color: $grey;
+    }
+
+    &-selected {
+      background-color: $grey;
+    }
   }
 }
 </style>
