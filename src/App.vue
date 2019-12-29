@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Tree from './components/tree.vue';
+import { Tree } from './components/tree/index';
 
 export default {
   components: {

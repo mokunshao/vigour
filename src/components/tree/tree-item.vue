@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import icon from './icon.vue';
+import icon from '../icon.vue';
 
 export default {
   name: 'vigour-tree-item',
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../common.scss";
+@import "../../common.scss";
 
 .vigour-tree {
   padding: 0;
