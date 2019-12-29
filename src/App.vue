@@ -22,11 +22,13 @@ export default {
       json: [
         {
           label: '家用电器',
+          isExpanded: true,
           id: 1,
           children: [
             {
               label: '电视',
               id: 11,
+              isExpanded: true,
               children: [
                 {
                   label: '超薄电视',

@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      isExpanded: false,
+      isExpanded: this.item.isExpanded ? this.item.isExpanded : false,
     };
   },
   computed: {
