@@ -2,6 +2,17 @@
 title: Getting Started
 ---
 
+# Vigour
+
+```
+        _                       
+ _   __(_)___ _____  __  _______
+| | / / / __ `/ __ \/ / / / ___/
+| |/ / / /_/ / /_/ / /_/ / /    
+|___/_/\__, /\____/\__,_/_/     
+      /____/                    
+```
+
 ## Introduction
 
 [![Build Status](https://www.travis-ci.org/mokunshao/vigour.svg?branch=master)](https://www.travis-ci.org/mokunshao/vigour)
