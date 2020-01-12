@@ -3,7 +3,13 @@
     type="text"
     class="vigour-button"
     :class="[`vigour-button-${iconPosition}`, `vigour-button-${kind}`]"
-    @click="onClick"
+    v-bind="$attrs"
+    v-on="{
+      ...$listeners,
+      click(e) {
+        onClick(e);
+      }
+    }"
   >
     <v-icon
       v-if="loading"
@@ -124,6 +130,16 @@ export default {
 
   &-icon-loading {
     animation: spin 1s infinite linear;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: #ccc;
+
+    &:hover {
+      background-color: $grey;
+      border-color: $grey;
+    }
   }
 }
 </style>

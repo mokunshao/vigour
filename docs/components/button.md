@@ -8,11 +8,9 @@ title: Button
 
 ### Kinds
 
-<ClientOnly>
-  <button-example-1></button-example-1>
-</ClientOnly>
+<button-example-1></button-example-1>
 
-```vue
+```html
 <vigour-button>Default</vigour-button>
 <vigour-button kind="primary">Primary</vigour-button>
 <vigour-button kind="normal">Normal</vigour-button>
@@ -22,11 +20,9 @@ title: Button
 
 For more icon names, refer to the Icon component.
 
-<ClientOnly>
-  <button-example-2></button-example-2>
-</ClientOnly>
+<button-example-2></button-example-2>
 
-```vue
+```html
 <vigour-button icon="loading">Loading</vigour-button>
 <vigour-button icon="settings">Settings</vigour-button>
 <vigour-button icon="download" kind="primary">Download</vigour-button>
@@ -34,11 +30,9 @@ For more icon names, refer to the Icon component.
 
 ### Icon Position
 
-<ClientOnly>
-  <button-example-3></button-example-3>
-</ClientOnly>
+<button-example-3></button-example-3>
 
-```vue    
+```html    
 <vigour-button icon="thumbs-up">Thumbs Up</vigour-button>
 <vigour-button icon="upload" icon-position="left" kind="primary">Upload</vigour-button>
 <vigour-button icon="upload" icon-position="right">Upload</vigour-button>
@@ -47,11 +41,9 @@ For more icon names, refer to the Icon component.
 
 ### Loading
 
-<ClientOnly>
-  <button-example-4></button-example-4>
-</ClientOnly>
+<button-example-4></button-example-4>
 
-```vue
+```html
 <vigour-button icon="loading">Loading</vigour-button>
 <vigour-button
   icon="settings"
@@ -80,11 +72,9 @@ For more icon names, refer to the Icon component.
 
 ### Button Group
 
-<ClientOnly>
-  <button-example-5></button-example-5>
-</ClientOnly>
+<button-example-5></button-example-5>
 
-```vue
+```html
 <vigour-button-group>
   <vigour-button icon="thumbs-up" icon-position="right"
     >Thumbs Up</vigour-button
@@ -92,6 +82,14 @@ For more icon names, refer to the Icon component.
   <vigour-button icon="upload">Upload</vigour-button>
   <vigour-button icon="download">Download</vigour-button>
 </vigour-button-group>
+```
+
+### Disabled
+
+<button-example-6></button-example-6>
+
+```html
+<vigour-button disabled>hello</vigour-button>
 ```
 
 ## Props
