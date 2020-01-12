@@ -17,7 +17,7 @@
       @beforeLeave="beforeLeave"
       @leave="leave"
     >
-      <div class="vigour-collapse-item-content" v-show="show" ref="content">
+      <div class="vigour-collapse-item-content" v-if="show" ref="content">
         <slot></slot>
       </div>
     </transition>
@@ -32,6 +32,7 @@ export default {
   components: {
     [icon.name]: icon,
   },
+  inject: ['collapse'],
   props: {
     title: {
       type: String,
@@ -39,7 +40,7 @@ export default {
   },
   computed: {
     show() {
-      return this.$parent.$props.value.includes(this.title);
+      return this.collapse.value.includes(this.title);
     },
   },
   mounted() {
@@ -49,7 +50,22 @@ export default {
     }
   },
   methods: {
-    click() { this.$emit('click', this.title); },
+    click() {
+      if (this.collapse.single) {
+        const newValue = this.collapse.value.includes(this.title) ? [] : [this.title];
+        this.collapse.$emit('change', newValue);
+      } else {
+        const newValue = JSON.parse(JSON.stringify(this.collapse.value));
+        const index = newValue.indexOf(this.title);
+        if (index === -1) {
+          newValue.push(this.title);
+        }
+        if (index >= 0) {
+          newValue.splice(index, 1);
+        }
+        this.collapse.$emit('change', newValue);
+      }
+    },
     beforeEnter(el) {
       el.style.height = '0';
     },
