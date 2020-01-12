@@ -3,6 +3,7 @@
     <vigour-button>Default</vigour-button>
     <vigour-button kind="primary">Primary</vigour-button>
     <vigour-button kind="normal">Normal</vigour-button>
+    <vigour-button kind="danger">Normal</vigour-button>
   </div>
 </template>
 

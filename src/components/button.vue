@@ -58,7 +58,7 @@ export default {
       type: String,
       default: 'normal',
       validator(value) {
-        return ['primary', 'normal'].includes(value);
+        return ['primary', 'normal', 'danger'].includes(value);
       },
     },
   },
@@ -120,6 +120,12 @@ export default {
     }
   }
 
+  &-danger {
+    color: $white;
+    background-color: $red;
+    border: 1px solid $red;
+  }
+
   &-right &-icon {
     order: 2;
   }
@@ -135,11 +141,8 @@ export default {
   &[disabled] {
     cursor: not-allowed;
     color: #ccc;
-
-    &:hover {
-      background-color: $grey;
-      border-color: $grey;
-    }
+    background-color: $grey;
+    border-color: $grey;
   }
 }
 </style>
