@@ -1,10 +1,21 @@
 ---
-title: Icon
+title: Icon 图标
 ---
 
-# Icon
+# Icon 图标
 
 ## Example
+
+```javascript
+import { icon } from 'vigour';
+// icon.name === 'vigour-icon'
+```
+
+### Names
+
+The `name` attribute is required to determine which icon is displayed.
+
+`name` 属性是必须的，决定显示哪个 icon。
 
 <icon-example-1></icon-example-1>
 
@@ -20,9 +31,11 @@ title: Icon
 
 ### Available Icons
 
-<ClientOnly>
-  <icon-example-2></icon-example-2>
-</ClientOnly>
+The values that can be set by the `name` property are listed below.
+
+以下列举了 `name` 属性可以设置的值。
+
+<icon-example-2></icon-example-2>
 
 ## Props
 
