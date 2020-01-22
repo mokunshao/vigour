@@ -1,8 +1,8 @@
 ---
-title: Checkbox 单选框
+title: Checkbox 复选框
 ---
 
-# Checkbox 单选框
+# Checkbox 复选框
 
 ```javascript
 import { checkbox } from 'vigour';
