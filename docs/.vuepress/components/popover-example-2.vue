@@ -8,7 +8,7 @@
         </div>
         <div>test</div>
       </template>
-      <vigour-button>Click</vigour-button>
+      <vigour-button>Top</vigour-button>
     </vigour-popover>
     <vigour-popover position="bottom">
       <template v-slot:content>
@@ -18,7 +18,7 @@
         </div>
         <div>test</div>
       </template>
-      <vigour-button>Click</vigour-button>
+      <vigour-button>Bottom</vigour-button>
     </vigour-popover>
     <vigour-popover position="left">
       <template v-slot:content>
@@ -28,7 +28,7 @@
         </div>
         <div>test</div>
       </template>
-      <vigour-button>Click</vigour-button>
+      <vigour-button>Left</vigour-button>
     </vigour-popover>
     <vigour-popover position="right">
       <template v-slot:content>
@@ -38,7 +38,7 @@
         </div>
         <div>test</div>
       </template>
-      <vigour-button>Click</vigour-button>
+      <vigour-button>Right</vigour-button>
     </vigour-popover>
   </div>
 </template>

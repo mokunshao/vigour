@@ -6,54 +6,37 @@ title: Popover
 
 ## Example
 
-<popover-example-1></popover-example-1>
+```javascript
+import { popover } from 'vigour';
+// popover.name === 'vigour-popover'
+```
 
-```vue
-<vigour-popover position="top" trigger="hover">
+### Basic
+
+By default, the appearance of a Popover needs to be triggered by a click and appears at the top of the content.
+
+默认情况下， Popover 的出现需要通过点击触发，而且出现在内容的上方。
+
+<popover-example-4></popover-example-4>
+
+```html
+<vigour-popover>
   <template v-slot:content>
-    <div>
-      test test test test test test test test test test test test test test
-      test test test test test test test
-    </div>
     <div>test</div>
   </template>
-  <vigour-button>Hover</vigour-button>
-</vigour-popover>
-<vigour-popover position="bottom" trigger="hover">
-  <template v-slot:content>
-    <div>
-      test test test test test test test test test test test test test test
-      test test test test test test test
-    </div>
-    <div>test</div>
-  </template>
-  <vigour-button>Hover</vigour-button>
-</vigour-popover>
-<vigour-popover position="left" trigger="hover">
-  <template v-slot:content>
-    <div>
-      test test test test test test test test test test test test test test
-      test test test test test test test
-    </div>
-    <div>test</div>
-  </template>
-  <vigour-button>Hover</vigour-button>
-</vigour-popover>
-<vigour-popover position="right" trigger="hover">
-  <template v-slot:content>
-    <div>
-      test test test test test test test test test test test test test test
-      test test test test test test test
-    </div>
-    <div>test</div>
-  </template>
-  <vigour-button>Hover</vigour-button>
+  <vigour-button>Click</vigour-button>
 </vigour-popover>
 ```
 
+### Positions
+
+You can set the position where the Popover appears through the `position` attribute. It can be set to `'top'`, `'left'`, `'bottom'`or `'right'`.
+
+通过 `position` 属性可以设置 Popover 出现的位置。它可以设置为 `'top'`, `'left'`, `'bottom'` 或 `'right'`。
+
 <popover-example-2></popover-example-2>
 
-```vue
+```html
 <vigour-popover position="top">
   <template v-slot:content>
     <div>
@@ -62,7 +45,7 @@ title: Popover
     </div>
     <div>test</div>
   </template>
-  <vigour-button>Click</vigour-button>
+  <vigour-button>Top</vigour-button>
 </vigour-popover>
 <vigour-popover position="bottom">
   <template v-slot:content>
@@ -72,7 +55,7 @@ title: Popover
     </div>
     <div>test</div>
   </template>
-  <vigour-button>Click</vigour-button>
+  <vigour-button>Bottom</vigour-button>
 </vigour-popover>
 <vigour-popover position="left">
   <template v-slot:content>
@@ -82,7 +65,7 @@ title: Popover
     </div>
     <div>test</div>
   </template>
-  <vigour-button>Click</vigour-button>
+  <vigour-button>Left</vigour-button>
 </vigour-popover>
 <vigour-popover position="right">
   <template v-slot:content>
@@ -92,13 +75,70 @@ title: Popover
     </div>
     <div>test</div>
   </template>
-  <vigour-button>Click</vigour-button>
+  <vigour-button>Right</vigour-button>
 </vigour-popover>
 ```
 
+### Trigger
+
+You can set the trigger method for Popover to appear through the attribute `trigger`. It can be set to `'hover'`, `'click'`. Its default value is `'click'`.
+
+通过 `trigger` 属性可以设置让 Popover 出现的触发方式。它可以设置为 `'hover'`, `'click'`。它的默认值为 `'click'`。
+
+<popover-example-1></popover-example-1>
+
+```html
+<vigour-popover position="top" trigger="hover">
+  <template v-slot:content>
+    <div>
+      test test test test test test test test test test test test test test
+      test test test test test test test
+    </div>
+    <div>test</div>
+  </template>
+  <vigour-button>Top</vigour-button>
+</vigour-popover>
+<vigour-popover position="bottom" trigger="hover">
+  <template v-slot:content>
+    <div>
+      test test test test test test test test test test test test test test
+      test test test test test test test
+    </div>
+    <div>test</div>
+  </template>
+  <vigour-button>Bottom</vigour-button>
+</vigour-popover>
+<vigour-popover position="left" trigger="hover">
+  <template v-slot:content>
+    <div>
+      test test test test test test test test test test test test test test
+      test test test test test test test
+    </div>
+    <div>test</div>
+  </template>
+  <vigour-button>Left</vigour-button>
+</vigour-popover>
+<vigour-popover position="right" trigger="hover">
+  <template v-slot:content>
+    <div>
+      test test test test test test test test test test test test test test
+      test test test test test test test
+    </div>
+    <div>test</div>
+  </template>
+  <vigour-button>Right</vigour-button>
+</vigour-popover>
+```
+
+### Scope Slot
+
+The function that can close Popover can be called in Popover through the Scope Slot, provided by `v-slot:content`.
+
+通过 `v-slot:content` 提供的 Scope Slot，可以 Popover 中调用关闭 Popover 的函数。
+
 <popover-example-3></popover-example-3>
 
-```vue
+```html
 <vigour-popover position="top">
   <template v-slot:content="{ close }">
     <div>test</div>
