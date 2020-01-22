@@ -130,11 +130,11 @@ You can set the trigger method for Popover to appear through the attribute `trig
 </vigour-popover>
 ```
 
-### Scope Slot
+### Slot Scope
 
-The function that can close Popover can be called in Popover through the Scope Slot, provided by `v-slot:content`.
+You can get a function that can close Popover through the Slot Scope, provided by a named slot named `content`.
 
-通过 `v-slot:content` 提供的 Scope Slot，可以 Popover 中调用关闭 Popover 的函数。
+通过名为 `content` 的命名插槽提供的 Slot Scope，你可以获取能够关闭 Popover 的函数。
 
 <popover-example-3></popover-example-3>
 
