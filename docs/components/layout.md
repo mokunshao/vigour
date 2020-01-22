@@ -1,10 +1,21 @@
 ---
-title: Layout
+title: Layout 布局
 ---
 
-# Layout
+# Layout 布局
 
 ## Example
+
+```javascript
+import { layout, header, content, aside, footer } from 'vigour';
+// layout.name === 'vigour-layout'
+// header.name === 'vigour-header'
+// content.name === 'vigour-content'
+// aside.name === 'vigour-aside'
+// footer.name === 'vigour-footer'
+```
+
+### Layout 1
 
 <layout-example-1></layout-example-1>
 
@@ -15,6 +26,8 @@ title: Layout
   <vigour-footer class="footer">footer</vigour-footer>
 </vigour-layout>
 ```
+
+### Layout 2
 
 <layout-example-2></layout-example-2>
 
@@ -28,6 +41,9 @@ title: Layout
   <vigour-footer class="footer">footer</vigour-footer>
 </vigour-layout>
 ```
+
+### Layout 3
+
 <layout-example-3></layout-example-3>
 
 ```vue
@@ -40,6 +56,8 @@ title: Layout
   <vigour-footer class="footer">footer</vigour-footer>
 </vigour-layout>
 ```
+
+### Layout 4
 
 <layout-example-4></layout-example-4>
 
