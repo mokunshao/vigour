@@ -1,8 +1,13 @@
 ---
-title: Toggle
+title: Toggle 切换
 ---
 
-# Toggle
+# Toggle 切换
+
+```javascript
+import { toggle } from 'vigour';
+// toggle.name === 'vigour-toggle'
+```
 
 ## Example
 
@@ -18,4 +23,3 @@ title: Toggle
 | prop | type | default value | available value|
 | -----| ---- | ---- | --- | --- |
 | v-model | `any` | - | - |
-| disabled | `boolean` | - | - |
