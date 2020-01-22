@@ -1,8 +1,13 @@
 ---
-title: Dialog
+title: Dialog 对话框
 ---
 
-# Dialog
+# Dialog 对话框
+
+```javascript
+import { dialog } from 'vigour';
+// dialog.name === 'vigour-dialog'
+```
 
 ## Example
 
@@ -21,6 +26,10 @@ title: Dialog
 
 ### No Mask
 
+When the value of the `mask` attribute is `false`, the `vigour-dialog` will not display the mask layer.
+
+当 `mask` 属性的值为 `false` 时，`vigour-dialog` 将不会显示遮罩层。
+
 <dialog-example-2></dialog-example-2>
 
 ```html
@@ -33,6 +42,10 @@ title: Dialog
 ```
 
 ### Don't Close When Clicked the Mask
+
+When the value of the `closeOnClickMask` attribute is `false`, clicking the mask layer of `vigour-dialog` will not close `vigour-dialog`.
+
+当 `closeOnClickMask` 属性的值为 `false` 时，点击 `vigour-dialog` 的遮罩层将不会关闭 `vigour-dialog`。
 
 <dialog-example-3></dialog-example-3>
 
@@ -47,6 +60,10 @@ title: Dialog
 
 ### Don't Close When 'ESC' Key is Pressed
 
+When the value of `closeOnEsc` attribute is `false`, pressing the `ESC` key will not close `vigour-dialog`.
+
+当 `closeOnEsc` 属性的值为 `false` 时，按下 `ESC` 键将不会关闭 `vigour-dialog`。
+
 <dialog-example-4></dialog-example-4>
 
 ```html
@@ -59,6 +76,10 @@ title: Dialog
 ```
 
 ### Prevent Background Scrolling
+
+The page will not be scrollable when the value of the `preventBackgroundScrolling` attribute is `true` and `vigour-dialog` is displayed.
+
+当 `preventBackgroundScrolling` 属性的值为 `true` 并且 `vigour-dialog` 为显示状态时，页面将会是是无法滚动的 。
 
 <dialog-example-5></dialog-example-5>
 
@@ -73,6 +94,10 @@ title: Dialog
 
 ### Add Title
 
+You can set the title of `vigour-dialog` through the attribute `title`.
+
+通过 `title` 属性可以设置 `vigour-dialog` 的标题。
+
 <dialog-example-6></dialog-example-6>
 
 ```html
@@ -85,6 +110,10 @@ title: Dialog
 ```
 
 ### Custom Footer
+
+You can set the footer of `vigour-dialog` through a named slot named `footer`.
+
+通过名为 `footer` 的具名插槽，你可以设置 `vigour-dialog` 的 footer。
 
 <dialog-example-7></dialog-example-7>
 
