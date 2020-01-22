@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 0.5em;">
-    <vigour-checkbox v-model="value1"></vigour-checkbox>
+    <vigour-checkbox v-model="value1">Agree?</vigour-checkbox>
     <vigour-checkbox v-model="value2"></vigour-checkbox>
     <vigour-checkbox v-model="value3" disabled></vigour-checkbox>
   </div>
@@ -18,7 +18,7 @@ export default {
       value1: true,
       value2: false,
       value3: false,
-    }
+    };
   }
 }
 </script>
