@@ -1,10 +1,23 @@
 ---
-title: Notification
+title: Notification 通知
 ---
 
-# Notification
+# Notification 通知
+
+Please note: in the case of on-demand import, if you want to use `Notification`, you need to import them in the following ways.
+
+请注意：在按需引入的情况下，如果想使用 Notification，你需要通过以下方式引入它们。
+
+```javascript
+import {notification} from 'vigour';
+Vue.use(notification);
+```
 
 ## Example
+
+`Notification` can be used through `this.$notify`. You can set the `duration` property to set the duration of `Notification`'s display. When the value of `duration` is `0`, `Notification` will not disappear automatically.
+
+`Notification` 可以通过 `this.$notify` 来使用，你可以设置 `duration` 属性来设置 `Notification` 显示的时长，当 `duration` 的值为 `0` 时，则 `Notification` 不会自动消失。
 
 <notification-example-1></notification-example-1>
 
