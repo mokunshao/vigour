@@ -2,22 +2,22 @@
   <div style="padding-top: 0.5em;">
     <vigour-row align="left">
       <vigour-col span="4" class="color1">1</vigour-col>
-      <vigour-col span="6" offset="3" class="color2">2</vigour-col>
+      <vigour-col span="6" class="color2">2</vigour-col>
     </vigour-row>
     <vigour-row align="center">
       <vigour-col span="4" class="color3">1</vigour-col>
-      <vigour-col span="6" offset="3" class="color4">2</vigour-col>
+      <vigour-col span="6" class="color4">2</vigour-col>
     </vigour-row>
     <vigour-row align="right">
       <vigour-col span="4" class="color3">1</vigour-col>
-      <vigour-col span="6" offset="3" class="color4">2</vigour-col>
+      <vigour-col span="6" class="color4">2</vigour-col>
     </vigour-row>
   </div>
 </template>
 
 <script>
-import col from '../../../src/components/col'
-import row from '../../../src/components/row'
+import col from '../../../src/components/col';
+import row from '../../../src/components/row';
 
 export default {
   components: {

@@ -1,19 +1,25 @@
 <template>
   <div style="padding-top: 0.5em;">
     <vigour-row gutter="20">
-      <vigour-col span="4">
+      <vigour-col>
         <div class="color3">1</div>
       </vigour-col>
-      <vigour-col span="5" offset="3">
+      <vigour-col>
         <div class="color4">2</div>
+      </vigour-col>
+      <vigour-col>
+        <div class="color3">3</div>
+      </vigour-col>
+      <vigour-col>
+        <div class="color4">4</div>
       </vigour-col>
     </vigour-row>
   </div>
 </template>
 
 <script>
-import col from '../../../src/components/col'
-import row from '../../../src/components/row'
+import col from '../../../src/components/col';
+import row from '../../../src/components/row';
 
 export default {
   components: {
