@@ -1,14 +1,25 @@
 ---
-title: Tabs
+title: Tabs 标签页
 ---
 
-# Tabs
+# Tabs 标签页
 
 ## Example
 
+```javascript
+import { tabs, tabsHead, tabsItem, tabsBody, tabsPane } from 'vigour';
+// tabs.name === 'vigour-tabs'
+// tabsHead.name === 'vigour-tabs-head'
+// tabsItem.name === 'vigour-tabs-item'
+// tabsBody.name === 'vigour-tabs-body'
+// tabsPane.name === 'vigour-tabs-pane'
+```
+
+### Basic
+
 <tabs-example-1></tabs-example-1>
 
-```vue
+```html
 <vigour-tabs :selected.sync="tab" direction="horizontal">
   <vigour-tabs-head>
     <vigour-tabs-item name="tab1">tab 1</vigour-tabs-item>
@@ -23,9 +34,15 @@ title: Tabs
 </vigour-tabs>
 ```
 
+### Slots
+
+You can use `v-slot:actions` to add extra content to the Tabs bar. I added a button in the following example.
+
+你可以使用 `v-slot:actions` 来 Tabs 栏增加额外的内容，在以下例子中我添加了一个按钮。
+
 <tabs-example-2></tabs-example-2>
 
-```vue
+```html
 <vigour-tabs :selected.sync="tab" direction="horizontal">
   <vigour-tabs-head>
     <template v-slot:actions>
@@ -43,9 +60,15 @@ title: Tabs
 </vigour-tabs>
 ```
 
+### Directions
+
+You can use the `direction` attribute to specify whether the Tabs is displayed horizontally or vertically. By default, the value of `direction` is `'horizontal'`.
+
+你可以使用 `direction` 属性来指定 Tabs 是水平还是垂直展示。默认情况下，`direction` 的值是 `'horizontal'`。
+
 <tabs-example-3></tabs-example-3>
 
-```vue
+```html
 <vigour-tabs :selected.sync="tab" direction="vertical">
   <vigour-tabs-head>
     <vigour-tabs-item name="tab1">tab 1</vigour-tabs-item>
@@ -62,7 +85,7 @@ title: Tabs
 
 <tabs-example-4></tabs-example-4>
 
-```vue
+```html
 <vigour-tabs :selected.sync="tab" direction="vertical">
   <vigour-tabs-head>
     <template v-slot:actions>
