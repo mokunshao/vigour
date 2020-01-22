@@ -1,8 +1,13 @@
 ---
-title: Dropdown
+title: Dropdown 下拉框
 ---
 
-# Dropdown
+# Dropdown 下拉框
+
+```javascript
+import { dropdown } from 'vigour';
+// dropdown.name === 'vigour-dropdown'
+```
 
 ## Example
 
@@ -27,6 +32,10 @@ title: Dropdown
 ```
 
 ### Slot Scope
+
+You can get a function that can close Dropdown through the Slot Scope, provided by a named slot named `content`.
+
+通过名为 `content` 的命名插槽提供的 Slot Scope，你可以获取能够关闭 Dropdown 的函数。
 
 <dropdown-example-2></dropdown-example-2>
 
