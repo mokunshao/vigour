@@ -3,15 +3,12 @@
     <vigour-button @click="showToast">Show Top Toast</vigour-button>
     <vigour-button @click="showToast2">Show Center Toast</vigour-button>
     <vigour-button @click="showToast3">Show Bottom Toast</vigour-button>
-    <vigour-toast :closeButton="{ text: 'Close' }" :autoClose="false"
-      >Message</vigour-toast
-    >
   </div>
 </template>
 
 <script>
 import button from '../../../src/components/button';
-import toast from '../../../src/components/toast.js'
+import toast from '../../../src/components/toast.js';
 import Vue from 'vue';
 Vue.use(toast);
 
