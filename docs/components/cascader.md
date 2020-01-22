@@ -4,6 +4,11 @@ title: Cascader
 
 # Cascader
 
+```javascript
+import { cascader } from 'vigour';
+// cascader.name === 'vigour-cascader'
+```
+
 ## Example
 
 ### Get Static Data
