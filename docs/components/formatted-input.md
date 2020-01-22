@@ -4,7 +4,14 @@ title: Formatted Input
 
 # Formatted Input
 
-Formatted Input only accept number. It can be used as a credit card input field.
+```javascript
+import { formattedInput } from 'vigour';
+// formattedInput.name === 'vigour-formatted-input'
+```
+
+Formatted Input only accept number. It can be used as a credit card number input field.
+
+Formatted Input 只能接受数字输入。它可以用作信用卡号码的输入框。
 
 ## Example
 
