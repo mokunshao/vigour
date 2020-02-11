@@ -1,6 +1,6 @@
 {
   "name": "vigour",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A UI components library based on Vue.js",
   "author": "Mo Kunshao",
   "scripts": {
