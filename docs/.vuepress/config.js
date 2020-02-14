@@ -33,6 +33,7 @@ module.exports = {
           '/components/cascader',
           '/components/dropdown',
           '/components/formatted-input',
+          '/components/rating',
         ]
       },
     ],
