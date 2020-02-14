@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating renders correctly 1`] = `
+<div
+  class="vigour-rating"
+>
+  <span
+    class="vigour-rating-star vigour-rating-star-active"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star vigour-rating-star-active"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star vigour-rating-star-active"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+</div>
+`;
+
+exports[`Rating renders correctly 2`] = `
+<div
+  class="vigour-rating"
+>
+  <span
+    class="vigour-rating-star vigour-rating-star-active"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+  <span
+    class="vigour-rating-star"
+  >
+    
+    ★
+  
+  </span>
+</div>
+`;

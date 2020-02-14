@@ -3,7 +3,7 @@
     <span
       :key="n"
       v-for="n in max"
-      :class="{ active: n <= value }"
+      :class="{ [`vigour-rating-star-active`]: n <= value }"
       @click="rate(n)"
       class="vigour-rating-star"
     >
@@ -55,7 +55,7 @@ $active-color: #f3d23e;
   &-star {
     cursor: pointer;
 
-    &.active {
+    &-active {
       color: $active-color;
     }
   }
