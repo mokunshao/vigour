@@ -34,6 +34,7 @@ module.exports = {
           '/components/dropdown',
           '/components/formatted-input',
           '/components/rating',
+          '/components/tree',
         ]
       },
     ],
