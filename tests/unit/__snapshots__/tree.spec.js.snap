@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree renders correctly 1`] = `
+<ul
+  class="vigour-tree"
+>
+  <li
+    class="vigour-tree-item"
+  >
+    <div
+      class="vigour-tree-item-row"
+    >
+      <svg
+        aria-hidden="true"
+        class="vigour-icon vigour-tree-item-icon vigour-tree-item-icon-rotate"
+      >
+        <use
+          xlink:href="#icon-right"
+        />
+      </svg>
+       
+      <span
+        class="vigour-tree-item-label"
+      >
+        家用电器
+      </span>
+    </div>
+     
+    <ul
+      class="vigour-tree"
+    >
+      <li
+        class="vigour-tree-item"
+      >
+        <div
+          class="vigour-tree-item-row"
+        >
+          <!---->
+           
+          <span
+            class="vigour-tree-item-label"
+          >
+            电视
+          </span>
+        </div>
+         
+        <!---->
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
