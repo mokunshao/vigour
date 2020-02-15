@@ -21,6 +21,8 @@ import tabsPane from './tabs-pane.vue';
 import tabs from './tabs.vue';
 import tagInput from './tag-input.vue';
 import toggle from './toggle.vue';
+import tree from './tree';
+import rating from './rating.vue';
 
 import notification from './notification';
 import toast from './toast';
@@ -58,17 +60,13 @@ const components = [
   tabs,
   tagInput,
   toggle,
+  tree,
+  rating,
 ];
 
-const install = (Vue) => {
-  components.forEach((component) => {
-    Vue.component(component.name, component);
-  });
-  Vue.use(notification);
-  Vue.use(toast);
-};
-
 export {
+  toast,
+  notification,
   Aside,
   buttonGroup,
   button,
@@ -97,8 +95,16 @@ export {
   tabs,
   tagInput,
   toggle,
-  toast,
-  notification,
+  tree,
+  rating,
+};
+
+const install = (Vue) => {
+  components.forEach((component) => {
+    Vue.component(component.name, component);
+  });
+  Vue.use(notification);
+  Vue.use(toast);
 };
 
 export default { install };
