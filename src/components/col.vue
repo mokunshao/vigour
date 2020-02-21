@@ -1,6 +1,6 @@
 <template>
   <div class="vigour-col-wrapper" :class="colClasses" :style="colStyle">
-    <div class="vigour-col" v-bind="$attrs">
+    <div class="vigour-col" v-bind="$attrs" v-on="listeners">
       <slot></slot>
     </div>
   </div>
