@@ -23,6 +23,7 @@
 <script>
 export default {
   name: 'vigour-tag-input',
+  inheritAttrs: false,
   model: {
     prop: 'tags',
     event: 'update',

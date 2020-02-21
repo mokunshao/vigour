@@ -9,6 +9,7 @@ import '../icons';
 
 export default {
   name: 'vigour-icon',
+  inheritAttrs: false,
   props: {
     name: {
       type: String,

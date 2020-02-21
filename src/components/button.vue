@@ -33,6 +33,7 @@ import icon from './icon.vue';
 
 export default {
   name: 'vigour-button',
+  inheritAttrs: false,
   components: {
     'v-icon': icon,
   },
