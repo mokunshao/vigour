@@ -102,10 +102,8 @@ export default {
         }
         current = stack[index += 1];
       }
-      if (current) {
-        current.children = children;
-        this.$emit('update:options', optionsCopy);
-      }
+      current.children = children;
+      this.$emit('update:options', optionsCopy);
     },
     change(value) {
       if (this.lazyload) {
