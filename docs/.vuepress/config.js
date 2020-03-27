@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  base: '/vigour/',
   title: 'Vigour',
   description: 'A UI components library that based on Vue 2.X .',
   themeConfig: {
